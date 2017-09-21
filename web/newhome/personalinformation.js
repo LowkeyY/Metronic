@@ -158,7 +158,7 @@
 
     }
 
-    $("#person").on("click", function (e) {
+    $("#person-info-box").on("click", function (e) {
         e.preventDefault();
         $("#resetPwd input").val("");
         var tag = $("#information");

@@ -17,14 +17,15 @@ var PageTile = function () {
     }
 
     function packs(config) {
-        var tile_image_url = config.show_desktop_icon_url;
+        var tile_image_url = config.deskIcon;
+        var isImgDeskIcon=config.isImgDeskIcon;
         var tile_double = config.tile_doblue === "true";
-        return '<div class="tile ' + (tile_image_url ? 'image' + (tile_double ? ' double' : '') : 'bg-' + getColors()) + '" id="tile_' + config.sys_app_id + '">' +
+        return '<div class="tile ' + (isImgDeskIcon ? 'image' + (tile_double ? ' double' : '') : 'bg-' + getColors()) + '" id="tile_' + config.id + '">' +
                     '<div class="tile-body">' +
-                    (tile_image_url ? '<img src="' + tile_image_url + '"/>' : '<i class="fa fa-' + (config.tile_icon || 'tag') + '"></i>') +
+                    (isImgDeskIcon ? '<img src="' + tile_image_url + '"/>' : '<i class="fa fa-' +tile_image_url+ '"></i>') +
                     '</div>' +
                     '<div class="tile-object">' +
-                        '<div class="name">' + (config.default_title || '') + '</div>' +
+                        '<div class="name">' + (config.title || '') + '</div>' +
                         '<div class="number">0</div>' +
                     '</div>' +
                 '</div>';
@@ -39,11 +40,11 @@ var PageTile = function () {
 //        var items = datas || [{title: "万年历", icon: "calendar"}, {title: "即时通讯", icon: "comment"}, {title: "邮箱邮件", icon: "envelope"}, {title: "天气预报", icon: "umbrella" ,img : 'ljf.jpg'}];
         var items = datas || [];
         $.each(items, function (i , item) {
-            if(item.show_desktop_isValid === 'true')
+            if(item.showAtDesk === true)
                 builds(packs(item), selector);
         });
     }
-    ;
+
     return {
         //main function to initiate the module
         init: function (selector) {

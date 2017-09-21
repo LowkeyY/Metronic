@@ -48,28 +48,28 @@
 
 
     $(document).on("click","#message",function (e) {
-
+        var process=0;
         e.preventDefault();
         var timer=null;
         $.ajax({
             type:"post",
             url:"../ExternalItems/messageList/messageList.jcp",
-            async:true,
             beforeSend:function () {
                 $(".loading-mask").show();
-                var process=0;
+
                 timer= setInterval(function () {
-                    process=Math.min(98,++process)
+                    process=Math.min(95,++process);
+                     $(".loading-process").html(process+"%");
                     console.log(process)
-                     $(".loading-process").html(process+"%")
                 },50)
-
-
             },
             success:function (result) {
-                $(".loading-process").html(100+"%");
-                clearInterval(timer)
-                $(".loading-mask").hide()
+                $(".badge").hide();
+                process=100;
+                $(".loading-process").html(process+"%");
+                console.log(process);
+                clearInterval(timer);
+                $(".loading-mask").hide();
                 $("#messageModal-box").empty();
                 getTable(result);
                 var tag=$("#messageModal");

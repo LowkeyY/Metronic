@@ -90,6 +90,22 @@
                 color: #ffffff;
                 font-size: 50px;
             }
+            .start a{
+                vertical-align: middle;
+            }
+            #aside-icon{
+                width: 16px;
+                height:16px;
+                margin-right: 5px;
+            }
+            #messageModal-box table td a{
+                font-weight: bold;
+
+            }
+            #messageModal-box table td a:visited{
+                font-weight: 400;
+                color:red;
+            }
 
         </style>
 
@@ -109,9 +125,6 @@
             <div class="page-header-inner">
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
-                    <a href="index.html">
-                        <img src="../metronic/assets/admin/layout/img/logo.png" alt="logo" class="logo-default"/>
-                    </a>
                     <div class="menu-toggler sidebar-toggler hide">
                     </div>
                 </div>
@@ -133,7 +146,7 @@
                                 <li class="divider">
                                 </li>
                                 <li>
-                                    <a href="" id="person" data-toggle="modal">
+                                    <a href="" id="person-info-box" data-toggle="modal">
                                         <i class="icon-wrench"></i>个人设置</a>
                                 </li>
                                 <li>
@@ -230,7 +243,7 @@
                     </div>
                     <!-- /.modal -->
                     <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-                    <ul class="nav nav-pills">
+                    <ul class="nav nav-tabs" id="menu-tabs">
                         <li class="active">
                             <a href="#tab_desktop" data-toggle="tab" aria-expanded="true"> 桌面 </a>
                         </li>

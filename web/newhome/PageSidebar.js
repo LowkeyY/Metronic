@@ -10,18 +10,20 @@ var PageSidebar = function () {
     var cache = {};
     
     function packs(config) {
+        var isImgSideicon=config.isImgSideicon;
+        var tile_image_url=config.sideIcon
         return '<li>' +
-                '<a href="javascript:void(0);" id="sideBar_'+config.sys_app_id+'">' +
-                    '<img src="'+config.show_startmenu_icon_url+'" alt="" width="25px" style="padding-right: 5px"/>' +
-                    '<span class="title">' + config.default_title + '</span>' +
+                '<a href="javascript:void(0);" id="sideBar_'+config.id+'">' +
+            (isImgSideicon ? '<img src="' + tile_image_url + '" id="aside-icon"/>' : '<i class="fa fa-' +tile_image_url+ '"></i>') +
+                    '<span class="title">' + config.title + '</span>' +
                 '</a>' +
                 '</li>';
     }
-    
+
     function packSys(config){
          return '<li>' +
                     '<a href="javascript:;" id="sideBar_'+config.id+'">' +
-             '<img src="'+config.show_startmenu_icon_url+'" alt="" width="25px" style="padding-right: 5px"/>'  +
+             '<i class="icon-' +config.sideIcon+ '"></i>' +
                         '<span class="title">' + config.title + '</span>' +
                         '<span class="arrow "></span>' +
                     '</a>' + packSysChild(config.submenu) + 
@@ -54,9 +56,9 @@ var PageSidebar = function () {
 //        var items = [{title: "桌面", icon: 'home'}, {title: "万年历", icon: "calendar"}, {title: "即时通讯", icon: "bubble"}, {title: "邮箱邮件", icon: "envelope"}, {title: "天气预报", icon: "umbrella"}];
         var items = ds || [];
         $.each(items, function (i , item) {
-            if(item.show_startmenu_isValid === 'true')
+            if(item.showAtDesk === true)
                 builds(packs(item) , selector);
-            else if(item.id && item.id.match("0|1")){
+            else if(item.id && item.id.match(/^(0|1)$/)){
                 builds(packSys(item , cache) , selector);
             }
         });

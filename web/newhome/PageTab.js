@@ -9,6 +9,7 @@
 
 var PageTab = function () {
 
+
     var tabContent = $(".page-content .tab-content"), tabUl = $('.page-content .nav');
 
 //    var items = ["万年历", "即时通讯", "邮箱邮件", "天气预报"];
@@ -20,8 +21,20 @@ var PageTab = function () {
     function getTitle(config) {
         return config.default_title || config.title;
     }
+    function replaceBaseParam(config , o){
+        var url =config.default_url;
+        if(!o) o =PageSystem.userConfig();
+        while(r = /@\[(.+?)\]/ig.exec(url)){
+            var v = r[1];
+            if(!(v && (v = o[v.toLowerCase()])))
+                v = "";
+            url = url.replace(r[0] , v)
+        }
+        return url|| config.path;
+    }
 
     function getUrl(config) {
+
         return config.default_url || config.path;
     }
 
@@ -106,7 +119,9 @@ var PageTab = function () {
     }
 
     function packsHtml(config, content) {
-        var url = getUrl(config), currentId = getId(config), currentHeight = getContentHeight();
+        console.log(config)
+        var url = replaceBaseParam(config,PageSystem.userConfig()), currentId = getId(config), currentHeight = getContentHeight();
+        console.log(url)
         if (!url || !currentId) {
             bootbox.alert("系统建设中，敬请期待......");
             return;
