@@ -208,7 +208,7 @@ var PageTopMenu = function () {
             '      <div class="modal-dialog modal-lg" style="margin:0;">'+
             '       <div class="modal-content">'+
             '           <div class="modal-header">' +
-            '               <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>\n' +
+            '               <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="padding-right: 15px"></button>\n' +
             '               <h4 class="modal-title">待处理消息</h4>' +
             "           </div>\n" +
             '        <div class="modal-body" id="messageModal-box">\n' +
@@ -216,21 +216,28 @@ var PageTopMenu = function () {
             "           </div>\n" +
             "</div>";
     }
+
+    function getTileMessage(list) {
+        $("#tile_"+list[0].appid).find(".number").html(list[0].msg.length);
+    }
     function getTotals() {
         var total=0;
         $.ajax({
             type:"post",
             url:"../ExternalItems/messageList/messageList.jcp",
-            async:false,
+            async:true,
             success:function (result) {
                 var res=eval('('+result+')');
                 var list=res.datas;
+                getTileMessage(list);
                 $.each(list,function (i) {
                    total+=list[i].msg.length;
                 })
             }
         });
+        console.log(total);
         return total===0?"":total
+
     }
     function packs(config) {
         return '<li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">' +

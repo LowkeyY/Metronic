@@ -1,6 +1,6 @@
 +function ($) {
-    PageSystem.loadJS('../../metronic/assets/global/plugins/datatables/media/js/jquery.dataTables.js');
-    PageSystem.loadJS('../../metronic/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js');
+    PageSystem.loadJS('/metronic/assets/global/plugins/datatables/media/js/jquery.dataTables.js');
+    PageSystem.loadJS('/metronic/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js');
 
     function getTable(list){
         console.log(list);

@@ -20,59 +20,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="personalinformation.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/newhome/personalinformation.js">
+      <file leaf-file-name="messageList.jss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/metronic/ExternalItems/messageList/messageList.jss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="504">
-              <caret line="157" column="0" lean-forward="true" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
-              <folding>
-                <element signature="e#157#2226#0" expanded="false" />
-                <element signature="e#2267#3751#0" expanded="false" />
-                <element signature="e#3776#4181#0" expanded="false" />
-                <element signature="e#3793#4173#0" expanded="false" />
-                <element signature="e#5836#5920#0" expanded="false" />
-                <element signature="e#5978#6053#0" expanded="false" />
-                <element signature="e#6108#6179#0" expanded="false" />
-                <element signature="e#6227#6652#0" expanded="false" />
-                <element signature="e#6707#7525#0" expanded="false" />
-              </folding>
+              <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="messageList.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ExternalItems/messageList/messageList.js">
+      <file leaf-file-name="UserAuthFrame.jss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/metronic/ExternalItems/userauth/UserAuthFrame.jss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="61" column="41" lean-forward="false" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
-              <folding>
-                <marker date="1505988183339" expanded="true" signature="1092:1125" ph="..." />
-                <marker date="1505988183339" expanded="true" signature="1855:1903" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PageTopMenu.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/newhome/PageTopMenu.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="163" column="73" lean-forward="false" selection-start-line="163" selection-start-column="62" selection-end-line="163" selection-end-column="73" />
-              <folding>
-                <marker date="1505890653208" expanded="true" signature="13191:13205" ph="..." />
-                <marker date="1505890653208" expanded="true" signature="13268:13277" ph="..." />
-                <marker date="1505890653208" expanded="true" signature="16175:16189" ph="..." />
-                <marker date="1505890653208" expanded="true" signature="16256:16265" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="components.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/metronic/assets/global/css/components.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="14535" column="23" lean-forward="true" selection-start-line="14535" selection-start-column="23" selection-end-line="14535" selection-end-column="23" />
+            <state relative-caret-position="264">
+              <caret line="7" column="30" lean-forward="true" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -81,40 +43,41 @@
       <file leaf-file-name="PageSystem.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newhome/PageSystem.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="132" column="21" lean-forward="true" selection-start-line="132" selection-start-column="21" selection-end-line="132" selection-end-column="21" />
+            <state relative-caret-position="1927">
+              <caret line="127" column="5" lean-forward="true" selection-start-line="127" selection-start-column="5" selection-end-line="127" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PageSidebar.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/newhome/PageSidebar.js">
+      <file leaf-file-name="frame.jss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/metronic/bin/log/frame.jss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" column="78" lean-forward="false" selection-start-line="16" selection-start-column="68" selection-end-line="16" selection-end-column="78" />
+            <state relative-caret-position="168">
+              <caret line="307" column="15" lean-forward="true" selection-start-line="307" selection-start-column="15" selection-end-line="307" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PageTile.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/newhome/PageTile.js">
+      <file leaf-file-name="demo.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/metronic/demo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="25" column="30" lean-forward="true" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+            <state relative-caret-position="240">
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="20" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PageTab.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/newhome/PageTab.js">
+      <file leaf-file-name="UserFrame.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/metronic/bin/user/UserFrame.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2136">
-              <caret line="32" column="33" lean-forward="true" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+            <state relative-caret-position="-16512">
+              <caret line="156" column="46" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="863" selection-end-column="5" />
               <folding>
-                <marker date="1505967199028" expanded="true" signature="3982:4032" ph="..." />
+                <marker date="1506076130766" expanded="true" signature="16425:16443" ph="..." />
+                <marker date="1506076130766" expanded="true" signature="16524:16550" ph="..." />
               </folding>
             </state>
           </provider>
@@ -126,25 +89,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="demo" />
+        <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="HTML File" />
-        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Big</find>
-      <find>Big</find>
-      <find>console</find>
-      <find>移动</find>
-      <find>dataT</find>
-      <find>span</find>
-      <find>getToolsId</find>
-      <find>input[type=&quot;checkbox&quot;]:checked'</find>
-      <find>input[type=&quot;checkbox&quot;]:checked')</find>
-      <find>\n</find>
-      <find>default_to</find>
       <find>打开</find>
       <find>baseF</find>
       <find>default_postion</find>
@@ -160,10 +112,21 @@
       <find>person</find>
       <find>.nav-tabs &gt; li &gt;</find>
       <find>active</find>
-      <find>.nav-tabs</find>
       <find>nav-tabs</find>
       <find>pills</find>
       <find>page-logo</find>
+      <find>datatable</find>
+      <find>PotalVersion</find>
+      <find>toggler</find>
+      <find>theme</find>
+      <find>theme-panel hidden-xs hidden-sm</find>
+      <find>blue</find>
+      <find>page-sidebar-menu</find>
+      <find>待处理消息</find>
+      <find>\n</find>
+      <find>getColor</find>
+      <find>openWithBlank</find>
+      <find>port</find>
     </findStrings>
     <replaceStrings>
       <replace>label class=&quot;col-md-3</replace>
@@ -178,18 +141,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/dev/potal/demo.html" />
-        <option value="D:/Documents/Downloads/coachadd.html" />
-        <option value="$PROJECT_DIR$/metronic/assets/global/plugins/jstree/dist/themes/default/style.css" />
-        <option value="$PROJECT_DIR$/metronic/assets/global/plugins/jstree/dist/jstree.min.js" />
-        <option value="$PROJECT_DIR$/metronic/assets/global/plugins/jstree/dist/themes/default/style.min.css" />
-        <option value="$PROJECT_DIR$/bin/log/StasticPanel.js" />
-        <option value="$PROJECT_DIR$/dev/statistics/MainPanel.js" />
-        <option value="$PROJECT_DIR$/dev/statistics/MainPanel.jss" />
-        <option value="$PROJECT_DIR$/newhome/desktop_bak.html" />
-        <option value="$USER_HOME$/Desktop/UserAuthFrame.js" />
-        <option value="$PROJECT_DIR$/lib/CachedPanel/CachedPanel.js" />
-        <option value="$PROJECT_DIR$/newhome/system/setup.jcp" />
         <option value="$PROJECT_DIR$/demo.css" />
         <option value="$PROJECT_DIR$/ulDemo.html" />
         <option value="D:/Documents/Tencent Files/742940804/FileRecv/parameterInfo.html" />
@@ -198,7 +149,6 @@
         <option value="D:/lowkey/jQuery/jQueryWork2/web/bin/user/DeptFrame.js" />
         <option value="$USER_HOME$/Desktop/ulDemo1.html" />
         <option value="$PROJECT_DIR$/dev/potal/modal.html" />
-        <option value="$PROJECT_DIR$/bin/user/DeptFrame.js" />
         <option value="$USER_HOME$/Desktop/font_415670_r6w0404whkdl5wmi/iconfont.js" />
         <option value="$PROJECT_DIR$/newhome/PageDatatable.js" />
         <option value="$USER_HOME$/Desktop/font_415670_r6w0404whkdl5wmi/demo_fontclass.html" />
@@ -208,7 +158,6 @@
         <option value="$PROJECT_DIR$/bin/log/SysFrame.js" />
         <option value="$PROJECT_DIR$/metronic/assets/global/css/loading.css" />
         <option value="D:/Documents/Downloads/Spin.svg" />
-        <option value="$PROJECT_DIR$/newhome/PageTopMenu.js" />
         <option value="$PROJECT_DIR$/bin/user/DeptFrame.jss" />
         <option value="$PROJECT_DIR$/bin/user/UserFrame.js" />
         <option value="$PROJECT_DIR$/bin/user/UserFrame.jss" />
@@ -224,11 +173,25 @@
         <option value="$PROJECT_DIR$/newhome/PageTile.js" />
         <option value="$PROJECT_DIR$/newhome/PageSidebar.js" />
         <option value="$PROJECT_DIR$/newhome/personalinformation.js" />
-        <option value="$PROJECT_DIR$/newhome/PageSystem.js" />
-        <option value="$PROJECT_DIR$/metronic/assets/global/css/components.css" />
-        <option value="$PROJECT_DIR$/newhome/desktop.html" />
-        <option value="$PROJECT_DIR$/ExternalItems/messageList/messageList.js" />
         <option value="$PROJECT_DIR$/metronic/assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" />
+        <option value="D:/资料/metronic/theme/templates/admin/index.html" />
+        <option value="$PROJECT_DIR$/metronic/assets/global/css/components-md.css" />
+        <option value="$PROJECT_DIR$/metronic/assets/global/scripts/colortheme.js" />
+        <option value="$PROJECT_DIR$/metronic/assets/global/css/colortheme.css" />
+        <option value="$PROJECT_DIR$/ExternalItems/messageList/messageList.js" />
+        <option value="$PROJECT_DIR$/newhome/PageTopMenu.js" />
+        <option value="$PROJECT_DIR$/newhome/desktop.html" />
+        <option value="$PROJECT_DIR$/metronic/assets/global/css/components.css" />
+        <option value="$PROJECT_DIR$/bin/user/DeptFrame.js" />
+        <option value="$PROJECT_DIR$/dev/potal/Frame_m.js" />
+        <option value="$PROJECT_DIR$/bin/user/demo.html" />
+        <option value="$PROJECT_DIR$/metronic/ExternalItems/messageList/messageList.jss" />
+        <option value="$PROJECT_DIR$/newhome/PageSystem.js" />
+        <option value="$PROJECT_DIR$/metronic/bin/user/DeptFrame.jss" />
+        <option value="$PROJECT_DIR$/metronic/bin/user/DeptFrame.js" />
+        <option value="$PROJECT_DIR$/metronic/bin/user/RoleFrame.js" />
+        <option value="$PROJECT_DIR$/metronic/demo.html" />
+        <option value="$PROJECT_DIR$/metronic/bin/user/UserFrame.js" />
       </list>
     </option>
   </component>
@@ -248,7 +211,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/metronic/assets/global/plugins/bootstrap-sessiontimeout/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="264" />
     <option name="y" value="10" />
     <option name="width" value="1400" />
@@ -281,19 +244,18 @@
             <path>
               <item name="web" type="b2602c69:ProjectViewProjectNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="ExternalItems" type="462c0819:PsiDirectoryNode" />
+              <item name="dev" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="dev" type="462c0819:PsiDirectoryNode" />
+              <item name="potal" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="web" type="b2602c69:ProjectViewProjectNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="ExternalItems" type="462c0819:PsiDirectoryNode" />
-              <item name="messageList" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="ExternalItems" type="462c0819:PsiDirectoryNode" />
-              <item name="userauth" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="web" type="b2602c69:ProjectViewProjectNode" />
@@ -304,46 +266,14 @@
               <item name="web" type="b2602c69:ProjectViewProjectNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="metronic" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="web" type="b2602c69:ProjectViewProjectNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="metronic" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="global" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="metronic" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="global" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="metronic" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="global" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap-modal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="metronic" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="global" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap-modal" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="newhome" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -363,15 +293,19 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Platform\Project_Portal\web\metronic" />
+      <recent name="D:\Platform\Project_Portal\web\metronic\dev\potal" />
+      <recent name="D:\Platform\Project_Portal\web\metronic\ExternalItems" />
+      <recent name="D:\Platform\Project_Portal\web\metronic\ExternalItems\userauth" />
+      <recent name="D:\Platform\Project_Portal\web\metronic\bin\user" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Platform\Project_Portal\web\ExternalItems" />
       <recent name="D:\Platform\Project_Portal\web\newhome" />
       <recent name="D:\Platform\Project_Portal\web\ExternalItems\messageList" />
       <recent name="D:\lowkey" />
       <recent name="D:\Platform\Project_Portal\web\newhome\system" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Platform\Project_Portal\web\dev\potal" />
-      <recent name="D:\Platform\Project_Portal\web\newlogin" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -417,21 +351,20 @@
       <workItem from="1505352819834" duration="13480000" />
       <workItem from="1505439285506" duration="520000" />
       <workItem from="1505439877230" duration="17864000" />
-      <workItem from="1505695710757" duration="115154000" />
+      <workItem from="1505695710757" duration="115702000" />
+      <workItem from="1505989376109" duration="34205000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="755114000" />
+    <option name="totallyTimeSpent" value="789867000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19652265" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -443,6 +376,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -459,217 +393,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/资料/metronic/theme/templates/admin/table_basic.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="2221" column="28" lean-forward="false" selection-start-line="2221" selection-start-column="28" selection-end-line="2221" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newhome/desktop_bak.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="94" column="52" lean-forward="true" selection-start-line="94" selection-start-column="52" selection-end-line="94" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/log/frame.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pub/getAllmenu.jcp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/log/frame_m.jss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2520">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="347" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/user/RoleAuthFrame.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/资料/metronic/theme/assets/admin/layout/scripts/demo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1248">
-          <caret line="260" column="23" lean-forward="true" selection-start-line="260" selection-start-column="23" selection-end-line="260" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/备份/9.13/web/newhome/PageSystem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-576">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/lowkey/jQuery/jQueryWork2/web/ExternalItems/messageList/messageList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="47" column="19" lean-forward="true" selection-start-line="47" selection-start-column="19" selection-end-line="53" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/metronic/assets/global/css/loading.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Documents/Downloads/Spin.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/log/SysFrame.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="2" column="2641" lean-forward="false" selection-start-line="2" selection-start-column="2587" selection-end-line="2" selection-end-column="2641" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/资料/metronic/theme/templates/admin/ui_page_progress_style_3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50448">
-          <caret line="2108" column="33" lean-forward="true" selection-start-line="2108" selection-start-column="33" selection-end-line="2108" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExternalItems/messageList/Spin.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/user/UserFrame.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="26371" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="26371" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/user/RoleFrame.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-56">
-          <caret line="0" column="11747" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="11747" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/备份/9.13/web/dev/potal/demo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/potal/demo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/备份/9.13/web/dev/potal/demo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1680">
-          <caret line="1259" column="18" lean-forward="true" selection-start-line="1119" selection-start-column="12" selection-end-line="1259" selection-end-column="18" />
-          <folding>
-            <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#5;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#fieldset#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#fieldset#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#legend#0;n#fieldset#0;n#div#7;n#div#1;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#div#7;n#div#1;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#div#7;n#div#1;n#form#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newhome/PageDatatable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="847">
-          <caret line="175" column="37" lean-forward="false" selection-start-line="175" selection-start-column="28" selection-end-line="175" selection-end-column="37" />
-          <folding>
-            <marker date="1505371205912" expanded="true" signature="4775:4790" ph="..." />
-            <marker date="1505371205912" expanded="true" signature="5004:5020" ph="..." />
-            <marker date="1505371205912" expanded="true" signature="5841:5856" ph="..." />
-            <marker date="1505371205912" expanded="true" signature="5957:5971" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newhome/system/setup.jcp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1351">
-          <caret line="236" column="36" lean-forward="false" selection-start-line="236" selection-start-column="36" selection-end-line="236" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newlogin/_query.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-72">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newlogin/_menus.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/newlogin/layout.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -677,9 +404,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -687,15 +411,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-216">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/potal/Frame_m.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7728">
-          <caret line="0" column="44720" lean-forward="false" selection-start-line="0" selection-start-column="44720" selection-end-line="0" selection-end-column="44720" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -703,7 +418,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
           <caret line="16" column="38" lean-forward="false" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -711,14 +425,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="0" column="1265" lean-forward="true" selection-start-line="0" selection-start-column="1265" selection-end-line="0" selection-end-column="1265" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/资料/metronic/theme/templates/admin/charts_amcharts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="865" column="25" lean-forward="false" selection-start-line="865" selection-start-column="21" selection-end-line="865" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -737,71 +443,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/user/RoleFrame_m.jss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="273" column="36" lean-forward="false" selection-start-line="273" selection-start-column="36" selection-end-line="273" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/potal/Frame_m.jss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="919">
-          <caret line="327" column="52" lean-forward="true" selection-start-line="327" selection-start-column="52" selection-end-line="327" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/log/SysFrame_m.jss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="277" column="28" lean-forward="false" selection-start-line="277" selection-start-column="28" selection-end-line="277" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/user/DeptFrame_m.jss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
-          <caret line="200" column="38" lean-forward="false" selection-start-line="200" selection-start-column="31" selection-end-line="200" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/user/UserFrame_m.jss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="543" column="5" lean-forward="false" selection-start-line="543" selection-start-column="5" selection-end-line="543" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExternalItems/messageList/messageList.jcp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExternalItems/messageList/messageList.jss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="60" column="45" lean-forward="true" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExternalItems/userauth/UserAuthFrame_m.jss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="751">
-          <caret line="177" column="5" lean-forward="false" selection-start-line="177" selection-start-column="5" selection-end-line="177" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -809,90 +450,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1656">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newhome/PageTopMenu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="163" column="73" lean-forward="false" selection-start-line="163" selection-start-column="62" selection-end-line="163" selection-end-column="73" />
-          <folding>
-            <marker date="1505890653208" expanded="true" signature="13191:13205" ph="..." />
-            <marker date="1505890653208" expanded="true" signature="13268:13277" ph="..." />
-            <marker date="1505890653208" expanded="true" signature="16175:16189" ph="..." />
-            <marker date="1505890653208" expanded="true" signature="16256:16265" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newhome/PageSystem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="132" column="21" lean-forward="true" selection-start-line="132" selection-start-column="21" selection-end-line="132" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newhome/PageSidebar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="78" lean-forward="false" selection-start-line="16" selection-start-column="68" selection-end-line="16" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newhome/PageTile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="25" column="30" lean-forward="true" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newhome/PageTab.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2136">
-          <caret line="32" column="33" lean-forward="true" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
-          <folding>
-            <marker date="1505967199028" expanded="true" signature="3982:4032" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/metronic/assets/global/css/components.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="14535" column="23" lean-forward="true" selection-start-line="14535" selection-start-column="23" selection-end-line="14535" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newhome/desktop.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="106" column="26" lean-forward="true" selection-start-line="106" selection-start-column="15" selection-end-line="106" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newhome/personalinformation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="157" column="0" lean-forward="true" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
-          <folding>
-            <element signature="e#157#2226#0" expanded="false" />
-            <element signature="e#2267#3751#0" expanded="false" />
-            <element signature="e#3776#4181#0" expanded="false" />
-            <element signature="e#3793#4173#0" expanded="false" />
-            <element signature="e#5836#5920#0" expanded="false" />
-            <element signature="e#5978#6053#0" expanded="false" />
-            <element signature="e#6108#6179#0" expanded="false" />
-            <element signature="e#6227#6652#0" expanded="false" />
-            <element signature="e#6707#7525#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -904,13 +461,388 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/metronic/assets/global/css/components-md.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="14710" column="0" lean-forward="false" selection-start-line="14710" selection-start-column="0" selection-end-line="14710" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/资料/metronic/theme/templates/admin/angularjs/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="22" column="51" lean-forward="false" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metronic/assets/admin/pages/scripts/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="95" column="8" lean-forward="false" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="8" />
+          <folding>
+            <marker date="1419214485502" expanded="true" signature="19246:19252" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metronic/assets/admin/pages/scripts/tasks.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="8" lean-forward="false" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metronic/assets/global/scripts/datatable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3744">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metronic/assets/global/scripts/metronic.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-216">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1437468546452" expanded="true" signature="13068:13074" ph=" " />
+            <marker date="1437468546452" expanded="true" signature="28376:28382" ph=" " />
+            <marker date="1437468546452" expanded="true" signature="28382:28388" ph=" " />
+            <marker date="1437468546452" expanded="true" signature="28673:28679" ph=" " />
+            <marker date="1437468546452" expanded="true" signature="28679:28685" ph=" " />
+            <marker date="1437468546452" expanded="true" signature="31256:31262" ph=" " />
+            <marker date="1437468546452" expanded="true" signature="31262:31268" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/资料/metronic/theme/templates/admin/charts_amcharts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="865" column="23" lean-forward="true" selection-start-line="865" selection-start-column="23" selection-end-line="865" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/资料/metronic/theme/templates/admin/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="4165" column="16" lean-forward="false" selection-start-line="4165" selection-start-column="16" selection-end-line="4165" selection-end-column="16" />
+          <folding>
+            <element signature="n#div#1;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newhome/personalinformation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="105" column="20" lean-forward="true" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
+          <folding>
+            <element signature="e#157#2226#0" expanded="false" />
+            <element signature="e#2267#3751#0" expanded="false" />
+            <element signature="e#5836#5920#0" expanded="false" />
+            <element signature="e#5978#6053#0" expanded="false" />
+            <element signature="e#6108#6179#0" expanded="false" />
+            <element signature="e#6227#6652#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metronic/assets/global/css/colortheme.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metronic/assets/global/css/components.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="14546" column="1" lean-forward="true" selection-start-line="14546" selection-start-column="1" selection-end-line="14546" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newhome/PageTab.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="131" column="151" lean-forward="false" selection-start-line="131" selection-start-column="138" selection-end-line="131" selection-end-column="151" />
+          <folding>
+            <marker date="1505967199028" expanded="true" signature="3982:4032" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newhome/desktop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="192" column="29" lean-forward="true" selection-start-line="192" selection-start-column="29" selection-end-line="192" selection-end-column="29" />
+          <folding>
+            <element signature="e#4304#4747#0" expanded="false" />
+            <element signature="e#4773#4984#0" expanded="false" />
+            <element signature="e#5013#5319#0" expanded="false" />
+            <element signature="e#5340#5395#0" expanded="false" />
+            <element signature="e#5419#5527#0" expanded="false" />
+            <element signature="e#5572#5621#0" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1506070272003" expanded="false" signature="11329:11341" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newhome/PageTile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="11" column="62" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newhome/PageTopMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="237" column="27" lean-forward="false" selection-start-line="237" selection-start-column="27" selection-end-line="237" selection-end-column="27" />
+          <folding>
+            <marker date="1506063236504" expanded="true" signature="13191:13205" ph="..." />
+            <marker date="1506063236504" expanded="true" signature="13268:13277" ph="..." />
+            <marker date="1506063236504" expanded="true" signature="16175:16189" ph="..." />
+            <marker date="1506063236504" expanded="true" signature="16256:16265" ph="..." />
+            <marker date="1506063236504" expanded="true" signature="16485:16504" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/user/DeptPanel.jss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metronic/assets/global/scripts/colortheme.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="984">
+          <caret line="41" column="54" lean-forward="false" selection-start-line="41" selection-start-column="54" selection-end-line="41" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/user/DeptFrame.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2352">
+          <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+          <folding>
+            <marker date="1506067564601" expanded="true" signature="429:447" ph="..." />
+            <marker date="1506067564601" expanded="true" signature="783:796" ph="..." />
+            <marker date="1506067564601" expanded="true" signature="898:911" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/portlet/Frame.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/potal/Frame_m.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="4" column="24346" lean-forward="true" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="24346" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newhome/PageSidebar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1800">
+          <caret line="77" column="4" lean-forward="false" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Documents/Tencent Files/742940804/FileRecv/PageSystem(1).js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="186" column="5" lean-forward="true" selection-start-line="170" selection-start-column="3" selection-end-line="186" selection-end-column="5" />
+          <folding>
+            <element signature="e#5862#6460#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/log/frame.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-792">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/log/frame6.jss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/log/frame5.jss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" column="66" lean-forward="true" selection-start-line="15" selection-start-column="66" selection-end-line="15" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/upload/upload.jcp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ExternalItems/messageList/messageList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="61" column="41" lean-forward="false" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
+        <state relative-caret-position="552">
+          <caret line="23" column="28" lean-forward="false" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
           <folding>
-            <marker date="1505988183339" expanded="true" signature="1092:1125" ph="..." />
-            <marker date="1505988183339" expanded="true" signature="1855:1903" ph="..." />
+            <marker date="1506061489084" expanded="true" signature="1024:1057" ph="..." />
+            <marker date="1506061489084" expanded="true" signature="1800:1848" ph="..." />
+            <marker date="1506061489084" expanded="true" signature="3074:3092" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metronic/ExternalItems/messageList/messageList.jcp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metronic/ExternalItems/messageList/messageList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="46" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="87" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metronic/bin/log/SysFrame.jss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1999">
+          <caret line="277" column="28" lean-forward="false" selection-start-line="277" selection-start-column="28" selection-end-line="277" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metronic/bin/user/RoleFrame.jss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1831">
+          <caret line="273" column="36" lean-forward="false" selection-start-line="273" selection-start-column="36" selection-end-line="273" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metronic/bin/user/UserFrame.jss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5839">
+          <caret line="543" column="5" lean-forward="false" selection-start-line="543" selection-start-column="5" selection-end-line="543" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metronic/dev/potal/Frame.jss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3655">
+          <caret line="327" column="52" lean-forward="true" selection-start-line="327" selection-start-column="52" selection-end-line="327" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metronic/ExternalItems/messageList/messageList.jss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newhome/PageSystem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1927">
+          <caret line="127" column="5" lean-forward="true" selection-start-line="127" selection-start-column="5" selection-end-line="127" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metronic/bin/user/DeptFrame.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="727">
+          <caret line="0" column="9688" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="9688" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metronic/bin/user/RoleFrame.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="0" column="10126" lean-forward="false" selection-start-line="0" selection-start-column="10126" selection-end-line="0" selection-end-column="10126" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metronic/bin/user/DeptFrame.jss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3967">
+          <caret line="270" column="38" lean-forward="false" selection-start-line="270" selection-start-column="38" selection-end-line="270" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metronic/bin/log/frame.jss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="307" column="15" lean-forward="true" selection-start-line="307" selection-start-column="15" selection-end-line="307" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metronic/ExternalItems/userauth/UserAuthFrame.jss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="7" column="30" lean-forward="true" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metronic/demo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="20" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/metronic/bin/user/UserFrame.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-16512">
+          <caret line="156" column="46" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="863" selection-end-column="5" />
+          <folding>
+            <marker date="1506076130766" expanded="true" signature="16425:16443" ph="..." />
+            <marker date="1506076130766" expanded="true" signature="16524:16550" ph="..." />
           </folding>
         </state>
       </provider>

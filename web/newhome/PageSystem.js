@@ -12,8 +12,12 @@
 /* global PageTile, PageSidebar */
 
 var PageSystem = function () {
-    var userConfig = {} , PotalVersion = "1.0";
-    
+    var userConfig = {} , PotalVersion = "1.0", colors = ['blue', 'green', 'yellow', 'purple', 'red','grey-cascade'];
+
+    function getColor(){
+        colors = colors.concat(colors[0]);
+        return colors.shift(0);
+    }
     function isArray(o){
         return Object.prototype.toString.call(o) === '[object Array]';
     }
@@ -64,7 +68,23 @@ var PageSystem = function () {
         }
         return url;
     }
-
+    function openWithBlank(url){
+        try{
+            var iframe = document.createElement("iframe") , tagA = document.createElement("a");
+            document.body.appendChild(iframe);
+            tagA.setAttribute("href", url);
+            tagA.setAttribute("target", "_blank");
+            iframe.contentWindow.document.body.appendChild(tagA);
+            tagA.click();
+            setTimeout(function() {
+                document.body.removeChild(iframe);
+            }, 200);
+        } catch(e){
+            var curWindow = window.open("" , "_blank");
+            curWindow.opener = null;
+            curWindow.location = url;
+        }
+    }
     function packPotalConfig(conf){
         var o = getPotalBaseConf(conf);
         for(var att in conf)
@@ -103,7 +123,7 @@ var PageSystem = function () {
     }
     
     function packSysMenu(conf){
-       conf.path = conf.path + "_m";
+       conf.path = 'metronic.'+conf.path;
         conf.isIframe = false;
     }
     
@@ -178,6 +198,13 @@ var PageSystem = function () {
         },
         version : function(){
             return PotalVersion;
+        },
+        openWithBlank : function (url){
+            if(isIframe(url))
+                openWithBlank(url);
+        },
+        getColor : function(){
+            return getColor();
         }
     };
 }();
