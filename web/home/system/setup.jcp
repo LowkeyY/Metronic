@@ -291,13 +291,15 @@ import com.kinglib.ui.core.utils.Param;
 			}*/
                 try {
                     User user = CertManager.getUser(String.valueOf(user_id));
-                    if (user != null) {
-                        param.set("roleId", user.getRoleId());
-                        param.set("userType", user.getUserType().getValue());
-                        param.set("isMaster", user.isMaster() ? "y" : "n");
-                        param.set("inActive", user.isActive() ? "y" : "n");
-                        user.update(param);
-                    }
+                         if (user != null) {
+                            param.set("realName" ,param.getStr("real_name"));
+                            param.set("phoneHome" ,param.getStr("phone_home"));
+                            param.set("roleId", user.getRoleId());
+                            param.set("userType", String.valueOf(user.getUserType().getValue()));
+                            param.set("isMaster", user.isMaster() ? "y" : "n");
+                            param.set("inActive", user.isActive() ? "y" : "n");
+                            user.update(param);
+                                      }
                     jacper.print("{\"success\":true}");
                 } catch (Exception e) {
                     jacper.print(Err.parse(e).toJSON());

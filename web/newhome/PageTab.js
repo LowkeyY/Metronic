@@ -21,28 +21,16 @@ var PageTab = function () {
     function getTitle(config) {
         return config.default_title || config.title;
     }
-    function replaceBaseParam(config , o){
-        var url =config.default_url;
-        if(!o) o =PageSystem.getConfig();
-        while(r = /@\[(.+?)\]/ig.exec(url)){
-            var v = r[1];
-            if(!(v && (v = o[v.toLowerCase()])))
-                v = "";
-            url = url.replace(r[0] , v)
-        }
-        return url|| config.path;
-    }
 
     function getUrl(config) {
-
         return config.default_url || config.path;
     }
 
     function packsNav(config) {
         return  '<li>' +
-                '<a href="#tab_' + getId(config) + '" data-toggle="tab" aria-expanded="true"> ' + getTitle(config) + ' </a>' +
-                '<i class="nav-close-icon">&#xe613;</i>' +
-                '</li>';
+            '<a href="#tab_' + getId(config) + '" data-toggle="tab" aria-expanded="true"> ' + getTitle(config) + ' </a>' +
+            '<i class="icon-close"></i>' +
+            '</li>';
     }
 
     function packsContent(config, content) {
@@ -63,13 +51,13 @@ var PageTab = function () {
     function getContentHeight() {
         return ($('.page-content').height() - tabUl.outerHeight(true) - 5) + "px";
     }
-    
+
     function evalCallbackFn(fn){
         if ($.isFunction(fn)) {
             fn.apply(null, arguments);
         }
     }
-    
+
     function builds(nav, content, callback) {
         if (nav && content) {
             tabUl.append(nav);
@@ -119,15 +107,13 @@ var PageTab = function () {
     }
 
     function packsHtml(config, content) {
-        console.log(config)
-        var url = replaceBaseParam(config,PageSystem.get("default_url")), currentId = getId(config), currentHeight = getContentHeight();
-        console.log(url)
+        var url = getUrl(config), currentId = getId(config), currentHeight = getContentHeight();
         if (!url || !currentId) {
             bootbox.alert("系统建设中，敬请期待......");
             return;
         }
         if (config.default_open_type === 'false') {
-            window.open(url);
+            PageSystem.openWithBlank(url);
         } else if (/^((https|http|ftp|rtsp|mms)?:\/\/)/i.test(url)) {
             updates(config, content, "<iframe id=\"model_" + currentId + "\" src=\"" + url + "\" style = 'border:0;width: 100%;height:" + currentHeight + ";'></iframe>");
         } else {
@@ -146,9 +132,9 @@ var PageTab = function () {
                     }
                     processModule.init(config, fn);
                 } else
-                    bootbox.alert("系统建设中，敬请期待......");               
+                    bootbox.alert("系统建设中，敬请期待......");
             }catch(e){
-                bootbox.alert("系统建设中，敬请期待......"); 
+                bootbox.alert("系统建设中，敬请期待......");
             }
 //            processModule = eval('new ' + lib + '()');
         }

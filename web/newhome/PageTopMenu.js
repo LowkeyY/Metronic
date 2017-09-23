@@ -188,9 +188,9 @@ var PageTopMenu = function () {
             '                </div>\n' +
             '                                    <form class="form-inline" id="lockForm">\n' +
             '                                            <div class="input-group input-medium">\n' +
-            '                                                    <input type="password" autocomplete="off" class="form-control" placeholder="Password" name="usrPwd" id="usrPwd">\n' +
+            '                                                    <input type="password" autocomplete="off" class="form-control" placeholder="Password" name="usrPwd" id="usrPwd">\n'+
             '                                                    <span class="input-group-btn">\n' +
-            '                                                    <button type="submit" id="unlocked" class="btn blue icn-only"><i class="m-icon-swapright m-icon-white"></i></button>\n' +
+            '                                                    <button type="submit" id="unlocked" class="btn blue icn-only"><i class="m-icon-swapright m-icon-white"></i></button>\n'+
             '                                                    </span>\n' +
             '                                            </div>\n' +
             '                                            <!-- /input-group -->\n' +

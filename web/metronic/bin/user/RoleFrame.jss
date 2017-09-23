@@ -330,8 +330,7 @@
                                 returnData.data = result.dataItem;
                                 callback(returnData);
                                 table.reUniform();
-                                console.log(PageSystem.prototype)
-    
+                                PageSystem.roleArray=returnData.data;
                             }
                         });
                     }

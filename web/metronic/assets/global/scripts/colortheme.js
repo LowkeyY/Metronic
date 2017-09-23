@@ -26,7 +26,7 @@
           alert()
             $.ajax({
                 type:"post",
-                url:"../../../../newhome/system/setup.jcp",
+                url:"/newhome/system/setup.jcp",
                 data:{},
                 success:function () {
 
