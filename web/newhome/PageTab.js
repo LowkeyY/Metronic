@@ -23,7 +23,7 @@ var PageTab = function () {
     }
     function replaceBaseParam(config , o){
         var url =config.default_url;
-        if(!o) o =PageSystem.userConfig();
+        if(!o) o =PageSystem.getConfig();
         while(r = /@\[(.+?)\]/ig.exec(url)){
             var v = r[1];
             if(!(v && (v = o[v.toLowerCase()])))
@@ -41,7 +41,7 @@ var PageTab = function () {
     function packsNav(config) {
         return  '<li>' +
                 '<a href="#tab_' + getId(config) + '" data-toggle="tab" aria-expanded="true"> ' + getTitle(config) + ' </a>' +
-                '<i class="icon-close"></i>' +
+                '<i class="nav-close-icon">&#xe613;</i>' +
                 '</li>';
     }
 
@@ -120,7 +120,7 @@ var PageTab = function () {
 
     function packsHtml(config, content) {
         console.log(config)
-        var url = replaceBaseParam(config,PageSystem.userConfig()), currentId = getId(config), currentHeight = getContentHeight();
+        var url = replaceBaseParam(config,PageSystem.get("default_url")), currentId = getId(config), currentHeight = getContentHeight();
         console.log(url)
         if (!url || !currentId) {
             bootbox.alert("系统建设中，敬请期待......");

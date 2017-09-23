@@ -1,27 +1,23 @@
-/* global PageSystem, Metronic, x */
-
 (function () {
-    var datatableHead = "", numberCounts = 1, currentSelectDeptId = "", moveId = "",portletColor = PageSystem.getColor();
-
-        paramRoles = [
-            {id: "21212", text: "办公厅用户"}, 
-            {id: "20661", text: "省长"}, 
-            {id: "21007", text: "厅级干部"}, 
-            {id: "21197", text: "秘书长"},
-            {id: "21175", text: "副省长"}
-            ],
+    var datatableHead = "", numberCounts = 1, currentSelectDeptId = "", moveId = "", portletColor = PageSystem.getColor();
+    paramRoles = [
+        {id: "21212", text: "办公厅用户"},
+        {id: "20661", text: "省长"},
+        {id: "21007", text: "厅级干部"},
+        {id: "21197", text: "秘书长"},
+        {id: "21175", text: "副省长"}];
         paramUsertypes = [
-            {text: "架构师", id: 2}, 
+            {text: "架构师", id: 2},
             {text: "开发人员", id: 5},
-            {text: "定制人员", id: 10}, 
-            {text: "部门管理员", id: 20
-        }, {text: "普通用户", id: 100}
-        ];
+            {text: "定制人员", id: 10},
+            {text: "部门管理员", id: 20},
+            {text: "普通用户", id: 100}];
 
     var userPageHtml = '<div class="alert alert-danger display-hide" style="display: none;">\n' +
         '    <button class="close" data-close="alert"></button>\n' +
         '    <span>您的输入信息有误，请检查并修改。</span>\n' +
         '</div>\n' +
+        '\n' +
         '<div class="alert alert-success display-hide" style="display: none;">\n' +
         '    <button class="close" data-close="alert"></button>\n' +
         '    您输入的信息完全正确。\n' +
@@ -29,23 +25,30 @@
         '<div class="row">\n' +
         '    <div class="col-md-6">\n' +
         '        <div class="form-group">\n' +
-        '            <div class="controls"><input type="text" class="form-control" name="userName" id="userName" placeholder="用户名"></div>\n' +
+        '            <div class="controls">\n' +
+        '                <input type="text" class="form-control" name="userName" id="userName" placeholder="用户名">\n' +
+        '            </div>\n' +
         '        </div>\n' +
         '    </div>\n' +
         '    <div class="col-md-6">\n' +
         '        <div class="form-group">\n' +
-        '            <div class="controls"><input type="text" class="form-control" name="realName" id="realName" placeholder="真实姓名"></div>\n' +
+        '            <div class="controls">\n' +
+        '                <input type="text" class="form-control" name="realName" id="realName" placeholder="真实姓名">\n' +
+        '            </div>\n' +
         '        </div>\n' +
         '    </div>\n' +
         '</div>\n' +
         '<div class="row">\n' +
         '    <div class="col-md-6">\n' +
         '        <div class="form-group">\n' +
-        '            <div class="controls"><input class="form-control" id="roleId" name="roleId" type="hidden"></div>\n' +
+        '            <div class="controls">\n' +
+        '                <input class="form-control" id="roleId" name="roleId" type="hidden">\n' +
+        '            </div>\n' +
         '        </div>\n' +
         '        <div class="form-group">\n' +
         '            <div class="controls"><input class="form-control" id="userType" name="userType" type="hidden"></div>\n' +
         '        </div>\n' +
+        '        \n' +
         '        <div class="form-group">\n' +
         '            <div class="controls input-icon right">\n' +
         '                <i class="fa"></i>\n' +
@@ -55,6 +58,7 @@
         '        <div class="form-group">\n' +
         '            <div class="controls"><input type="text" class="form-control" name="celler" placeholder="手机"></div>\n' +
         '        </div>\n' +
+        '        \n' +
         '        <div class="form-group">\n' +
         '            <div class="controls"><input type="text" class="form-control" name="phone" placeholder="办公电话"></div>\n' +
         '        </div>\n' +
@@ -64,27 +68,32 @@
         '    </div>\n' +
         '    <div class="col-md-6">\n' +
         '        <div class="fileinput fileinput-new" data-provides="fileinput">\n' +
-        '            <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 48px; height: 48px; line-height: 150px;font-size: 14px;padding: 1px;border: 2px solid #eeeeee">\n' +
-        '                <img id="e" src="" alt="" style="width:100%;height:100%">\n' +
+        '            <div class="fileinput-preview thumbnail" data-trigger="fileinput"\n' +
+        '                 style="width: 48px; height: 48px; line-height: 150px;font-size: 14px;padding: 1px;border: 2px solid #eeeeee">\n' +
+        '                 <img class="user-icon" src="" alt="" style="width:100%;height:100%">\n' +
         '            </div>\n' +
-        '            <span class="btn red fileinput-button">\n' +
-        '                <i class="fa fa-plus"></i>\n' +
-        '                <span>选择图片</span>\n' +
-        '                <input type="file" data-type="default_icon_url" name="file">\n' +
-        '                <input type="hidden" value="" name="default_icon_url" id="">\n' +
-        '            </span>\n' +
-        '            <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> 取消 </a></div>\n' +
+        '             <span class="btn green fileinput-button">\n' +
+        '                 <i class="fa fa-plus"></i>\n' +
+        '                 <span>选择图片</span>\n' +
+        '                 <input type="file"  data-type="photo" name="file"> \n' +
+        '                 <input type="hidden" id="photo" name="photo"> \n' +
+        '                 <input type="hidden" value="" name="photo_text" id="photo_text">\n' +
+        '             </span>\n' +
+        '             <a href="javascript:;" class="btn green fileinput-exists usericon-cancel-btn" data-dismiss="fileinput">取消</a></div>\n' +
         '    </div>\n' +
         '</div>\n' +
         '<div class="row">\n' +
         '    <div class="col-md-6">\n' +
         '        <div class="form-group">\n' +
-        '            <div class="controls"><input type="password" class="form-control" id="passwd" name="passwd" placeholder="密码"></div>\n' +
+        '            <div class="controls">\n' +
+        '                <input type="password" class="form-control" id="passwd" name="passwd" placeholder="密码"></div>\n' +
         '        </div>\n' +
         '    </div>\n' +
         '    <div class="col-md-6">\n' +
         '        <div class="form-group">\n' +
-        '            <div class="controls"><input type="password" class="form-control" id="confirm_passwd" name="confirm_passwd" placeholder="再次输入密码"></div>\n' +
+        '            <div class="controls">\n' +
+        '                <input type="password" class="form-control" id="confirm_passwd" name="confirm_passwd" placeholder="再次输入密码">\n' +
+        '            </div>\n' +
         '        </div>\n' +
         '    </div>\n' +
         '</div>\n' +
@@ -94,7 +103,8 @@
         '            <div class="controls">\n' +
         '                <div class="form-group form-md-checkboxes">\n' +
         '                    <div class="md-checkbox-inline">\n' +
-        '                        <div class="md-checkbox has-success"><input type="checkbox" id="inActive" name="inActive" class="md-check" value="y">\n' +
+        '                        <div class="md-checkbox has-success">\n' +
+        '                            <input type="checkbox" id="inActive" name="inActive" class="md-check" value="y"> \n' +
         '                            <label for="inActive">激活\n' +
         '                                <span class="inc"></span>\n' +
         '                                <span class="check"></span>\n' +
@@ -113,11 +123,12 @@
         '                    <div class="md-checkbox-inline">\n' +
         '                        <div class="md-checkbox has-success">\n' +
         '                            <input type="checkbox" id="isCreateMaster" name="isMaster" class="md-check" value="y"> \n' +
-        '                            <label for="isCreateMaster">是否部门业务主管\n' +
-        '                                <span class="inc"></span>\n' +
-        '                                <span class="check"></span>\n' +
-        '                                <span class="box"></span>\n' +
-        '                            </label></div>\n' +
+        '                             <label for="isCreateMaster">是否部门业务主管\n' +
+        '                                 <span class="inc"></span>\n' +
+        '                                 <span class="check"></span>\n' +
+        '                                 <span class="box"></span>\n' +
+        '                             </label>\n' +
+        '                        </div>\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -127,7 +138,9 @@
         '<div class="row">\n' +
         '    <div class="col-md-4">\n' +
         '        <div class="form-group">\n' +
-        '            <div class="controls"><input type="text" class="form-control" name="sortId" placeholder="优先顺序"></div>\n' +
+        '            <div class="controls">\n' +
+        '                <input type="text" class="form-control" name="sortId" placeholder="优先顺序">\n' +
+        '            </div>\n' +
         '        </div>\n' +
         '    </div>\n' +
         '</div>\n' +
@@ -139,25 +152,28 @@
         '            </div>\n' +
         '        </div>\n' +
         '    </div>\n' +
-        '</div>\n';
-
+        '</div>';
     var updataPage = '<div class="alert alert-danger display-hide" style="display: none;">\n' +
         '    <button class="close" data-close="alert"></button>\n' +
-        '    <span>您的输入信息有误，请检查并修改</span>\n' +
+        '     <span>您的输入信息有误，请检查并修改</span>\n' +
         '</div>\n' +
         '<div class="alert alert-success display-hide" style="display: none;">\n' +
         '    <button class="close" data-close="alert"></button>\n' +
-        '    您输入的信息完全正确。\n' +
+        '     您输入的信息完全正确。\n' +
         '</div>\n' +
         '<div class="row">\n' +
         '    <div class="col-md-6">\n' +
         '        <div class="form-group">\n' +
-        '            <div class="controls"><input type="text" class="form-control" name="userName" id="userName" placeholder="用户名"></div>\n' +
+        '            <div class="controls">\n' +
+        '                <input type="text" class="form-control" name="userName" id="userName" placeholder="用户名">\n' +
+        '            </div>\n' +
         '        </div>\n' +
         '    </div>\n' +
         '    <div class="col-md-6">\n' +
         '        <div class="form-group">\n' +
-        '            <div class="controls"><input type="text" class="form-control" name="realName" id="realName" placeholder="真实姓名"></div>\n' +
+        '            <div class="controls">\n' +
+        '                <input type="text" class="form-control" name="realName" id="realName" placeholder="真实姓名">\n' +
+        '            </div>\n' +
         '        </div>\n' +
         '    </div>\n' +
         '</div>\n' +
@@ -184,13 +200,14 @@
         '                <input type="text" class="form-control" name="celler" placeholder="手机">\n' +
         '            </div>\n' +
         '        </div>\n' +
+        '        \n' +
         '        <div class="form-group">\n' +
-        '            <div class="controls">\n' +
+        '            <div class="controls"> \n' +
         '                <input type="text" class="form-control" name="phone" placeholder="办公电话">\n' +
         '            </div>\n' +
         '        </div>\n' +
         '        <div class="form-group">\n' +
-        '            <div class="controls">\n' +
+        '            <div class="controls"> \n' +
         '                <input type="text" class="form-control" name="phoneHome" placeholder="家庭电话">\n' +
         '            </div>\n' +
         '        </div>\n' +
@@ -198,13 +215,16 @@
         '    <div class="col-md-6">\n' +
         '        <div class="fileinput fileinput-new" data-provides="fileinput">\n' +
         '            <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 48px; height: 48px; line-height: 150px;font-size: 14px;padding: 1px;border: 2px solid #eeeeee">\n' +
-        '                <img id="e" src="" alt="" style="width:100%;height:100%"></div>\n' +
-        '            <span class="btn red fileinput-button">\n' +
-        '                <i class="fa fa-plus"></i>\n' +
-        '                <span>选择图片</span> <input type="file" data-type="default_icon_url" name="file">\n' +
-        '                <input type="hidden" value="" name="default_icon_url" id="">\n' +
-        '            </span>\n' +
-        '            <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> 取消 </a>\n' +
+        '                 <img class="user-icon" src="" alt="" style="width:100%;height:100%">\n' +
+        '            </div>\n' +
+        '             <span class="btn green fileinput-button">\n' +
+        '                 <i class="fa fa-plus"></i> \n' +
+        '                 <span>选择图片</span> \n' +
+        '                 <input type="file" data-type="photo" name="file">\n' +
+        '                 <input type="hidden" value="" name="photo" id="photo">\n' +
+        '                 <input type="hidden" value="" name="photo_text" id="photo_text">\n' +
+        '             </span>\n' +
+        '             <a href="javascript:;" class="btn green fileinput-exists usericon-cancel-btn" data-dismiss="fileinput">取消</a>\n' +
         '        </div>\n' +
         '    </div>\n' +
         '</div>\n' +
@@ -214,13 +234,13 @@
         '            <div class="controls">\n' +
         '                <div class="form-group form-md-checkboxes">\n' +
         '                    <div class="md-checkbox-inline">\n' +
-        '                        <div class="md-checkbox has-success">\n' +
+        '                        <div class="md-checkbox has-success"> \n' +
         '                            <input type="checkbox" id="isUpdatainActive" name="inActive" class="md-check" value="y">\n' +
-        '                            <label for="isUpdatainActive">激活\n' +
-        '                                <span class="inc"></span>\n' +
-        '                                <span class="check"></span>\n' +
-        '                                <span class="box"></span>\n' +
-        '                            </label>\n' +
+        '                             <label for="isUpdatainActive">激活\n' +
+        '                                 <span class="inc"></span> \n' +
+        '                                 <span class="check"></span>\n' +
+        '                                 <span class="box"></span> \n' +
+        '                             </label>\n' +
         '                        </div>\n' +
         '                    </div>\n' +
         '                </div>\n' +
@@ -234,11 +254,11 @@
         '                    <div class="md-checkbox-inline">\n' +
         '                        <div class="md-checkbox has-success">\n' +
         '                            <input type="checkbox" id="isUpdataMaster" name="isMaster" class="md-check" value="y">\n' +
-        '                            <label for="isUpdataMaster">是否部门业务主管\n' +
-        '                                <span class="inc"></span>\n' +
-        '                                <span class="check"></span>\n' +
-        '                                <span class="box"></span>\n' +
-        '                            </label>\n' +
+        '                             <label for="isUpdataMaster">是否部门业务主管 \n' +
+        '                                 <span class="inc"></span>\n' +
+        '                                 <span class="check"></span>\n' +
+        '                                 <span class="box"></span>\n' +
+        '                             </label>\n' +
         '                        </div>\n' +
         '                    </div>\n' +
         '                </div>\n' +
@@ -258,29 +278,34 @@
         '<div class="row">\n' +
         '    <div class="col-md-12">\n' +
         '        <div class="form-group">\n' +
-        '            <div class="controls">\n' +
+        '            <div class="controls"> \n' +
         '                <textarea class="form-control" id="textarea" rows="3" placeholder="职责说明" name="duty"></textarea>\n' +
         '            </div>\n' +
         '        </div>\n' +
         '    </div>\n' +
-        '</div>\n';
+        '</div>';
 
     function getToolsId(id, type) {
         return "tools_" + (id ? id : numberCounts++) + (type ? "_" + type : "");
     }
 
     function panks(conf) {
-        return '<div class="row" id="module_\' + conf.id + \'">\n' +
+        return '<div class="row" id="module_' + conf.id + '">\n' +
             '    <div class="col-md-12">\n' +
             '        <div class="portlet">\n' +
             '            <div class="portlet-title">\n' +
-            '                <div class="caption"><i class="fa fa-user"></i>用户管理</div>\n' +
-            '                <div class="tools"><a href="" class="fullscreen" data-original-title="" title=""> </a></div>\n' +
+            '                <div class="caption">\n' +
+            '                    <i class="fa fa-user"></i>\n' +
+            '                    用户管理\n' +
+            '                </div>\n' +
+            '                <div class="tools">\n' +
+            '                    <a href="" class="fullscreen" data-original-title="" title=""></a>\n' +
+            '                </div>\n' +
             '            </div>\n' +
-            '            <div class="portlet-body">'+ panksLeft(conf)+ panksRight()+' </div>\n' +
+            '            <div class="portlet-body">' + panksLeft(conf) + panksRight() +' </div>\n' +
             '        </div>\n' +
             '    </div>\n' +
-            '</div>\n' + panksToolsPage(conf, "create", "新建用户") + panksToolsPage(conf, "edit", "修改用户") + deleteModal(conf, "delete") +panksToolsPage(conf, "move", "调动用户") + passwordModal(conf, "reset", "重置密码");
+            '</div>\n' + panksToolsPage(conf, "create", "新建用户") + panksToolsPage(conf, "edit", "修改用户") + deleteModal(conf, "delete") + panksToolsPage(conf, "move", "调动用户") + passwordModal(conf, "reset", "重置密码");
     }
 
     function panksToolsPage(conf, type, name) {
@@ -288,10 +313,11 @@
             return "";
         }
         name = name || conf.title;
-        return '<div id="' + getToolsId(conf.id, type) + '" class="modal fade" tabindex="-1">\n' +
+        return '\n' +
+            '<div id="' + getToolsId(conf.id, type) + '" class="modal fade" tabindex="-1">\n' +
             '    <div class="modal-header">\n' +
             '        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>\n' +
-            '        <h4 class="modal-title">' + name + '</h4></div>\n' +
+            '         <h4 class="modal-title">' + name + '</h4></div>\n' +
             '    <form action="#" class="horizontal-form" novalidate="novalidate">\n' +
             '        <div class="modal-body">' + toolsPageBody(type, conf) + '</div>\n' +
             '        <div class="modal-footer">\n' +
@@ -299,7 +325,7 @@
             '            <button class="btn green-meadow" type="submit">保存</button>\n' +
             '        </div>\n' +
             '    </form>\n' +
-            '</div>';
+            '</div>'
     }
 
     function toolsPageBody(type, conf) {
@@ -307,7 +333,7 @@
             return '<div class="row">\n' +
                 '    <div id="moveTree_' + conf.id + '" class="tree-demo col-md-offset-2" style="margin-bottom:20px"></div>\n' +
                 '    <div id="moveSelect" class=" col-md-5" style="padding:0;margin-left:80px"></div>\n' +
-                '</div>';
+                '</div>'
         } else {
             if (type === "create") {
                 return userPageHtml;
@@ -330,7 +356,7 @@
             '        <button class="btn default" data-dismiss="modal" aria-hidden="true">取消</button>\n' +
             '        <button class="btn green-meadow" id="deleteUserBtn">确定</button>\n' +
             '    </div>\n' +
-            '</div>';
+            '</div>'
     }
 
     function passwordModal(conf, type, name) {
@@ -341,18 +367,21 @@
         return '<div id="' + getToolsId(conf.id, type) + '" class="modal fade" tabindex="-1">\n' +
             '    <div class="modal-header">\n' +
             '        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>\n' +
-            '        <h4 class="modal-title">' + name + '</h4></div>\n' +
+            '         <h4 class="modal-title">' + name + '</h4></div>\n' +
             '    <div class="modal-body">\n' +
             '        <form id="resetForm" class="form-horizontal" role="form">\n' +
             '            <div class="form-body">\n' +
-            '                <div class="form-group">\n' +
+            '                <div class="form-group"> \n' +
             '                    <label for="passwd" class="col-md-5 control-label">请输入新的密码：</label>\n' +
-            '                    <div class="col-md-7"><input type="password" id="passwd" name="passwd" class="form-control input-inline input-medium">\n' +
-            '                    </div>\n' +
-            '                </div>\n' +
-            '                <div class="form-group">\n' +
-            '                    <label for="confirm_passwd" class="col-md-5 control-label">请再次输入新的密码：</label>\n' +
             '                    <div class="col-md-7">\n' +
+            '                        <input type="password" id="passwd" name="passwd" class="form-control input-inline input-medium">\n' +
+            '                    </div>\n' +
+            '                    \n' +
+            '                </div>\n' +
+            '                \n' +
+            '                <div class="form-group"> \n' +
+            '                    <label for="confirm_passwd" class="col-md-5 control-label">请再次输入新的密码：</label>\n' +
+            '                    <div class="col-md-7"> \n' +
             '                        <input type="password" id="confirm_passwd" name="confirm_passwd" class="form-control input-inline input-medium">\n' +
             '                    </div>\n' +
             '                </div>\n' +
@@ -363,12 +392,12 @@
             '            </div>\n' +
             '        </form>\n' +
             '    </div>\n' +
-            '</div>';
+            '</div>'
     }
 
     function panksLeft(conf) {
         return '<div class="profile-sidebar">\n' +
-            '    <div class="portlet '+portletColor+' box">\n' +
+            '    <div class="portlet ' + portletColor + ' box">\n' +
             '        <div class="portlet-title">\n' +
             '            <div class="caption"><i class="fa fa-users"></i>组织结构导</div>\n' +
             '            <div class="tools"><a href="javascript:;" class="collapse"> </a></div>\n' +
@@ -377,7 +406,7 @@
             '            <div id="tree_' + conf.id + '" class="tree-demo"></div>\n' +
             '        </div>\n' +
             '    </div>\n' +
-            '</div>';
+            '</div>'
     }
 
     function panksRight() {
@@ -545,7 +574,7 @@
             focusInvalid: false,
             ignore: "",
             rules: {passwd: {required: true}, confirm_passwd: {equalTo: selector + " #passwd"}},
-            messages: {passwd: {required: "用户密码必须填写."}, confirm_passwd: {equalTo: "两次输入密码不一致。"}},
+            messages: {passwd: {required: "用户密码必须填写."}, confirm_passwd: {equalTo: "两次输入密码不一致。"},},
             highlight: function (element) {
                 $(element).closest(".form-group").addClass("has-error");
             },
@@ -569,8 +598,8 @@
         });
     }
 
-    function getData(id) {
-        var listIndex = $('input[type="checkbox"]:checked').parents("tr").children().last().text();
+    function getData(id , selector) {
+        var listIndex =$('#datatable_35 input[type="checkbox"]:checked').parents("tr").children().last().text();
         $.ajax({
             type: "get",
             url: "/bin/user/usercreate.jcp?dept_id=" + id + "&type=edit&userId=" + listIndex,
@@ -579,9 +608,22 @@
                 var res = data[0];
                 loadData(res);
                 initSelect(res);
+                setImageSrc(res.photo || "" , selector);
                 $("#moveSelect").select2("val", res.roleId);
             }
         });
+    }
+    
+    function setImageSrc(path , selector){
+        if(path){
+            var src = "" , name = "";
+            if(PageSystem.isObject(path))
+                src = "/lib/upload/download.jcp?fileid=" + path.id + "&r=" + Math.random() , name = path.value;
+            else
+                src = name = path;
+            $(".user-icon" , selector).attr("src", src);
+            $("#photo_text" , selector).val(name);
+        }
     }
 
     function loadData(jsonStr) {
@@ -593,14 +635,14 @@
             $("[name='" + key + "'],[name='" + key + "[]']").each(function () {
                 tagName = $(this)[0].tagName;
                 type = $(this).attr("type");
-                if (tagName === "INPUT") {
-                    if (type === "radio") {
-                        $(this).attr("checked", $(this).val() === value);
+                if (tagName == "INPUT") {
+                    if (type == "radio") {
+                        $(this).attr("checked", $(this).val() == value);
                     } else {
-                        if (type === "checkbox") {
+                        if (type == "checkbox") {
                             arr = value.split(",");
                             for (var i = 0; i < arr.length; i++) {
-                                if ($(this).val() === "y") {
+                                if ($(this).val() == "y") {
                                     $(this).attr("checked", true);
                                     break;
                                 }
@@ -648,7 +690,7 @@
                     id: getToolsId(conf.id, "move")
                 }, {name: "重置密码", id: getToolsId(conf.id, "reset")}],
                 columns: ["姓名", "部门", "角色", "登录名", "电话", "注册时间", "用户ID"],
-                portletCss: "box "+portletColor,
+                portletCss: "box " + portletColor,
                 portletTitleCss: "user",
                 id: conf.id
             });
@@ -804,7 +846,7 @@
                             if (rows.length === 1) {
                                 $(tag).modal("show");
                                 initUeserForm(tag, {}, "#datatable_" + conf.id);
-                                getData(currentSelectDeptId);
+                                getData(currentSelectDeptId , tag);
                             } else {
                                 Metronic.alert({
                                     type: "danger",
@@ -859,6 +901,29 @@
                         }
                     }
                     return false;
+                });
+                $("input[type='file']").fileupload({
+                    type: "post",
+                    url: "/bin/upload/upload.jcp",
+                    sequentialUploads: true,
+                    multipart: true,
+                    formData: {file: ""},
+                    dataType: "json",
+                    done: function (e, data) {
+                        switch (e.target.getAttribute("data-type")) {
+                            case"photo":
+                                $(".user-icon" , $(e.target).parent().parent()).attr("src", data.result.path);
+                                $(e.target).siblings("#photo").val(data.result.path);
+                                $(e.target).siblings("#photo_text").val(data.result.path);
+                                break;
+                        }
+                    }
+                });
+                 $(".usericon-cancel-btn").on("click",function(e){
+                     e.preventDefault();
+                     var $this=e.target;
+                     $($this).siblings("div").children("img").attr("src","");
+                     $($this).siblings("span").children("#photo_text").val("");
                 });
             });
         }

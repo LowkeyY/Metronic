@@ -12,24 +12,25 @@
 /* global PageTile, PageSidebar */
 
 var PageSystem = function () {
-    var userConfig = {} , PotalVersion = "1.0", colors = ['blue', 'green', 'yellow', 'purple', 'red','grey-cascade'];
+    var userConfig = {} , PotalVersion = "1.0", colors = ['blue' , 'green', 'yellow', 'purple' , 'red' , 'red-pink' , 'grey-cascade'];
 
     function getColor(){
         colors = colors.concat(colors[0]);
         return colors.shift(0);
     }
+
     function isArray(o){
         return Object.prototype.toString.call(o) === '[object Array]';
     }
-    
+
     function isObject(o){
         return o && Object.prototype.toString.apply(o) === "[object Object]";
     }
-    
+
     function isPotal(conf){
         return isObject(conf) && conf.hasOwnProperty("sys_app_id");
     }
-    
+
     function isSystemMenus(conf){
         return isObject(conf) && conf.hasOwnProperty("submenu") && isArray(conf.submenu);
     }
@@ -41,57 +42,42 @@ var PageSystem = function () {
     }
 
     function getPotalBaseConf(conf){
-        if(isPotal(conf))
-            return Object.assign({
-                    appid : conf.sys_app_id,
-                    apptoken : conf.default_token
-            } , getUserBaseConf())
+        if(isPotal(conf)){
+            var result = getUserBaseConf();
+            result["appid"] = conf.sys_app_id;
+            result["apptoken"] = conf.default_token;
+            return result;
+        }
         return {};
     }
 
     function getUserBaseConf(){
-            var o = {} , tk = userConfig.userToken;
-            if(tk && (tk = tk.split("::")).length > 1){
-                o["username"] = tk[0];
-                o["userpwd"] = tk[1];
-            }
-            return o;
+        var o = {} , tk = userConfig.userToken;
+        if(tk && (tk = tk.split("::")).length > 1){
+            o["username"] = tk[0];
+            o["userpwd"] = tk[1];
+        }
+        return o;
     }
 
     function replaceBaseParam(url , o){
         if(!o) o = getUserBaseConf();
         while(r = /@\[(.+?)\]/ig.exec(url)){
-                var v = r[1];
-                if(!(v && (v = o[v.toLowerCase()])))
-                        v = "";
-                url = url.replace(r[0] , v)
+            var v = r[1];
+            if(!(v && (v = o[v.toLowerCase()])))
+                v = "";
+            url = url.replace(r[0] , v)
         }
         return url;
     }
-    function openWithBlank(url){
-        try{
-            var iframe = document.createElement("iframe") , tagA = document.createElement("a");
-            document.body.appendChild(iframe);
-            tagA.setAttribute("href", url);
-            tagA.setAttribute("target", "_blank");
-            iframe.contentWindow.document.body.appendChild(tagA);
-            tagA.click();
-            setTimeout(function() {
-                document.body.removeChild(iframe);
-            }, 200);
-        } catch(e){
-            var curWindow = window.open("" , "_blank");
-            curWindow.opener = null;
-            curWindow.location = url;
-        }
-    }
+
     function packPotalConfig(conf){
         var o = getPotalBaseConf(conf);
         for(var att in conf)
             if(conf.hasOwnProperty(att) && /(_url|_value)$/i.test(att))
                 conf[att] = replaceBaseParam(conf[att] , o);
     }
-    
+
     function packMenuIcon(icon , defaultIcon){
         return icon || defaultIcon || "tag";
     }
@@ -111,22 +97,22 @@ var PageSystem = function () {
         result.isIframe = isIframe(result.path);
         return result;
     }
-    
+
     function packSysMenus(conf){
         conf.isIframe = false;
         conf.sideIcon = "settings";
         conf.isImgSideicon = false;
         $.each(conf.submenu, function (i , item) {
-                packSysMenu(item);
-            });
+            packSysMenu(item);
+        });
         return conf;
     }
-    
+
     function packSysMenu(conf){
-       conf.path = 'metronic.'+conf.path;
+        conf.path = 'metronic.'+conf.path;
         conf.isIframe = false;
     }
-    
+
     function getMenuItems(items){
         var result = [];
         if(items && items.length)
@@ -137,7 +123,7 @@ var PageSystem = function () {
             });
         return result;
     }
-    
+
     function getConfig() {
         $.ajax({
             type: "post",
@@ -150,8 +136,9 @@ var PageSystem = function () {
                     if (menuItems.length) {
                         PageSidebar.doLayout(menuItems);
                         PageTile.doLayout(menuItems);
+                        PageTopMenu.doLayout();
                     }
-                    
+
                     if(userConfig.hasOwnProperty("user_id")){
                         if(userConfig.user_id.match(/^(0|1)$/))
                             $("#person-info-box").hide();
@@ -162,6 +149,8 @@ var PageSystem = function () {
                         $('.username', '.top-menu .dropdown.dropdown-user').html(userConfig.real_name);
                         $("#LoginuserName").html(userConfig.real_name);
                     }
+                    var sysStyleColor = "light2";
+                    $("#style_color").attr("href", "/metronic/assets/admin/layout/css/themes/" + sysStyleColor + ".css");
                 }
             },
             error: function () {
@@ -179,6 +168,26 @@ var PageSystem = function () {
                 $('<link></link>').attr({src: src, type : 'text/css', rel : 'stylesheet'}).appendTo($('head'));
         }
     }
+
+
+    function openWithBlank(url){
+        try{
+            var iframe = document.createElement("iframe") , tagA = document.createElement("a");
+            document.body.appendChild(iframe);
+            tagA.setAttribute("href", url);
+            tagA.setAttribute("target", "_blank");
+            iframe.contentWindow.document.body.appendChild(tagA);
+            tagA.click();
+            setTimeout(function() {
+                document.body.removeChild(iframe);
+            }, 200);
+        } catch(e){
+            var curWindow = window.open("" , "_blank");
+            curWindow.opener = null;
+            curWindow.location = url;
+        }
+    }
+
     return {
         init: function () {
             getConfig();
@@ -188,13 +197,10 @@ var PageSystem = function () {
             load('s' , src);
         },
         loadCSS : function(src){
-           load('c' , src);
+            load('c' , src);
         },
         get:function(key){
             return userConfig[key] || '';
-        },
-        userConfig:function () {
-            return userConfig
         },
         version : function(){
             return PotalVersion;
@@ -205,6 +211,12 @@ var PageSystem = function () {
         },
         getColor : function(){
             return getColor();
+        },
+        isArray : function(o){
+            return isArray(o);
+        },
+        isObject : function(o){
+            return isObject(o);
         }
     };
 }();

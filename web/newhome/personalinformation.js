@@ -1,6 +1,5 @@
 +(function ($) {
     PageSystem.loadJS("/metronic/assets/global/plugins/jquery-validation/js/jquery.validate.min.js");
-
     function initResetForm(selector) {
         var form = $("#resetPwd");
         var resetVaildate=form.validate({
@@ -87,7 +86,6 @@
                     url: "./system/setup.jcp",
                     data: ifm,
                     success: function (res) {
-                        console.log(res);
                         toastr.success("修改成功");
                         $(selector).modal("hide");
                     }
@@ -99,11 +97,21 @@
             resetVaildate.resetForm();
         });
     }
-
+    function setImageSrc(path , selector){
+        if(path){
+            var src = "" , name = "";
+            if(PageSystem.isObject(path))
+                src = "/lib/upload/download.jcp?fileid=" + path.id + "&r=" + Math.random() , name = path.value;
+            else
+                src = name = path;
+            $(".user-icon" , selector).attr("src", src);
+            $("#photo_text" , selector).val(name);
+        }
+    }
     function getData() {
         $.ajax({
             type: "post",
-            url: "./system/setup.jcp?",
+            url: "../home/system/setup.jcp?",
             data: {
                 moduleId: "preferences",
                 task: "load",
@@ -112,7 +120,8 @@
             dataType: "json",
             success: function (data) {
                 if(data){
-                    loadData(data[0])
+                    loadData(data[0]);
+                    setImageSrc(data[0].photo || "" , "div");
                 }
             }
         });
@@ -151,13 +160,10 @@
         }
     }
     function getSysConf() {
-
         $.ajax({
             url:"../login/logout.jcp"
         })
-
     }
-
     $("#person-info-box").on("click", function (e) {
         e.preventDefault();
         $("#resetPwd input").val("");
@@ -165,7 +171,6 @@
         tag.modal("show");
         getData();
     });
-
     $(document).on("click", "#resetPwdBtn",function (e) {
             var tag = $("#information");
             initResetForm(tag);
@@ -197,9 +202,7 @@
         })
     });
     $(document).on("click","#unlocked",function (e) {
-
                 e.preventDefault()
-
                 var username=PageSystem.userConfig().user_name
                 var password = $("#usrPwd").val();
                 password=hex_md5(password)
@@ -221,7 +224,13 @@
                         }
                     }
                 });
-    })
+    });
 
+    $(document).on("click",".usericon-cancel-btn",function(e){
+        e.preventDefault();
+        var $this=e.target;
+        $($this).siblings("div").children("img").attr("src","");
+        $($this).siblings("span").children("#photo_text").val("");
+    });
 
 })(jQuery);

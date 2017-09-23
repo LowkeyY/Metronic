@@ -14535,14 +14535,14 @@ Transparent Button
 .nav-tabs > li > i , .nav-pills > li > i{
     position: absolute;
     z-index: 10;
-    top:3px;
-    right:0;
-    color: #4276a4;
+    top:1px;
+    right:3px;
+    color: rgba(87, 79, 87, 0.35);
     cursor: pointer;
 }
 #menu-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
   border-bottom: 2px solid #ec610f;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 400;
 }
 

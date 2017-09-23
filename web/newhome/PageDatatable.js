@@ -112,7 +112,7 @@ var PageDatatable = function (id) {
                              '<div class="form-group form-md-line-input has-info form-md-floating-label" style="margin-bottom:0">\n' +
                                  '<div class="row">'+
                                      '<div class="col-md-5 col-lg-offset-7">'+
-                                           '<div class="col-md-4" style="padding-right: 0">'+
+                                           '<div class="col-md-4" style="padding-right: 5px">'+
                                                 '<select class="form-control edited" id="form_control_1'+o.id+'" >\n' +
                                                   '\t\t\t\t\t\t\t\t\t\t\t<option value="1" selected="">用户名</option>\n' +
                                                          '\t\t\t\t\t\t\t\t\t\t\t<option value="2">真实姓名</option>\n' +
@@ -120,7 +120,7 @@ var PageDatatable = function (id) {
                                                       '\t\t\t\t\t\t\t\t\t\t\t<option value="4">用户ID</option>\n' +
                                                                   '\t\t\t\t\t\t\t\t\t\t</select>'+
                                            '</div>'+
-                                               '<div class="col-md-8" style="padding-left: 0">'+
+                                               '<div class="col-md-8" style="padding-left:15px">'+
                            '\t\t\t\t\t\t\t\t\t\t<div class="input-group input-group-sm"  style="margin-top:4px">\n' +
                               '\t\t\t\t\t\t\t\t\t\t\t<div class="input-group-control">\n' +
                                   '\t\t\t\t\t\t\t\t\t\t\t\t<input type="text" class="form-control input-sm" id="searchText'+o.id+'">\n' +

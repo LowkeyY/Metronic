@@ -120,10 +120,13 @@ import com.susing.upload.FileExtend;
 		Param param=new Param(jacper);//大字段传来时，post过来的参数jacper取不到。
 		Connection conCert = param.getConnection("cert");
 		EFile uf=null;
+                String user_id = "";
 		try{
 			if (FileExtend.isFileUpload(param)) {
 				uf = param.getEFile("photo");
-			}
+                                user_id = param.getStr("userId");
+			} else 
+                            user_id = jacper.getStr("userId");
 		}catch(Exception e){
 			<?{success:false,message:"?>e.getMessage()<?"}?>;
 			return;
@@ -132,13 +135,11 @@ import com.susing.upload.FileExtend;
 
                 if("".equals(param.getStr("creatorId")))
                     param.put("creatorId", String.valueOf(jacper.getSession().uid));
-	
-		String user_id = jacper.getString("userId");
+                System.out.println(" userId : " + user_id);
 		User user =null;
 		if(user_id!=null && user_id.length()>0){
 			user=CertManager.getUser(user_id);
 		}
-	
 		try{
 			if(type.equals("save")||type.equals("updatesave")){
 				if(type.equals("save")){	

@@ -1,7 +1,7 @@
-/* global PageSystem, x, Metronic */
+
 
 (function () {
-    var datatableHead = "", numberCounts = 1, currentSelectDeptId = "",portletColor = PageSystem.getColor();
+    var datatableHead = "", numberCounts = 1, currentSelectDeptId = "",portletColor = PageSystem.getColor(),roleArray=[];
     positionArray = [{text: "副省级", id: "26"}, {text: "正省级", id: "25"}, {text: "正厅级", id: "50"}, {
         text: "厅级",
         id: "60"
@@ -90,7 +90,7 @@
             '    </form>\n' +
             '</div>\n';
     }
-
+   
     function deleteModal(conf, type) {
         if (!conf || !type) {
             return "";
@@ -299,7 +299,7 @@
                     id: getToolsId(conf.id, "edit")
                 }, {name: "删除职位", icon: "times", id: getToolsId(conf.id, "delete")}],
                 columns: ["职位名称", "称谓", "级别", "注册日期", "序号"],
-                portletCss: "box "+portletColor,
+                portletCss: "box "+ portletColor,
                 portletTitleCss: "user"
             });
             appendHtml(panks(conf), function () {
@@ -323,12 +323,15 @@
                             dataType: "json",
                             success: function (result) {
                                 var returnData = {};
+                                var arr=result.dataItem;
                                 returnData.draw = 0;
                                 returnData.recordsTotal = result.totalCount;
                                 returnData.recordsFiltered = result.totalCount;
                                 returnData.data = result.dataItem;
                                 callback(returnData);
                                 table.reUniform();
+                                console.log(PageSystem.prototype)
+    
                             }
                         });
                     }

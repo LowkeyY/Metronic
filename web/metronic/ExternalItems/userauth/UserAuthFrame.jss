@@ -1,12 +1,32 @@
 (function () {
-    var datatableHead = "", currentSelectDeptId = "", datas = [];
+    var datatableHead = "", currentSelectDeptId = "", datas = [], portletColor = PageSystem.getColor();
 
     function panks(conf) {
-        return '<div class="row" id="module_' + conf.id + '">' + '    <div class="col-md-12">' + '	<div class="portlet">' + '	    <div class="portlet-title">' + '		<div class="caption">' + '		    <i class="fa fa-user"></i>用户权限' + "		</div>" + '		<div class="tools">' + '                   <a href="javascript;" class="fullscreen" data-original-title="" title="">' + "                   </a>" + "		</div>" + "	    </div>" + '	    <div class="portlet-body">' + panksLeft(conf) + panksRight() + "           </div>" + "       </div>" + "   </div>" + "</div>";
+        return '<div class="row" id="module_' + conf.id + '">\n' +
+            '    <div class="col-md-12">\n' +
+            '        <div class="portlet">\n' +
+            '            <div class="portlet-title">\n' +
+            '                <div class="caption"><i class="fa fa-user"></i>用户权限</div>\n' +
+            '                <div class="tools"><a href="javascript;" class="fullscreen" data-original-title="" title=""> </a></div>\n' +
+            '            </div>\n' +
+            '            <div class="portlet-body">' + panksLeft(conf) + panksRight() + '</div>\n' +
+            '        </div>\n' +
+            '    </div>\n' +
+            '</div>'
     }
 
     function panksLeft(conf) {
-        return '<div class="profile-sidebar">' + '    <div class="portlet red-pink box">' + '        <div class="portlet-title">' + '            <div class="caption">' + '                <i class="fa fa-users"></i>省政府办公厅' + "            </div>" + '            <div class="tools">' + '                <a href="javascript:;" class="collapse">' + "                </a>" + "            </div>" + "        </div>" + '        <div class="portlet-body">' + '            <div id="tree_' + conf.id + '" class="tree-demo">' + "            </div>" + "        </div>" + "    </div>" + "</div>";
+        return '<div class="profile-sidebar">\n' +
+            '    <div class="portlet '+portletColor+' box">\n' +
+            '        <div class="portlet-title">\n' +
+            '            <div class="caption"><i class="fa fa-users"></i>省政府办公厅</div>\n' +
+            '            <div class="tools"><a href="javascript:;" class="collapse"> </a></div>\n' +
+            '        </div>\n' +
+            '        <div class="portlet-body">\n' +
+            '            <div id="tree_' + conf.id + '" class="tree-demo"></div>\n' +
+            '        </div>\n' +
+            '    </div>\n' +
+            '</div>'
     }
 
     function panksRight() {
@@ -28,19 +48,19 @@
                     var arr = data.data;
                     var col = ["ID", "姓名", "部门"];
                     var item = [{
-                        "render": function () {
+                        render: function () {
                             return '<input type="checkbox" class="checkboxes"  value="" >';
                         }
-                    }, {"data": "index", "orderable": false}, {
-                        "data": "real_name",
-                        "orderable": true
-                    }, {"data": "dept_name", "orderable": false}];
+                    }, {data: "index", orderable: false}, {data: "real_name", orderable: true}, {
+                        data: "dept_name",
+                        orderable: false
+                    }];
                     arr.map(function (i) {
                         col.push(i.text);
                         item.push({
-                            "render": function (data, type, row, meta) {
+                            render: function (data, type, row, meta) {
                                 return '<input type="checkbox" class="check" ' + (row[i.id] === true ? "checked" : "") + ' value="' + i.id + '" >';
-                            }, "orderable": false
+                            }, orderable: false
                         });
                     });
                     var table = new PageDatatable(conf.id);
@@ -48,27 +68,27 @@
                         title: "用户权限",
                         tools: [{name: "保存", id: "authSave"}, {name: "还原", icon: "times", id: "return"}],
                         columns: col,
-                        portletCss: "box red-pink",
+                        portletCss: "box "+portletColor,
                         portletTitleCss: "user",
                         id: conf.id
                     });
                     appendHtml(panks(conf), function () {
                         $("#tree_" + conf.id).jstree({
-                            "core": {
-                                "themes": {"responsive": false},
-                                "check_callback": true,
-                                "data": {
-                                    "url": "/bin/user/_getOrg.jjs", "data": function (node) {
-                                        return {"parent": node.id};
+                            core: {
+                                themes: {responsive: false},
+                                check_callback: true,
+                                data: {
+                                    url: "/bin/user/_getOrg.jjs", data: function (node) {
+                                        return {parent: node.id};
                                     }
                                 }
                             },
-                            "types": {
-                                "default": {"icon": "fa fa-folder icon-state-warning icon-lg"},
-                                "file": {"icon": "fa fa-file icon-state-warning icon-lg"}
+                            types: {
+                                "default": {icon: "fa fa-folder icon-state-warning icon-lg"},
+                                file: {icon: "fa fa-file icon-state-warning icon-lg"}
                             },
-                            "state": {"key": "demo3"},
-                            "plugins": ["state", "types"]
+                            state: {key: "demo3"},
+                            plugins: ["state", "types"]
                         }).on("changed.jstree", function (e, data) {
                             if (data && data.selected && data.selected.length) {
                                 currentSelectDeptId = data.selected[0];
@@ -77,12 +97,12 @@
                             }
                         });
                         table.initDatatable({
-                            "columns": item,
-                            "pageLength": 10,
-                            "pagingType": "bootstrap_full_number",
-                            "columnDefs": [{"targets": [0], "visible": false}],
-                            "order": [[1, "desc"]],
-                            "ajax": function (data, callback, settings) {
+                            columns: item,
+                            pageLength: 10,
+                            pagingType: "bootstrap_full_number",
+                            columnDefs: [{targets: [0], visible: false}],
+                            order: [[1, "desc"]],
+                            ajax: function (data, callback, settings) {
                                 if (!currentSelectDeptId) {
                                     return;
                                 }

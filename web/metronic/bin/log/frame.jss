@@ -49,7 +49,7 @@
         return  '		<div class="table-toolbar">' +
                 '		    <div class="row">' +
                 '			<div class="col-md-12">' +
-                '                           <div class="col-md-3">'+
+                '                           <div class="col-md-6">'+
                 '                              <div class="input-group input-large date-picker input-daterange" data-date="2012/10/11" data-date-format="yyyy/mm/dd">'+
                 '                                 <input type="text"  id="fTime_'+moduleId+'" class="form-control" name="fTime" placeholder="开始时间">'+
                 '                                  <span class="input-group-addon"> 至 </span>'+

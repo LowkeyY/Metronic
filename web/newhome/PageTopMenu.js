@@ -133,14 +133,15 @@ var PageTopMenu = function () {
         '                                                        <div class="fileinput-preview thumbnail"\n' +
         '                                                             data-trigger="fileinput"\n' +
         '                                                             style="width: 100px; height: 100px; line-height: 150px;font-size: 14px;padding: 1px;border: 2px solid #eeeeee">\n' +
-        '                                                            <img id="e" src="" alt="" style="width:100%;height:100%">\n' +
+        '                                                            <img class="user-icon" src="" alt="" style="width:100%;height:100%">\n' +
         '                                                        </div>\n' +
         '                                                        <span class="btn blue fileinput-button">                    <i\n' +
-        '                                                                class="fa fa-plus"></i>                                                    <span>选择图片</span>                                                    <input\n' +
-        '                                                                type="file" name="file">                                                     <input\n' +
-        '                                                                type="hidden" value="" name="default_icon_url" id="">                </span>\n' +
+        '                                                             class="fa fa-plus"></i>                                                    <span>选择图片</span>                          <input\n' +
+        '                                                                type="file" data-type="photo" name="file" id="user-information-icon">                                                     <input\n' +
+        '                                                       type="hidden"  value="" name="photo_text" id="photo_text">' +
+        '                 <input type="hidden" value="" name="photo" id="photo">' +               ' </span>\n' +
         '                                                        <a href="javascript:;"\n' +
-        '                                                           class="btn blue fileinput-exists"\n' +
+        '                                                           class="btn blue fileinput-exists usericon-cancel-btn"\n' +
         '                                                           data-dismiss="fileinput">\n' +
         '                                                            取消 </a></div>\n' +
         '                                                </div>\n' +
@@ -258,7 +259,27 @@ var PageTopMenu = function () {
         //main function to initiate the module
         init: function (selector) {
             this.selector = selector || '.top-menu .nav';
+        },
+        doLayout:function () {
             layoutByConfig(this.selector);
+            $("#user-information-icon").fileupload({
+                type: "post",
+                url: "/bin/upload/upload.jcp",
+                sequentialUploads: true,
+                multipart: true,
+                formData: {file: ""},
+                dataType: "json",
+                done: function (e, data) {
+                    console.log( data.result.path);
+                    switch (e.target.getAttribute("data-type")) {
+                        case"photo":
+                            $(".user-icon" , $(e.target).parent().parent()).attr("src", data.result.path);
+                            $(e.target).siblings("#photo").val(data.result.path);
+                            $(e.target).siblings("#photo_text").val(data.result.path);
+                            break;
+                    }
+                }
+            });
         }
 
     };

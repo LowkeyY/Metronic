@@ -9,7 +9,7 @@ import com.susing.EFile;
 import com.susing.core.KingleSystem;
 import com.susing.upload.FileExtend;
 import com.susing.upload.FileUpload;
-
+//public class A0_Jcp{
 @class{
 	public void doPost(Jacper jacper) {
 
@@ -26,6 +26,7 @@ import com.susing.upload.FileUpload;
 		EFile efile = param.getEFile("file");
 
 		String path = buildFilePath(param.getString("path", ""));
+                System.out.println("buildFilePath : " + path);
 
 		if (!"".equals(path) && efile != null) {
 			String newFilename = getNewFilename(FileExtend.getSuffix(efile.getAttribute("file-name")));
@@ -41,12 +42,7 @@ import com.susing.upload.FileUpload;
 	}
 
 	public String buildFilePath(String path) {
-		System.out.println("0 : " + path);
-		if ("".equals(path))
-                    path = (String) KingleSystem.getProperty("temp_path");
-		else
-                    path = (String) KingleSystem.getProperty("upload_path") + (path.matches("^[/|\\\\](.+?)") ? path : "/" + path);
-		System.out.println("1 : " + path);
+		path = (String) KingleSystem.getProperty("upload_path") + (path.matches("^[/|\\\\](.+?)") ? path : "/" + path);
 		File filePath = new File(path);
 		return filePath.exists() ? path : filePath.mkdirs() ? path : "";
 	}
@@ -72,9 +68,10 @@ import com.susing.upload.FileUpload;
 	}
 
 	public String getResultPath(String path) {
-		String jsLib = "D:/Platform/Project_Portal/build/web";
-		path = path.substring(jsLib.length());
 		path = path.replaceAll("\\\\", "/");
+                int strat = path.indexOf("/web/");
+		path = path.substring(strat == -1 ? 0 : strat + 4);
+                    System.out.println(path + " <> " + strat);
 		return path;
 	}
 }
