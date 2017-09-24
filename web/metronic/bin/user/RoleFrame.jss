@@ -64,7 +64,7 @@
             '    <div class="col-md-12">\n' +
             '        <div class="portlet">\n' +
             '            <div class="portlet-title">\n' +
-            '                <div class="caption"><i class="fa fa-user"></i>职位管理</div>\n' +
+            '                <div class="caption"><i class="fa fa-suitcase"></i>职位管理</div>\n' +
             '                <div class="tools"><a href="" class="fullscreen" data-original-title="" title=""></a></div>\n' +
             '            </div>\n' +
             '            <div class="portlet-body">' + panksRight() + '</div>\n' +
@@ -78,6 +78,8 @@
         }
         name = name || conf.title;
         return '<div id="' + getToolsId(conf.id, type) + '" class="modal fade" tabindex="-1">\n' +
+            '<div class="modal-dialog">'+
+            '<div class="modal-content">'+
             '    <div class="modal-header">\n' +
             '        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>\n' +
             '        <h4 class="modal-title">' + name + '</h4></div>\n' +
@@ -87,6 +89,8 @@
             '            <button class="btn default" data-dismiss="modal" aria-hidden="true">取消</button>\n' +
             '            <button class="btn green-meadow" type="submit">保存</button>\n' +
             '        </div>\n' +
+            '        </div>\n' +
+            '        </div>\n' +
             '    </form>\n' +
             '</div>\n';
     }
@@ -95,16 +99,20 @@
         if (!conf || !type) {
             return "";
         }
-        return '<div id="' + getToolsId(conf.id, type) + '" class="modal fade" tabindex="-1">\n' +
+        return '<div id="' + getToolsId(conf.id, type) + '" class="modal fade bs-modal-sm in" tabindex="-1">\n' +
+            '<div class="modal-dialog modal-sm">'+
+            '<div class="modal-content">'+
             '    <div class="modal-header">\n' +
             '        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>\n' +
             '    </div>\n' +
             '    <div class="modal-body"><h4>确定删除？</h4></div>\n' +
             '    <div class="modal-footer">\n' +
             '        <button class="btn default" data-dismiss="modal" aria-hidden="true">取消</button>\n' +
-            '        <button class="btn green-meadow" id="deleteBtn">确定</button>\n' +
+            '        <button class="btn green-meadow" id="deleteRoleBtn">确定</button>\n' +
             '    </div>\n' +
-            '</div>\n';
+            '    </div>\n' +
+            '    </div>\n' +
+            '</div>'
     }
 
     function toolsPageBody(type) {
@@ -297,10 +305,10 @@
                     name: "修改职位",
                     icon: "edit",
                     id: getToolsId(conf.id, "edit")
-                }, {name: "删除职位", icon: "times", id: getToolsId(conf.id, "delete")}],
+                }, {name: "删除职位", icon: "trash", id: getToolsId(conf.id, "delete")}],
                 columns: ["职位名称", "称谓", "级别", "注册日期", "序号"],
                 portletCss: "box "+ portletColor,
-                portletTitleCss: "user"
+                portletTitleCss: "suitcase"
             });
             appendHtml(panks(conf), function () {
                 table.initDatatable({
@@ -343,7 +351,7 @@
                         if (deleteRows.length === 1) {
                             $(tag).modal("show");
                             initRoleForm(tag, {}, "#datatable_" + conf.id);
-                            $("#deleteBtn").on("click", function () {
+                            $("#deleteRoleBtn").on("click", function () {
                                 $(tag).modal("hide");
                                 deleteList(currentSelectDeptId);
                                 var dt = $("#datatable_" + conf.id).DataTable();

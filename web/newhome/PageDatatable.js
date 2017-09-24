@@ -111,7 +111,7 @@ var PageDatatable = function (id) {
                 '        <div class="select-box row">' +
                              '<div class="form-group form-md-line-input has-info form-md-floating-label" style="margin-bottom:0">\n' +
                                  '<div class="row">'+
-                                     '<div class="col-md-5 col-lg-offset-7">'+
+                                     '<div class="col-md-7 pull-right">'+
                                            '<div class="col-md-4" style="padding-right: 5px">'+
                                                 '<select class="form-control edited" id="form_control_1'+o.id+'" >\n' +
                                                   '\t\t\t\t\t\t\t\t\t\t\t<option value="1" selected="">用户名</option>\n' +

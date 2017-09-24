@@ -197,16 +197,15 @@
             overlayCSS:  {
                 backgroundColor: '#000',
                 opacity:         0.9,
-                cursor:          'wait'
+                cursor:          'default'
             }
         })
     });
     $(document).on("click","#unlocked",function (e) {
                 e.preventDefault()
-                var username=PageSystem.userConfig().user_name
+                var username=PageSystem.get("user_name")
                 var password = $("#usrPwd").val();
                 password=hex_md5(password)
-                 console.log(usrPwd)
                var data={
                    username:username,
                    password:password

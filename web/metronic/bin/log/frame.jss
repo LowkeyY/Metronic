@@ -49,13 +49,13 @@
         return  '		<div class="table-toolbar">' +
                 '		    <div class="row">' +
                 '			<div class="col-md-12">' +
-                '                           <div class="col-md-6">'+
+          
                 '                              <div class="input-group input-large date-picker input-daterange" data-date="2012/10/11" data-date-format="yyyy/mm/dd">'+
                 '                                 <input type="text"  id="fTime_'+moduleId+'" class="form-control" name="fTime" placeholder="开始时间">'+
                 '                                  <span class="input-group-addon"> 至 </span>'+
                 '                                   <input type="text"  id="sTime_'+moduleId+'" class="form-control" name="sTime" placeholder="结束时间">'+
                 '                               </div>'+
-                '                           </div>'+
+             
                 '                           <div class="col-md-2">' +
                 '                               <div class="clearfix">' +
                 '                                   <button id="btn_' + moduleId + '_search" class="btn yellow">' +

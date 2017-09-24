@@ -97,7 +97,7 @@
 /* Modal Overflow */
 
 .modal-overflow.modal {
-	top: 1%;
+	top:0%;
 }
 
 .modal-overflow.modal.fade {

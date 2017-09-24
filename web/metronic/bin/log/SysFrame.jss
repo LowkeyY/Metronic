@@ -27,7 +27,6 @@
                 '	    <div class="portlet-body">' +
                 '		<div class="table-toolbar">' +
                 '		    <div class="row">' +
-                '			<div class="col-md-12">' +
                 '                           <div class="col-md-2">' +
                 '                               <input class="form-control" id="loglevel_'+conf.id+'" name="loglevel_'+conf.id+'" type="hidden">' +
                 '                           </div>' +
@@ -41,18 +40,17 @@
                 '                                   <input type="text"  id="sTime_'+conf.id+'" class="form-control" name="sTime" placeholder="结束时间">'+
                 '                               </div>'+
                 '                           </div>'+
-                '                           <div class="col-md-3">' +
-                '                               <div class="clearfix">' +
+                '                               <div class="col-md-3 clearfix">' +
+                '                               <div class="row">' +
                 '                                   <button id="btn_' + conf.id + '_search" class="btn yellow">' +
                 '                                       过滤 <\i class="fa fa-search"></i>' +
                 '                                   </button>' +
                 '                                   <button id="btn_' + conf.id + '_infos" class="btn green" href="#system_' + conf.id + '_infos" data-toggle="modal">' +
                 '                                    详细信息 <i class="fa fa-info"></i>' +
                 '                                   </button>' +
-                '                               </div>' +
-                '                           </div>' +                   
+                '                               </div>' +   
+                '                               </div>' +   
                 '			</div>' +             
-                '		    </div>' +
                 '		</div>' +
                 '		<table class="table table-striped table-bordered table-hover" id="system_' + conf.id + '">' +
                 '		    <thead>' +

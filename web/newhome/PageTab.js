@@ -29,7 +29,7 @@ var PageTab = function () {
     function packsNav(config) {
         return  '<li>' +
             '<a href="#tab_' + getId(config) + '" data-toggle="tab" aria-expanded="true"> ' + getTitle(config) + ' </a>' +
-            '<i class="icon-close"></i>' +
+            '<i class="nav-close-icon">&#xe613;</i>' +
             '</li>';
     }
 

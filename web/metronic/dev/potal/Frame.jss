@@ -3,26 +3,26 @@
 
 
     function rightHtml() {
-        return '<div class="portlet box '+portletColor+' ">\n' +
-            '    <div class="portlet-title">\n' +
+        return '<form class="form-horizontal" role="form" id="baseForm">\n' + 
+            '<div class="portlet box '+portletColor+' ">\n' +
+            '    <div class="portlet-title row" style="margin-left:0;margin-right:0">\n' +
             '        <div class="caption">\n' +
-            '            <i class="fa fa-gift"></i>\n' +
+            '            <i class="fa fa-cubes"></i>\n' +
             '            集成管理\n' +
             '        </div>\n' +
+            '        <div class="clearfix" style="padding-top:5px;">\n' +
+            '        <div style="float:right">\n' +
+            '        <div>\n' +
+            '               <button type="submit" class="btn default" id="createSys"><i class="fa fa-edit"></i>保存</button>\n' +
+            '               <button type="submit" class="btn default" id="emptySys"><i class="fa fa-reply-all">清空</i></button>\n' +
+            '               <button type="button" class="btn default" id="deleteSys"><i class="fa fa-trash"></i>删除</button>\n' +
+            '               <button type="submit" class="btn default" id="send-data"><i class="fa fa-send"></i>发送全量数据</button>\n' +
+            '         </div>\n' +
+            '         </div>\n' +
+            '         </div>\n' +
             '    </div>\n' +
             '    <div class="portlet-body form">\n' +
-            '        <form class="form-horizontal" role="form" id="baseForm">\n' +
-            '            <div class="form-body">\n' +
-            '                <div style="margin-bottom:20px">\n' +
-            '                    <div class="row">\n' +
-            '                        <div class="col-md-offset-1 col-md-9">\n' +
-            '                            <button type="submit" class="btn red-pink " id="createSys">保存</button>\n' +
-            '                            <button type="submit" class="btn red-pink" id="emptySys">清空</button>\n' +
-            '                            <button type="submit" class="btn red-pink" id="deleteSys">删除</button>\n' +
-            '                            <button type="submit" class="btn red-pink" id="send-data">发送全量数据</button>\n' +
-            '                        </div>\n' +
-            '                    </div>\n' +
-            '                </div>\n' +
+            '            <div class="form-body"style="padding-left:25px">\n' +
             '                <div class="row">\n' +
             '                    <div class="col-md-12">\n' +
             '                        <div class="portlet gray">\n' +
@@ -243,7 +243,7 @@
             '                                            <legend style="font-size: 14px">桌面</legend>\n' +
             '                                            <div>\n' +
             '                                                <div class="form-group">\n' +
-            '                                                    <div class="row">\n' +
+            '                                                    <div class="row" style="margin:0">\n' +
             '                                                        <label class="col-md-5 control-label">\n' +
             '                                                            是否显示:\n' +
             '                                                        </label>\n' +
@@ -284,7 +284,7 @@
             '                                                </div>\n' +
             '                                                <div class="desktopImg-box" style="display:none">\n' +
             '                                                    <div class="form-group">\n' +
-            '                                                        <div class="row">\n' +
+            '                                                        <div class="row" style="margin:0">\n' +
             '                                                            <label class="col-md-5 control-label">图标:</label>\n' +
             '                                                            <div class="col-md-7">\n' +
             '                                                                <div class="fileinput fileinput-new" \n' +
@@ -326,7 +326,7 @@
             '                                            <legend style="font-size: 14px">开始菜单</legend>\n' +
             '                                            <div>\n' +
             '                                                <div class="form-group">\n' +
-            '                                                    <div class="row">\n' +
+            '                                                    <div class="row"  style="margin:0" >\n' +
             '                                                        <label class="col-md-5 control-label">是否显示:</label>\n' +
             '                                                        <div class="col-md-7">\n' +
             '                                                            <div class="form-group form-md-radios">\n' +
@@ -365,7 +365,7 @@
             '                                                </div>\n' +
             '                                                <div class="shortcutImg-box" style="display:none">\n' +
             '                                                    <div class="form-group">\n' +
-            '                                                        <div class="row">\n' +
+            '                                                        <div class="row" style="margin:0">\n' +
             '                                                            <label class="col-md-5 control-label">图标:</label>\n' +
             '                                                            <div class="col-md-7">\n' +
             '                                                                <div class="fileinput fileinput-new" \n' +
@@ -489,7 +489,7 @@
             '                                                </div>\n' +
             '                                            </div>\n' +
             '                                        </div>\n' +
-            '                                        <div id="information-box" style="display:block">\n' +
+            '                                        <div id="information-box" style="display:none">\n' +
             '                                            <div class="form-group">\n' +
             '                                                <label class="col-md-3 control-label" \n' +
             '                                                       for="face_app_url">链接地址：</label>\n' +
@@ -639,8 +639,8 @@
             '                </div>\n' +
             '            </div>\n' +
             '             ' + hiddenInfo() + '\n' +
-            '        </form>\n' +
             '    </div>\n' +
+            '        </form>\n' +
             '     <p style="color:#fff">\n' +
             '         （系统提供默认参数值(自动替换链接地址和参数值中匹配的内容)：用户账户: @[username] ; 用户密码(加密后) ：@[userpwd] ; 集成应用ID：@[appid];default_token : @[appdefault_token]）\n' +
             '     </p>\n' +
@@ -826,20 +826,20 @@
             '    <div class="col-md-12">\n' +
             '        <div class="portlet">\n' +
             '            <div class="portlet-title">\n' +
-            '                <div class="caption"><i class="fa fa-user"></i>组织机构管理</div>\n' +
+            '                <div class="caption"><i class="fa fa-cubes"></i>集成管理</div>\n' +
             '                <div class="tools"><a href="" class="fullscreen" data-original-title="" title=""> </a></div>\n' +
             '            </div>\n' +
             '            <div class="portlet-body">' + panksLeft(conf) + panksRight(conf) + '</div>'+
             '        </div>\n' +
             '    </div>\n' +
-            '</div>\n' + deleteModal() + sendDataModal();
+            '</div>\n' + deleteSysModal() + sendDataModal();
     }
 
     function panksLeft(conf) {
         return '<div class="profile-sidebar">\n' +
             '    <div class="portlet '+portletColor+' box">\n' +
             '        <div class="portlet-title">\n' +
-            '            <div class="caption"><i class="fa fa-users"></i>组织结构导航</div>\n' +
+            '            <div class="caption"><i class=fa fa-sitemap"></i>组织结构导航</div>\n' +
             '            <div class="tools"><a href="javascript:;" class="collapse"> </a></div>\n' +
             '        </div>\n' +
             '        <div class="portlet-body">\n' +
@@ -849,8 +849,10 @@
             '</div>'
     }
 
-    function deleteModal() {
-        return '<div id="deleteSysModal" class="modal fade" tabindex="-1">\n' +
+   function deleteSysModal(conf, type) {
+        return '<div id="deleteSysModal" class="modal fade bs-modal-sm in" tabindex="-1">\n' +
+            '<div class="modal-dialog modal-sm">'+
+            '<div class="modal-content">'+
             '    <div class="modal-header">\n' +
             '        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>\n' +
             '    </div>\n' +
@@ -859,17 +861,19 @@
             '        <button class="btn default" data-dismiss="modal" aria-hidden="true">取消</button>\n' +
             '        <button type="button" class="btn green-meadow" id="deleteSysBtn">确定</button>\n' +
             '    </div>\n' +
+            '    </div>\n' +
+            '    </div>\n' +
             '</div>'
     }
 
     function sendDataModal() {
-        return '<div class="modal fade in bs-modal-lg" id="sendDataModal" style="display: none;">\n' +
-            '    <div class="modal-dialog modal-lg" style="margin:0;">\n' +
+        return '<div class="modal fade bs-modal-lg in" id="sendDataModal" role="dialog" style="display: none;">\n' +
+            '    <div class="modal-dialog modal-lg" >\n' +
             '        <div class="modal-content">\n' +
             '            <div class="modal-header">\n' +
             '                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>\n' +
             '                 <h4 class="modal-title">发送组织机构全量数据</h4>\n' +
-            '            </div>\n' +
+            '            </div class="row">\n' +
             '            <div class="modal-body">\n' +
             '                <div class="portlet-body form">\n' +
             '                    <form class="form-horizontal" role="form">\n' +
@@ -895,7 +899,7 @@
             '            </div>\n' +
             '            <div class="modal-footer">\n' +
             '                <button type="button" class="btn default" data-dismiss="modal">关闭</button>\n' +
-            '                <button type="button" id="sendBtn" class="btn red">发送</button>\n' +
+            '                <button type="button" id="sendBtn" class="btn green-meadow">发送</button>\n' +
             '            </div>\n' +
             '        </div>'
     }
@@ -1176,14 +1180,12 @@
                     e.preventDefault();
                     $("#baseForm")[0].reset();
                 });
-                $("#deleteSys").on("click", function (e) {
-                    e.preventDefault();
+                $("#deleteSys").on("click", function (e) {      
                     e.preventDefault();
                     var tag = $("#deleteSysModal");
                     tag.modal("show");
                 });
                 $("#deleteSysBtn").on("click", function (e) {
-                    e.preventDefault();
                     remove(selectSysId, conf);
                     var tag = $("#deleteSysModal");
                     tag.modal("hide");

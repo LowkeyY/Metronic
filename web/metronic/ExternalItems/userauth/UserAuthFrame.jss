@@ -6,7 +6,7 @@
             '    <div class="col-md-12">\n' +
             '        <div class="portlet">\n' +
             '            <div class="portlet-title">\n' +
-            '                <div class="caption"><i class="fa fa-user"></i>用户权限</div>\n' +
+            '                <div class="caption"><i class="fa fa-unlock-alt"></i>用户权限</div>\n' +
             '                <div class="tools"><a href="javascript;" class="fullscreen" data-original-title="" title=""> </a></div>\n' +
             '            </div>\n' +
             '            <div class="portlet-body">' + panksLeft(conf) + panksRight() + '</div>\n' +
@@ -19,7 +19,7 @@
         return '<div class="profile-sidebar">\n' +
             '    <div class="portlet '+portletColor+' box">\n' +
             '        <div class="portlet-title">\n' +
-            '            <div class="caption"><i class="fa fa-users"></i>省政府办公厅</div>\n' +
+            '            <div class="caption"><i class="fa fa-sitemap"></i>省政府办公厅</div>\n' +
             '            <div class="tools"><a href="javascript:;" class="collapse"> </a></div>\n' +
             '        </div>\n' +
             '        <div class="portlet-body">\n' +
@@ -66,10 +66,10 @@
                     var table = new PageDatatable(conf.id);
                     datatableHead = table.initHead({
                         title: "用户权限",
-                        tools: [{name: "保存", id: "authSave"}, {name: "还原", icon: "times", id: "return"}],
+                        tools: [{name: "保存",icon:"edit", id: "authSave"}, {name: "还原", icon: "reply", id: "return"}],
                         columns: col,
                         portletCss: "box "+portletColor,
-                        portletTitleCss: "user",
+                        portletTitleCss: "unlock-alt",
                         id: conf.id
                     });
                     appendHtml(panks(conf), function () {

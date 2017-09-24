@@ -1,23 +1,24 @@
 (function () {
     var portletColor = PageSystem.getColor(),
-        rightHtml = '<div class="portlet box '+portletColor+' ">\n' +
-        '    <div class="portlet-title">\n' +
-        '        <div class="caption"><i class="fa fa-gift"></i> 组织机构管理</div>\n' +
-        '    </div>\n' +
-        '    <div class="portlet-body form">\n' +
-        '        <form class="form-horizontal" role="form" id="form">\n' +
-        '            <div class="form-body">\n' +
-        '                <div style="margin-bottom:20px">\n' +
-        '                    <div class="row">\n' +
-        '                        <div class="col-md-offset-1 col-md-9">\n' +
-        '                            <button type="button" class="btn red-pink " id="create">新建</button>\n' +
-        '                            <button type="submit" class="btn red-pink" id="save" style="display: none">保存</button>\n' +
-        '                            <button class="btn red-pink" id="goback" style="display: none" type="button">返回</button>\n' +
-        '                            <button class="btn red-pink" id="delete" type="button" data-toggle="modal">删除</button>\n' +
-        '                            <button class="btn red-pink" id="update-save" type="submit">保存</button>\n' +
+        rightHtml =  '<form class="form-horizontal" role="form" id="deptform">\n' +
+        '<div class="portlet box '+portletColor+' ">\n' +
+        '    <div class="portlet-title row" style="margin-left:0">\n' +
+        '        <div class="caption col-md-4"><i class="fa fa-sitemap"></i> 组织机构管理</div>\n' +
+        '                <div class="col-md-8 clearfix" style="padding-top: 5px;">\n' +
+        '                    <div style="float:right">\n' +
+        '                        <div>\n' +
+        '                            <button type="button" class="btn default" id="create"><i class="fa fa-plus"></i>新建</button>\n' +
+        '                            <button type="submit" class="btn default" id="save" style="display: none"><i class="fa fa-edit"></i>保存</button>\n' +
+        '                            <button class="btn default" id="goback" style="display: none" type="button">返回</button>\n' +
+        '                            <button class="btn default" id="delete" type="button" data-toggle="modal"><i class="fa fa-trash"></i>删除</button>\n' +
+        '                            <button class="btn default" id="update-save" type="submit"><i class="fa fa-edit"></i>保存</button>\n' +
         '                        </div>\n' +
         '                    </div>\n' +
         '                </div>\n' +
+        '    </div>\n' +
+        '    <div class="portlet-body form">\n' +
+        '        <form class="form-horizontal" role="form" id="deptform">\n' +
+        '            <div class="form-body">\n' +
         '                <div class="form-group"><label class="col-md-3 control-label">名称：<span class="required"\n' +
         '                                                                                       aria-required="true">*</span></label>\n' +
         '                    <div class="col-md-9">\n' +
@@ -44,16 +45,16 @@
         '                                                 id="companyName" name="deptName"></div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '        </form>\n' +
+      
         '    </div>\n' +
-        '</div>';
-
+        '</div>'+
+  '        </form>\n' 
     function panks(conf) {
         return '<div class="row" id="module_\' + conf.id + \'">\n' +
             '    <div class="col-md-12">\n' +
             '        <div class="portlet">\n' +
             '            <div class="portlet-title">\n' +
-            '                <div class="caption"><i class="fa fa-user"></i>组织机构管理</div>\n' +
+            '                <div class="caption"><i class="fa fa-sitemap"></i>组织机构管理</div>\n' +
             '                <div class="tools"><a href="" class="fullscreen" data-original-title="" title=""> </a></div>\n' +
             '            </div>\n' +
             '            <div class="portlet-body">' + panksLeft(conf) + panksRight() + '</div>\n' +
@@ -66,7 +67,7 @@
         return '<div class="profile-sidebar">\n' +
             '    <div class="portlet box '+portletColor+'">\n' +
             '        <div class="portlet-title">\n' +
-            '            <div class="caption"><i class="fa fa-users"></i>组织结构导航</div>\n' +
+            '            <div class="caption"><i class="fa fa-sitemap"></i>组织结构导航</div>\n' +
             '            <div class="tools"><a href="javascript:;" class="collapse"> </a></div>\n' +
             '        </div>\n' +
             '        <div class="portlet-body">\n' +
@@ -84,7 +85,9 @@
         if (!conf || !type) {
             return "";
         }
-        return '<div id="deleteModal" class="modal fade" tabindex="-1">\n' +
+        return '<div id="deleteModal" class="modal fade bs-modal-sm in" tabindex="-1">\n' +
+            '<div class="modal-dialog modal-sm">'+
+            '<div class="modal-content">'+
             '    <div class="modal-header">\n' +
             '        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>\n' +
             '    </div>\n' +
@@ -92,6 +95,8 @@
             '    <div class="modal-footer">\n' +
             '        <button class="btn default" data-dismiss="modal" aria-hidden="true">取消</button>\n' +
             '        <button type="button" class="btn green-meadow" id="deleteDepartmentBtn">确定</button>\n' +
+            '    </div>\n' +
+            '    </div>\n' +
             '    </div>\n' +
             '</div>'
     }
@@ -148,8 +153,8 @@
                 if (data.selected) {
                 }
                 getDate(currentSelectDeptId);
-                $("#create,#update-save,#delete").show(200);
-                $("#goback,#save").hide(200);
+                $("#create,#update-save,#delete").show();
+                $("#goback,#save").hide();
             }
         }).on("move_node.jstree", function (e, data) {
             $.ajax({
@@ -172,7 +177,7 @@
 
     function initDeptForm(conf, type) {
         realType = type;
-        var form = $("#form");
+        var form = $("#deptform");
         var resetVaildate = form.validate({
             errorElement: "span",
             errorClass: "help-block help-block-error",
@@ -205,8 +210,8 @@
                 }
                 $.ajax({
                     type: "post", url: "/bin/user/create.jcp", data: data, success: function () {
-                        $("#delete,#update-save").show(200);
-                        $("#save,#goback").hide(200);
+                        $("#delete,#update-save").show();
+                        $("#save,#goback").hide();
                         var tree = $.jstree.reference("#tree_" + conf.id);
                         tree.refresh();
                         if (realType == "save") {
@@ -237,17 +242,18 @@
                 renderTree(conf);
                 $("#create").on("click", function (e) {
                     e.preventDefault();
-                    $(this).hide(200);
+                    $(this).hide();
                     $("input").val("");
-                    $("#delete,#update-save").hide(200);
-                    $("#save,#goback").show(200);
+                    $("#delete,#update-save").hide();
+                    $("#save,#goback").show();
+                    
                 });
                 $("#goback").on("click", function (e) {
                     e.preventDefault();
-                    $("#delete,#update-save").show(200);
-                    $("#save").hide(200);
-                    $("#create").show(200);
-                    $(this).hide(200);
+                    $("#delete,#update-save").show();
+                    $("#save").hide();
+                    $("#create").show();
+                    $(this).hide();
                     getDate(currentSelectDeptId);
                 });
                 $("#delete").on("click", function (e) {

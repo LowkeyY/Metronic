@@ -315,6 +315,8 @@
         name = name || conf.title;
         return '\n' +
             '<div id="' + getToolsId(conf.id, type) + '" class="modal fade" tabindex="-1">\n' +
+            '<div class="modal-dialog">'+
+            '<div class="modal-content">'+
             '    <div class="modal-header">\n' +
             '        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>\n' +
             '         <h4 class="modal-title">' + name + '</h4></div>\n' +
@@ -325,6 +327,8 @@
             '            <button class="btn green-meadow" type="submit">保存</button>\n' +
             '        </div>\n' +
             '    </form>\n' +
+            '</div>\n' +
+            '</div>\n' +
             '</div>'
     }
 
@@ -347,7 +351,9 @@
         if (!conf || !type) {
             return "";
         }
-        return '<div id="' + getToolsId(conf.id, type) + '" class="modal fade" tabindex="-1">\n' +
+        return '<div id="' + getToolsId(conf.id, type) + '" class="modal fade bs-modal-sm in" tabindex="-1">\n' +
+            '<div class="modal-dialog modal-sm">'+
+            '<div class="modal-content">'+
             '    <div class="modal-header">\n' +
             '        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>\n' +
             '    </div>\n' +
@@ -355,6 +361,8 @@
             '    <div class="modal-footer">\n' +
             '        <button class="btn default" data-dismiss="modal" aria-hidden="true">取消</button>\n' +
             '        <button class="btn green-meadow" id="deleteUserBtn">确定</button>\n' +
+            '    </div>\n' +
+            '    </div>\n' +
             '    </div>\n' +
             '</div>'
     }
@@ -365,6 +373,8 @@
         }
         name = name || conf.title;
         return '<div id="' + getToolsId(conf.id, type) + '" class="modal fade" tabindex="-1">\n' +
+            '<div class="modal-dialog">'+
+            '<div class="modal-content">'+
             '    <div class="modal-header">\n' +
             '        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>\n' +
             '         <h4 class="modal-title">' + name + '</h4></div>\n' +
@@ -392,6 +402,8 @@
             '            </div>\n' +
             '        </form>\n' +
             '    </div>\n' +
+            '    </div>\n' +
+            '    </div>\n' +
             '</div>'
     }
 
@@ -399,7 +411,7 @@
         return '<div class="profile-sidebar">\n' +
             '    <div class="portlet ' + portletColor + ' box">\n' +
             '        <div class="portlet-title">\n' +
-            '            <div class="caption"><i class="fa fa-users"></i>组织结构导</div>\n' +
+            '            <div class="caption"><i class="fa fa-sitemap"></i>组织结构导航</div>\n' +
             '            <div class="tools"><a href="javascript:;" class="collapse"> </a></div>\n' +
             '        </div>\n' +
             '        <div class="portlet-body">\n' +
@@ -684,11 +696,11 @@
                     name: "修改用户",
                     icon: "edit",
                     id: getToolsId(conf.id, "edit")
-                }, {name: "删除用户", icon: "times", id: getToolsId(conf.id, "delete")}, {
+                }, {name: "删除用户", icon: "trash", id: getToolsId(conf.id, "delete")}, {
                     name: "调动",
-                    icon: "edit",
+                    icon: "exchange",
                     id: getToolsId(conf.id, "move")
-                }, {name: "重置密码", id: getToolsId(conf.id, "reset")}],
+                }, {name: "重置密码",icon:"key", id: getToolsId(conf.id, "reset")}],
                 columns: ["姓名", "部门", "角色", "登录名", "电话", "注册时间", "用户ID"],
                 portletCss: "box " + portletColor,
                 portletTitleCss: "user",

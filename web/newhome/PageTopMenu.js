@@ -12,7 +12,7 @@ var PageTopMenu = function () {
         '    </div>\n' +
         '    <div class="portlet-body">\n' +
         '        <div class="row">\n' +
-        '            <div class="col-md-3 col-sm-3 col-xs-3">\n' +
+        '            <div class="col-md-2 col-sm-2 col-xs-2">\n' +
         '                <ul class="nav nav-tabs tabs-left">\n' +
         '                    <li style="font-size: 20px">基础信息</li>\n' +
         '                    <li class="active">\n' +
@@ -25,7 +25,7 @@ var PageTopMenu = function () {
         '                    </li>\n' +
         '                </ul>\n' +
         '            </div>\n' +
-        '            <div class="col-md-9 col-sm-9 col-xs-9">\n' +
+        '            <div class="col-md-10 col-sm-10 col-xs-10">\n' +
         '                <div class="tab-content">\n' +
         '                    <div class="tab-pane active in" id="tab_6_1">\n' +
         '                        <div class="portlet box">\n' +
@@ -37,7 +37,7 @@ var PageTopMenu = function () {
         '                            </div>\n' +
         '                            <div class="portlet-body form">\n' +
         '                                <form class="form-horizontal" role="form" id="resetPwd">\n' +
-        '                                    <div class="form-body">\n' +
+        '                                    <div class="form-body ">\n' +
         '                                        <div class="form-group">\n' +
         '                                            <label for="oldpasswd" class="col-md-3 control-label">旧密码：</label>\n' +
         '                                            <div class="col-md-9">\n' +
@@ -60,8 +60,8 @@ var PageTopMenu = function () {
         '                                            </div>\n' +
         '                                        </div>\n' +
         '                                        <div class="form-actions right">\n' +
-        '                                            <button type="submit" class="btn blue" id="resetPwdBtn">保存</button>\n' +
         '                                            <button type="button" class="btn default btnClose">关闭</button>\n' +
+         '                                           <button type="submit" class="btn blue" id="resetPwdBtn">保存</button>\n' +
         '                                        </div>\n' +
         '                                    </div>\n' +
         '                                </form>\n' +
@@ -78,8 +78,8 @@ var PageTopMenu = function () {
         '                            </div>\n' +
         '                            <div class="portlet-body form">\n' +
         '                                <form class="form-horizontal" role="form" id="personal">\n' +
-        '                                    <div class="form-body">\n' +
-        '                                        <div class="left col-md-5">\n' +
+        '                                    <div class="form-body row">\n' +
+        '                                        <div class="left col-md-7">\n' +
         '                                            <div class="form-group">\n' +
         '                                                <label for="real_name" class="col-md-4 control-label">真实姓名：</label>\n' +
         '                                                <div class="col-md-8">\n' +
@@ -125,7 +125,7 @@ var PageTopMenu = function () {
         '                                            </div>\n' +
         '\n' +
         '                                        </div>\n' +
-        '                                        <div class="col-md-7">\n' +
+        '                                        <div class="col-md-5">\n' +
         '                                            <div class="form-group">\n' +
         '                                                <label for="" class="col-md-3 control-label">照片：</label>\n' +
         '                                                <div class="col-md-9">\n' +
@@ -148,8 +148,8 @@ var PageTopMenu = function () {
         '                                            </div>\n' +
         '                                        </div>\n' +
         '                                        <div class="form-actions right col-md-12 ">\n' +
-        '                                            <button type="submit" class="btn blue" id="personalBtn">保存</button>\n' +
         '                                            <button type="button" class="btn default btnClose">关闭</button>\n' +
+        '                                            <button type="submit" class="btn blue" id="personalBtn">保存</button>\n' +
         '                                        </div>\n' +
         '                                    </div>\n' +
         '                                </form>\n' +
@@ -162,8 +162,8 @@ var PageTopMenu = function () {
         '    </div>\n' +
         '</div>';
     function personalModal() {
-        return '<div class="modal fade bs-modal-full in " id="information"  tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">' +
-            '<div class="modal-dialog modal-full" style="margin: 0">\n' +
+        return '<div class="modal fade bs-modal-lg in" id="information"  tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">' +
+            '<div class="modal-dialog modal-lg">\n' +
             '        <div class="modal-content">\n' +
             '          <div class="modal-header">\n' +
             '              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>\n' +
@@ -205,8 +205,8 @@ var PageTopMenu = function () {
             '           </div>'
     }
     function messageModal () {
-        return '<div class="modal fade bs-modal-lg" id="messageModal" style="display: none;">' +
-            '      <div class="modal-dialog modal-lg" style="margin:0;">'+
+        return '<div class="modal fade bs-modal-lg" id="memssageModal" style="display: none;">' +
+            '      <div class="modal-dialog modal-lg">'+
             '       <div class="modal-content">'+
             '           <div class="modal-header">' +
             '               <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="padding-right: 15px"></button>\n' +
@@ -237,7 +237,7 @@ var PageTopMenu = function () {
             }
         });
         console.log(total);
-        return total===0?"":total
+        return total==0?"":total
 
     }
     function packs(config) {
