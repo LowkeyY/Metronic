@@ -135,7 +135,7 @@
             '                                    <label class="col-md-3 control-label">默认图标(48x48):</label>\n' +
             '                                    <div class="col-md-9">\n' +
             '                                        <div class="fileinput fileinput-new" data-provides="fileinput">\n' +
-            '                                            <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 48px; height: 48px; line-height: 150px;font-size: 14px;padding: 1px;border: 2px solid #eeeeee">\n' +
+            '                                            <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 48px; height: 48px;font-size: 14px;padding: 1px;border: 2px solid #eeeeee">\n' +
             '                                                 <img id="default-icon" src="" alt="" style="width:100%;height:100%">\n' +
             '                                            </div>\n' +
             '                                             <span class="btn '+portletColor+' fileinput-button">\n' +
@@ -285,34 +285,30 @@
             '                                                <div class="desktopImg-box" style="display:none">\n' +
             '                                                    <div class="form-group">\n' +
             '                                                        <div class="row" style="margin:0">\n' +
-            '                                                            <label class="col-md-5 control-label">图标:</label>\n' +
-            '                                                            <div class="col-md-7">\n' +
-            '                                                                <div class="fileinput fileinput-new" \n' +
-            '                                                                     data-provides="fileinput">\n' +
-            '                                                                    <div class="fileinput-preview thumbnail"\n' +
-            '                                                                         data-trigger="fileinput" \n' +
-            '                                                                         style="width: 48px; height: 48px;\n' +
-            '                                                                          line-height: 150px;font-size: 14px;\n' +
-            '                                                                          padding: 1px;border: 2px solid #eeeeee">\n' +
-            '                                                                         <img class="desktop-icon" id="desktop-icon"\n' +
-            '                                                                                src="" alt=""\n' +
-            '                                                                                style="width:100%;height:100%">\n' +
+            '                                                            <label class="col-md-3 control-label">图标:</label>\n' +
+            '                                                            <div class="col-md-9">\n' +
+            '                                                                <div class="dev-img-upload clearfix">\n' +
+            '                                                                    <div class="dev-img-box">\n' +
+            '                                                                         <i class="fa fa-angle-down" id="uploadimg-icon" style="width=100%;height:100%"></i>'+
             '                                                                    </div>\n' +
-            '                                                                     <span class="btn '+portletColor+' fileinput-button">                  \n' +
-            '                                                                         <i class="fa fa-plus"></i>\n' +
-            '                                                                         <span>选择图片</span>\n' +
-            '                                                                         <input\n' +
-            '                                                                            type="file" name="file"\n' +
-            '                                                                            data-type="show_desktop_icon_url">\n' +
-            '                                                                         <input\n' +
-            '                                                                            type="hidden" value=""\n' +
-            '                                                                            name="show_desktop_icon_url"\n' +
-            '                                                                            id="show_desktop_icon_url">\n' +
-            '                                                                     </span>\n' +
+            '                                                                     <div class="dev-btn-box" style="display:inline-block;padding-left:5px">'+
+            '                                                            <div class="btn-group">\n' +
+            '                                                             <button class="btn '+portletColor+' dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">\n' +
+            '                                                                 图片<i class="fa fa-angle-down"></i>\n' +
+            '                                                             </button>\n' +
+            '              <ul class="dropdown-menu" role="menu">\n' +
+            '               <li>\n' +
+            '                <a href="javascript:;">\n' +
+            '                Action </a>\n' +
+            '               </li>\n' +
+            '                </ul>\n' +
+         
+            '             </div>'+
             '                                                                      <a href="javascript:"\n' +
             '                                                                         class="btn '+portletColor+' fileinput-exists pic-cancel-btn" \n' +
             '                                                                         data-dismiss="fileinput">取消\n' +
             '                                                                      </a>\n' +
+             '                                                                </div>\n' +
             '                                                                </div>\n' +
             '                                                            </div>\n' +
             '                                                        </div>\n' +
@@ -365,30 +361,31 @@
             '                                                </div>\n' +
             '                                                <div class="shortcutImg-box" style="display:none">\n' +
             '                                                    <div class="form-group">\n' +
-            '                                                        <div class="row" style="margin:0">\n' +
-            '                                                            <label class="col-md-5 control-label">图标:</label>\n' +
-            '                                                            <div class="col-md-7">\n' +
-            '                                                                <div class="fileinput fileinput-new" \n' +
-            '                                                                     data-provides="fileinput">\n' +
-            '                                                                    <div class="fileinput-preview thumbnail" \n' +
-            '                                                                         data-trigger="fileinput" \n' +
-            '                                                                         style="width: 20px; height: 20px; line-height: 150px;                                                                         border: 2px solid #eeeeee; padding: 0">\n' +
-            '                                                                         <img class="start-icon" id="start-icon"\n' +
-            '                                                                                src="" alt=""\n' +
-            '                                                                                style="width:100%;height:100%">\n' +
+     '                                                        <div class="row" style="margin:0">\n' +
+            '                                                            <label class="col-md-3 control-label">图标:</label>\n' +
+            '                                                            <div class="col-md-9">\n' +
+            '                                                                <div class="dev-img-upload clearfix">\n' +
+            '                                                                    <div class="dev-img-box">\n' +
+            '                                                                         <i class="fa fa-angle-down" id="uploadimg-icon" style="width=100%;height:100%"></i>'+
             '                                                                    </div>\n' +
-            '                                                                     <span class="btn '+portletColor+' fileinput-button">\n' +
-            '                                                                         <i class="fa fa-plus"></i>\n' +
-            '                                                                         <span>选择图片</span>\n' +
-            '                                                                         <input id="fileUpload" type="file" name="file"                                                                                       data-type="show_startmenu_icon_url">\n' +
-            '                                                                         <input\n' +
-            '                                                                            type="hidden" value=""\n' +
-            '                                                                            name="show_startmenu_icon_url"\n' +
-            '                                                                            id="show_startmenu_icon_url">\n' +
-            '                                                                     </span>\n' +
-            '                                                                    <a href="javascript:;" class="btn '+portletColor+' fileinput-exists pic-cancel-btn" data-dismiss="fileinput">\n' +
-            '                                                                    取消 \n' +
-            '                                                                    </a>\n' +
+            '                                                                     <div class="dev-btn-box" style="display:inline-block;padding-left:5px">'+
+            '                                                            <div class="btn-group">\n' +
+            '                                                             <button class="btn '+portletColor+' dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">\n' +
+            '                                                                 图片<i class="fa fa-angle-down"></i>\n' +
+            '                                                             </button>\n' +
+            '              <ul class="dropdown-menu" role="menu">\n' +
+            '               <li>\n' +
+            '                <a href="javascript:;">\n' +
+            '                Action </a>\n' +
+            '               </li>\n' +
+            '                </ul>\n' +
+         
+            '             </div>'+
+            '                                                                      <a href="javascript:"\n' +
+            '                                                                         class="btn '+portletColor+' fileinput-exists pic-cancel-btn" \n' +
+            '                                                                         data-dismiss="fileinput">取消\n' +
+            '                                                                      </a>\n' +
+             '                                                                </div>\n' +
             '                                                                </div>\n' +
             '                                                            </div>\n' +
             '                                                        </div>\n' +
@@ -640,11 +637,11 @@
             '            </div>\n' +
             '             ' + hiddenInfo() + '\n' +
             '    </div>\n' +
-            '        </form>\n' +
             '     <p style="color:#fff">\n' +
             '         （系统提供默认参数值(自动替换链接地址和参数值中匹配的内容)：用户账户: @[username] ; 用户密码(加密后) ：@[userpwd] ; 集成应用ID：@[appid];default_token : @[appdefault_token]）\n' +
             '     </p>\n' +
-            '</div>'
+            '</div>'+
+             '        </form>\n' 
     }
 
     function hiddenInfo() {
@@ -795,7 +792,7 @@
             '                            <div class="col-md-7">\n' +
             '                                <div class="fileinput fileinput-new" data-provides="fileinput">\n' +
             '                                    <div class="fileinput-preview thumbnail" data-trigger="fileinput"\n' +
-            '                                         style="width: 48px; height: 48px; line-height: 150px;font-size: 14px;padding: 1px;border: 2px solid #eeeeee">\n' +
+            '                                         style="width: 48px; height: 48px;font-size: 14px;padding: 1px;border: 2px solid #eeeeee">\n' +
             '                                         <img class="fastlink-icon" id="fastlink-icon" src="" alt=""\n' +
             '                                                style="width:100%;height:100%">\n' +
             '                                    </div>\n' +
@@ -839,7 +836,7 @@
         return '<div class="profile-sidebar">\n' +
             '    <div class="portlet '+portletColor+' box">\n' +
             '        <div class="portlet-title">\n' +
-            '            <div class="caption"><i class=fa fa-sitemap"></i>组织结构导航</div>\n' +
+            '            <div class="caption"><i class="fa fa-sitemap"></i>组织结构导航</div>\n' +
             '            <div class="tools"><a href="javascript:;" class="collapse"> </a></div>\n' +
             '        </div>\n' +
             '        <div class="portlet-body">\n' +

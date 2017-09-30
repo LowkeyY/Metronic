@@ -1,7 +1,7 @@
 
 
 (function () {
-    var datatableHead = "", numberCounts = 1, currentSelectDeptId = "",portletColor = PageSystem.getColor(),roleArray=[];
+    var datatableHead = "", numberCounts = 1, currentSelectDeptId = "",portletColor = PageSystem.getColor()
     positionArray = [{text: "副省级", id: "26"}, {text: "正省级", id: "25"}, {text: "正厅级", id: "50"}, {
         text: "厅级",
         id: "60"
@@ -338,7 +338,7 @@
                                 returnData.data = result.dataItem;
                                 callback(returnData);
                                 table.reUniform();
-                                PageSystem.roleArray=returnData.data;
+                               
                             }
                         });
                     }
@@ -351,12 +351,6 @@
                         if (deleteRows.length === 1) {
                             $(tag).modal("show");
                             initRoleForm(tag, {}, "#datatable_" + conf.id);
-                            $("#deleteRoleBtn").on("click", function () {
-                                $(tag).modal("hide");
-                                deleteList(currentSelectDeptId);
-                                var dt = $("#datatable_" + conf.id).DataTable();
-                                dt.ajax.reload();
-                            });
                         } else {
                             Metronic.alert({
                                 type: "danger",
@@ -395,6 +389,13 @@
                     return false;
                 });
                 $(".select-box").hide();
+                  $("#deleteRoleBtn").on("click", function () {
+                                var tag="#" + getToolsId(conf.id, "delete")
+                                $(tag).modal("hide");
+                                deleteList(currentSelectDeptId);
+                                var dt = $("#datatable_" + conf.id).DataTable();
+                                dt.ajax.reload();
+                            });
             });
         }
     };

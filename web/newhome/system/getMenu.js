@@ -10,18 +10,40 @@ cunovs.defineCalss(__FILE__, {
     service: function (jjs) {
         var id = jjs.get("id") || null , userId = jjs.getUserId(), db = new cunovsDB("plat"), config = {}, ret = "";
 
-        var imports = new JavaImporter(com.kinglib.portal.PotalUnits, com.social.api.core.model.CertManager, com.social.api.core.model.User);
+        var imports = new JavaImporter(com.kinglib.portal.PotalUnits, com.social.api.core.model.CertManager, com.social.api.core.model.User , com.kinglib.util.UserData , com.susing.upload.FileExtend);
 
         with (imports) {
             ret = PotalUnits.getUserMenuByString(db.getDB(), userId, id);
 //            var string = Java.type('java.lang.String').valueOf(userId);
             var u  = CertManager.getUser(userId) , hs = jjs.getSession();
             if (u != null)
-                config.userToken = (userId <= 1 ? "admin" : u.getUserName()) + "::" + u.getPassword();
+            config.userToken = (userId <= 1 ? "admin" : u.getUserName()) + "::" + u.getPassword();
             config.real_name = hs.getString("real_name");
             config.user_name = hs.getString("user_name");
             config.user_id = hs.getString("user_id");
             config.role_id = hs.getString("role_id");
+            var defaultMetronicSets = {
+                "layoutstyle": "square",
+                "layout": "fluid",
+                "pageHeader": "default",
+                "topDropdown": "dark",
+                "sidebar": "default",
+                "sidebarMenu": "accordion",
+                "sidebarStyle": "default",
+                "sidebarPos": "left",
+                "footer": "default",
+                "themeColor": "default"
+            }, userMetronicSets = UserData.has(userId, "metronicSets", "main") ? UserData.get(userId, "metronicSets", "main") : JSON.stringify(defaultMetronicSets);
+            config.metronicSets = userMetronicSets;
+
+            var dbCert = new cunovsDB("cert") , row = dbCert.getRow("SELECT a.photo_name FROM  $[cert].user_base a where a.user_id = ?" , [userId + ""]);
+            if(row && row.length){
+                
+                config.photo = {
+                    id : FileExtend.getId("select photo,'preview.jpg' from $[cert].user_base b where user_id ="+userId),
+                    value : row[0]
+                }
+            }
         }
         
         if(!ret)

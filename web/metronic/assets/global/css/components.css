@@ -6576,8 +6576,12 @@ Tiles(new in v1.1.1)
   left: 0;
   right: 0;
   min-height: 30px;
-  background-color: transparent;
   *zoom: 1;
+}
+.tile-object{
+
+  background-color: #0c0c0c;
+  opacity: .5;
 }
 .tiles .tile .tile-object:before, .tiles .tile .tile-object:after {
   display: table;
@@ -14545,4 +14549,3 @@ Transparent Button
   font-size: 15px;
   font-weight: 400;
 }
-

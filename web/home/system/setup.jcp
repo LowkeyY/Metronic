@@ -90,9 +90,9 @@ import com.kinglib.ui.core.utils.Param;
                 try {
                     JSONObject userJSON = new JSONObject("{}");
 
-                    String[] rs = conCert.getRow("SELECT  a.duty,a.photo_name FROM  $[cert].user_base a where a.user_id=?", new String[]{String.valueOf(user_id)});
+                    String[] rs = conCert.getRow("SELECT  a.duty,a.photo_name FROM  $[cert].user_base a where a.user_id=?", new String[]{user_id + ""});
 
-                    User user = User.getUser(String.valueOf(user_id));
+                    User user = User.getUser(user_id + "");
                     String inActive = "";
                     String subAdmin = "";
                     if (user != null) {
@@ -103,7 +103,6 @@ import com.kinglib.ui.core.utils.Param;
                         userJSON.put("celler", user.getCeller());
                         userJSON.put("duty", rs[0]);
                         userJSON.put("msn", user.getMsn());
-                        userJSON.put("aaa", "aaaa");
                         if (!rs[1].equals("")) {
                             JSONObject file = new JSONObject("{}");
                             //此处设置文件名
@@ -223,6 +222,7 @@ import com.kinglib.ui.core.utils.Param;
                     } catch (Exception e2) {
                     }
                 }
+                jacper.print("{\"success\":true}");
             } else if (what.equals("password")) {
                 String oldpasswd = jacper.getStr("oldpasswd");
                 User user = User.getUser(user_id + "");
@@ -291,19 +291,23 @@ import com.kinglib.ui.core.utils.Param;
 			}*/
                 try {
                     User user = CertManager.getUser(String.valueOf(user_id));
-                         if (user != null) {
-                            param.set("realName" ,param.getStr("real_name"));
-                            param.set("phoneHome" ,param.getStr("phone_home"));
-                            param.set("roleId", user.getRoleId());
-                            param.set("userType", String.valueOf(user.getUserType().getValue()));
-                            param.set("isMaster", user.isMaster() ? "y" : "n");
-                            param.set("inActive", user.isActive() ? "y" : "n");
-                            user.update(param);
-                                      }
+                    if (user != null) {
+                        param.set("realName" ,param.getStr("real_name"));
+                        param.set("phoneHome" ,param.getStr("phone_home"));
+                        param.set("roleId", user.getRoleId());
+                        param.set("userType", String.valueOf(user.getUserType().getValue()));
+                        param.set("isMaster", user.isMaster() ? "y" : "n");
+                        param.set("inActive", user.isActive() ? "y" : "n");
+                        user.update(param);
+                    }
                     jacper.print("{\"success\":true}");
                 } catch (Exception e) {
+                    e.printStackTrace();
                     jacper.print(Err.parse(e).toJSON());
                 }
+              } else if(what.equals("metronicSets") && jacper.getStr("data").length() > 0){
+                UserData.set(user_id + "", "metronicSets", "main", jacper.getStr("data"));
+                jacper.print("{\"success\":true,\"data\":"+jacper.getStr("data")+"}");
             }
         }
     }

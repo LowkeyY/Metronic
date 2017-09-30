@@ -1,0 +1,21 @@
+
+
+.dev-img-box{
+    position:relative;
+    width: 48px;
+    height: 48px;
+    font-size: 14px;
+    padding: 1px;
+    border: 2px solid #eeeeee;
+   float: left;
+}
+
+
+
+#uploadimg-icon{
+    position:absolute;
+    top: 25%;
+    left:25%;
+    float: left;
+    font-size: 30px;
+}

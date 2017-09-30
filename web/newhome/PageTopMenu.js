@@ -160,7 +160,8 @@ var PageTopMenu = function () {
         '            </div>\n' +
         '        </div>\n' +
         '    </div>\n' +
-        '</div>';
+        '</div>',
+        total=0;
     function personalModal() {
         return '<div class="modal fade bs-modal-lg in" id="information"  tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">' +
             '<div class="modal-dialog modal-lg">\n' +
@@ -179,7 +180,7 @@ var PageTopMenu = function () {
         return ' <div id="overlay">\n' +
             '                <div class="page-lock">\n' +
             '                    <div class="page-body">\n' +
-            '                    <img class="page-lock-img" src="../metronic/assets/admin/layout/img/timg.png" alt="">\n' +
+            '                    <img class="page-lock-img" src="../metronic/assets/admin/layout/img/avatar.png" width="45" height="45" alt="">\n' +
             '                        <div class="page-lock-info">\n' +
             '                                    <h1 id="LoginuserName">Locked</h1>\n' +
             '                                    <div class="alert alert-danger display-hide" id="loginalertdiv">\n' +
@@ -195,7 +196,7 @@ var PageTopMenu = function () {
             '                                            </div>\n' +
             '                                            <!-- /input-group -->\n' +
             '                                            <div class="relogin">\n' +
-            '                                                    <a href="/newlogin/index.html">\n' +
+            '                                                    <a href="/login/index.html">\n' +
             '                                                    其他户用登陆？ </a>\n' +
             '                                            </div>\n' +
             '                                    </form>\n' +
@@ -204,56 +205,53 @@ var PageTopMenu = function () {
             '                </div>\n' +
             '           </div>'
     }
-    function messageModal () {
-        return '<div class="modal fade bs-modal-lg" id="memssageModal" style="display: none;">' +
-            '      <div class="modal-dialog modal-lg">'+
-            '       <div class="modal-content">'+
-            '           <div class="modal-header">' +
-            '               <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="padding-right: 15px"></button>\n' +
-            '               <h4 class="modal-title">待处理消息</h4>' +
-            "           </div>\n" +
-            '        <div class="modal-body" id="messageModal-box">\n' +
-
-            "           </div>\n" +
-            "</div>";
-    }
+    // function messageModal () {
+    //     return '<div class="modal fade bs-modal-lg" id="memssageModal" style="display: none;">' +
+    //         '      <div class="modal-dialog modal-lg">'+
+    //         '       <div class="modal-content">'+
+    //         '           <div class="modal-header">' +
+    //         '               <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="padding-right: 15px"></button>\n' +
+    //         '               <h4 class="modal-title">待处理消息</h4>' +
+    //         "           </div>\n" +
+    //         '        <div class="modal-body" id="messageModal-box">\n' +
+    //
+    //         "           </div>\n" +
+    //         "</div>";
+    // }
 
     function getTileMessage(list) {
-        $("#tile_"+list[0].appid).find(".number").html(list[0].msg.length);
+        if(list.length!==0){
+            $("#tile_"+list[0].appid).find(".number").html(list[0].msg.length);
+        }
     }
-    function getTotals() {
-        var total=0;
-        $.ajax({
-            type:"post",
-            url:"../ExternalItems/messageList/messageList.jcp",
-            async:true,
-            success:function (result) {
-                var res=eval('('+result+')');
-                var list=res.datas;
-                getTileMessage(list);
-                $.each(list,function (i) {
-                   total+=list[i].msg.length;
-                })
-            }
-        });
-        console.log(total);
-        return total==0?"":total
-
-    }
-    function packs(config) {
-        return '<li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">' +
-                    '<a href="javascript:;" id="message" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">' +
-                        '<i class="icon-speech"></i>' +
-                        '<span class="badge badge-default">'+config.total+'</span>' +
-                    '</a>'+
-                '</li>'+personalModal()+lockScreen()+messageModal();
+    // function getTotals() {
+    //
+    //     $.ajax({
+    //         type:"post",
+    //         url:"../ExternalItems/messageList/messageList.jcp",
+    //         async:false,
+    //         success:function (result) {
+    //             var res=eval('('+result+')');
+    //             var list=res.datas;
+    //             getTileMessage(list);
+    //             $.each(list,function (i) {
+    //                total+=list[i].msg.length;
+    //             })
+    //         }
+    //     });
+    //     console.log(total);
+    //     return total===0?"":total
+    //
+    // }
+    function packs() {
+        return personalModal()+lockScreen()
     }
     function builds(html , selector) {
         if (html && selector)
             $(selector).prepend(html);
     }
     function layoutByConfig(selector) {
-        builds(packs({total:getTotals()}) , selector);
+        builds(packs() , selector);
     }
     return {
         //main function to initiate the module

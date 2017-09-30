@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../metronic/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="../metronic/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="../metronic/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../metronic/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="../metronic/assets/global/plugins/select2/select2.css" rel="stylesheet" type="text/css"/>
+    <link href="../metronic/assets/admin/pages/css/login-soft.css" rel="stylesheet" type="text/css"/>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <!-- BEGIN THEME STYLES -->
+    <link href="../metronic/assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
+    <link href="../metronic/assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <link href="../metronic/assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
+    <link id="style_color" href="../metronic/assets/admin/layout/css/themes/darkblue.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="../metronic/assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="profile-content">
+    <div class="portlet box red-pink ">
+        <div class="portlet-title">
+            <div class="caption"><i class="fa fa-gift"></i>集成管理</div>
+        </div>
+        <div class="portlet-body form">
+            <form class="form-horizontal" role="form" id="form">
+                <div class="form-body">
+                    <!--submit-start-->
+                    <div style="margin-bottom:20px">
+                        <div class="row">
+                            <div class="col-md-offset-1 col-md-9">
+                                <button type="submit" class="btn red-pink " id="create">保存</button>
+
+                                <button type="submit" class="btn red-pink" id="save">清空</button>
+
+                                <button type="submit" class="btn red-pink" id="goback">删除</button>
+
+                                <button type="submit" class="btn red-pink" id="delete">发送全量数据</button>
+
+                                <button type="submit" class="btn red-pink" id="update-save">发送数组</button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!--submit-end-->
+               <div class="row">
+                   <!--left-->
+                   <div class="col-md-5">
+                       <div class="portlet gren">
+                           <div class="portlet-title">
+                               <div class="caption">
+                                   <i class="fa fa-calendar"></i>基础属性
+                               </div>
+                           </div>
+                           <div class="portlet-body">
+                               <div class="form-group"><label class="col-md-3 control-label" for="nav-title">导航标题：</label>
+                                   <div class="col-md-9">
+                                       <div class="input-icon right">
+                                           <input type="text" class="form-control input-inline input-large " id="nav-title"
+                                                  name="nav-title">
+                                       </div>
+
+                                   </div>
+                               </div>
+                               <div class="form-group"><label class="col-md-3 control-label">顺序：</label>
+                                   <div class="col-md-9">
+                                       <input type="text" class="form-control input-inline input-small " id="order" name="order">
+                                   </div>
+                               </div>
+                               <div class="form-group"><label class="col-md-3 control-label">token:</label>
+                                   <div class="col-md-9"><input type="text" class="form-control input-inline input-medium " id="token"
+                                                                name="token">
+                                   </div>
+                               </div>
+                               <div class="form-group">
+                                   <label class="col-md-3 control-label">权限模式:</label>
+                                   <div class="col-md-9">
+                                       <div class="form-group form-md-radios">
+                                           <div class="md-radio-inline">
+                                               <div class="md-radio">
+                                                   <input type="radio" id="radio6" name="radio2" class="md-radiobtn">
+                                                   <label for="radio6">
+                                                       <span class="inc"></span>
+                                                       <span class="check"></span>
+                                                       <span class="box"></span>
+                                                       无权限控制 </label>
+                                               </div>
+                                               <div class="md-radio">
+                                                   <input type="radio" id="radio7" name="radio2" class="md-radiobtn" checked="">
+                                                   <label for="radio7">
+                                                       <span class="inc"></span>
+                                                       <span class="check"></span>
+                                                       <span class="box"></span>
+                                                       权限控制 </label>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+
+                               </div>
+                               <div class="form-group">
+                                   <label class="col-md-3 control-label">默认图标(48x48):</label>
+                                   <div class="col-md-9">
+                                       <div class="fileinput fileinput-new" data-provides="fileinput">
+                                           <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 48px; height: 48px; line-height: 150px;"></div>
+
+                                           <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput">
+                                               选择图片</a>
+
+                                           <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput">
+                                               取消 </a>
+                                       </div>
+                                   </div>
+
+                               </div>
+                               <div class="form-group">
+                                   <label class="col-md-3 control-label">打开方式:</label>
+                                   <div class="col-md-9">
+                                       <div class="form-group form-md-radios">
+                                           <div class="md-radio-inline">
+                                               <div class="md-radio">
+                                                   <input type="radio" id="new-sys" name="open-type" class="md-radiobtn">
+                                                   <label for="new-sys">
+                                                       <span class="inc"></span>
+                                                       <span class="check"></span>
+                                                       <span class="box"></span>
+                                                       新建系统窗口</label>
+                                               </div>
+                                               <div class="md-radio">
+                                                   <input type="radio" id="new-browser" name="open-type" class="md-radiobtn" checked="">
+                                                   <label for="new-browser">
+                                                       <span class="inc"></span>
+                                                       <span class="check"></span>
+                                                       <span class="box"></span>
+                                                       新建浏览器标签页 </label>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+
+                               </div>
+                               <div class="form-group">
+                                   <label class="col-md-3 control-label">起始位置:</label>
+                                   <div class="col-md-9">
+                                       <div class="form-group form-md-radios">
+                                           <div class="md-radio-inline">
+                                               <div class="md-radio">
+                                                   <input type="radio" id="left" name="zero-position" class="md-radiobtn">
+                                                   <label for="left">
+                                                       <span class="inc"></span>
+                                                       <span class="check"></span>
+                                                       <span class="box"></span>
+                                                       左</label>
+                                               </div>
+                                               <div class="md-radio">
+                                                   <input type="radio" id="right" name="zero-position" class="md-radiobtn" checked="">
+                                                   <label for="right">
+                                                       <span class="inc"></span>
+                                                       <span class="check"></span>
+                                                       <span class="box"></span>
+                                                       右 </label>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+
+                               </div>
+                               <div class="position-box">
+                                   <div class="form-group">
+
+                                       <label class="col-md-3 control-label">起始位置(x):</label>
+                                       <div class="col-md-9">
+                                           <input type="text" class="form-control input-inline input-small " id="x-axis" name="x-axis">
+                                       </div>
+                                   </div>
+                                   <div class="form-group"><label class="col-md-3 control-label">顺序：</label>
+                                       <div class="col-md-9">
+                                           <input type="text" class="form-control input-inline input-small " id="y-axis" name="y-axis">
+                                       </div>
+                                   </div>
+                                   <div class="form-group"><label class="col-md-3 control-label">窗口宽度：</label>
+                                       <div class="col-md-9">
+                                           <input type="text" class="form-control input-inline input-small " id="width" name="width">
+                                       </div>
+                                   </div>
+                                   <div class="form-group"><label class="col-md-3 control-label">窗口高度：</label>
+                                       <div class="col-md-9">
+                                           <input type="text" class="form-control input-inline input-small " id="height" name="height">
+                                       </div>
+                                   </div>
+                               </div>
+                               <div class="form-group">
+                                   <label class="col-md-3 control-label">窗口位置:</label>
+                                   <div class="col-md-9">
+                                       <div class="form-group form-md-radios">
+                                           <div class="md-radio-inline">
+                                               <div class="md-radio">
+                                                   <input type="radio" id="draggable" name="w-position" class="md-radiobtn">
+                                                   <label for="draggable">
+                                                       <span class="inc"></span>
+                                                       <span class="check"></span>
+                                                       <span class="box"></span>
+                                                       可拖拽 </label>
+                                               </div>
+                                               <div class="md-radio">
+                                                   <input type="radio" id="fixed" name="w-position" class="md-radiobtn" checked="">
+                                                   <label for="fixed">
+                                                       <span class="inc"></span>
+                                                       <span class="check"></span>
+                                                       <span class="box"></span>
+                                                       固定 </label>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+
+                               </div>
+                               <div class="form-group">
+                                   <label class="col-md-3 control-label">窗口大小:</label>
+                                   <div class="col-md-9">
+                                       <div class="form-group form-md-radios">
+                                           <div class="md-radio-inline">
+                                               <div class="md-radio">
+                                                   <input type="radio" id="telescopic" name="w-size" class="md-radiobtn">
+                                                   <label for="telescopic">
+                                                       <span class="inc"></span>
+                                                       <span class="check"></span>
+                                                       <span class="box"></span>
+                                                       可伸缩 </label>
+                                               </div>
+                                               <div class="md-radio">
+                                                   <input type="radio" id="fixed-size" name="w-size" class="md-radiobtn" checked="">
+                                                   <label for="fixed-size">
+                                                       <span class="inc"></span>
+                                                       <span class="check"></span>
+                                                       <span class="box"></span>
+                                                       固定 </label>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+
+                               </div>
+                               <div class="form-group">
+                                   <label class="col-md-3 control-label">实时更新页面:</label>
+                                   <div class="col-md-9">
+                                       <div class="form-group form-md-radios">
+                                           <div class="md-radio-inline">
+                                               <div class="md-radio">
+                                                   <input type="radio" id=" refreshed" name="update-pages" class="md-radiobtn">
+                                                   <label for=" refreshed">
+                                                       <span class="inc"></span>
+                                                       <span class="check"></span>
+                                                       <span class="box"></span>
+                                                       是 </label>
+                                               </div>
+                                               <div class="md-radio">
+                                                   <input type="radio" id="not- refreshed" name="update-pages" class="md-radiobtn" checked="">
+                                                   <label for="not- refreshed">
+                                                       <span class="inc"></span>
+                                                       <span class="check"></span>
+                                                       <span class="box"></span>
+                                                       否 </label>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+
+                               </div>
+                               <div class="form-group"><label class="col-md-3 control-label" for="interval">更新时间间隔(秒):</label>
+                                   <div class="col-md-9">
+                                       <input type="text" class="form-control input-inline input-small " id="interval" name="interval">
+                                   </div>
+                               </div>
+                               <div class="form-group">
+                                   <label class="col-md-3 control-label">启用:</label>
+                                   <div class="col-md-9">
+                                       <div class="form-group form-md-radios">
+                                           <div class="md-radio-inline">
+                                               <div class="md-radio">
+                                                   <input type="radio" id=" using" name="start-using" class="md-radiobtn">
+                                                   <label for=" using">
+                                                       <span class="inc"></span>
+                                                       <span class="check"></span>
+                                                       <span class="box"></span>
+                                                       是 </label>
+                                               </div>
+                                               <div class="md-radio">
+                                                   <input type="radio" id="not-use" name="start-using" class="md-radiobtn" checked="">
+                                                   <label for="not-use">
+                                                       <span class="inc"></span>
+                                                       <span class="check"></span>
+                                                       <span class="box"></span>
+                                                       否 </label>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+
+                               </div>
+                               <div class="form-group">
+                                   <label class="col-md-3 control-label">自动运行:</label>
+                                   <div class="col-md-9">
+                                       <div class="form-group form-md-radios">
+                                           <div class="md-radio-inline">
+                                               <div class="md-radio">
+                                                   <input type="radio" id="automatic-open" name="automatic" class="md-radiobtn">
+                                                   <label for="automatic-open">
+                                                       <span class="inc"></span>
+                                                       <span class="check"></span>
+                                                       <span class="box"></span>
+                                                       是 </label>
+                                               </div>
+                                               <div class="md-radio">
+                                                   <input type="radio" id="automatic-stop" name="automatic" class="md-radiobtn" checked="">
+                                                   <label for="automatic-stop">
+                                                       <span class="inc"></span>
+                                                       <span class="check"></span>
+                                                       <span class="box"></span>
+                                                       否 </label>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+
+                               </div>
+                               <div class="form-group"><label class="col-md-3 control-label" for="hyperlink">链接地址:</label>
+                                   <div class="col-md-9">
+                                       <div class="input-icon right">
+                                           <input type="text" class="form-control input-inline input-large " id="hyperlink"
+                                                  name="nav-title">
+                                       </div>
+
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+
+                   </div>
+                   <!--right-->
+                   <div class="col-md-7">
+                       <div class="portlet gren">
+                           <div class="portlet-title">
+                               <div class="caption">
+                                   <i class="fa fa-calendar"></i>显示位置
+                               </div>
+                           </div>
+                           <div class="portlet-body">
+                             <div class="row">
+                                 <div class="col-md-4 desktop-box">
+                                     <fieldset>
+                                         <legend>桌面</legend>
+                                         <div>
+                                             <div class="form-group">
+                                                 <div class="row">
+                                                     <label class="col-md-5 control-label">是否显示:</label>
+                                                     <div class="col-md-7">
+                                                         <div class="form-group form-md-radios">
+                                                             <div class="md-radio-inline">
+                                                                 <div class="md-radio">
+                                                                     <input type="radio" id="desktop-show" name="desktop-display" class="md-radiobtn">
+                                                                     <label for="desktop-show">
+                                                                         <span class="inc"></span>
+                                                                         <span class="check"></span>
+                                                                         <span class="box"></span>
+                                                                         是</label>
+                                                                 </div>
+                                                                 <div class="md-radio">
+                                                                     <input type="radio" id="desktop-hide" name="desktop-display" class="md-radiobtn" checked="">
+                                                                     <label for="desktop-hide">
+                                                                         <span class="inc"></span>
+                                                                         <span class="check"></span>
+                                                                         <span class="box"></span>
+                                                                         否 </label>
+                                                                 </div>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                             <div class="form-group">
+                                                 <div class="row">
+                                                     <label class="col-md-5 control-label">图标:</label>
+                                                     <div class="col-md-7">
+                                                         <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                             <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 48px; height: 48px; line-height: 150px;"></div>
+
+                                                             <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput">
+                                                                 选择图片</a>
+
+                                                             <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput">
+                                                                 取消 </a>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </fieldset>
+                                 </div>
+                                 <div class="col-md-4">
+                                     <fieldset>
+                                         <legend>快捷方式</legend>
+                                         <div>
+                                             <div class="form-group">
+                                                 <div class="row">
+                                                     <label class="col-md-5 control-label">是否显示:</label>
+                                                     <div class="col-md-7">
+                                                         <div class="form-group form-md-radios">
+                                                             <div class="md-radio-inline">
+                                                                 <div class="md-radio">
+                                                                     <input type="radio" id="shortcut-show" name="shortcut-display" class="md-radiobtn">
+                                                                     <label for="shortcut-show">
+                                                                         <span class="inc"></span>
+                                                                         <span class="check"></span>
+                                                                         <span class="box"></span>
+                                                                         是</label>
+                                                                 </div>
+                                                                 <div class="md-radio">
+                                                                     <input type="radio" id="shortcut-hide" name="shortcut-display" class="md-radiobtn" checked="">
+                                                                     <label for="shortcut-hide">
+                                                                         <span class="inc"></span>
+                                                                         <span class="check"></span>
+                                                                         <span class="box"></span>
+                                                                         否 </label>
+                                                                 </div>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                             <div class="form-group">
+                                                <div class="row">
+                                                    <label class="col-md-5 control-label">图标:</label>
+                                                    <div class="col-md-7">
+                                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                            <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 48px; height: 48px; line-height: 150px;"></div>
+
+                                                            <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput">
+                                                                选择图片</a>
+
+                                                            <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput">
+                                                                取消 </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                             </div>
+                                         </div>
+                                     </fieldset>
+                                 </div>
+                                 <div class="col-md-4">
+                                     <fieldset>
+                                         <legend>开始菜单</legend>
+                                         <div>
+                                             <div class="form-group">
+                                                 <div class="row">
+                                                     <label class="col-md-5 control-label">是否显示:</label>
+                                                     <div class="col-md-7">
+                                                         <div class="form-group form-md-radios">
+                                                             <div class="md-radio-inline">
+                                                                 <div class="md-radio">
+                                                                     <input type="radio" id="opening-menushow" name="opening-menu-display" class="md-radiobtn">
+                                                                     <label for="opening-menushow">
+                                                                         <span class="inc"></span>
+                                                                         <span class="check"></span>
+                                                                         <span class="box"></span>
+                                                                         是</label>
+                                                                 </div>
+                                                                 <div class="md-radio">
+                                                                     <input type="radio" id="opening-menuhide" name="opening-menudesktop-display" class="md-radiobtn" checked="">
+                                                                     <label for="opening-menuhide">
+                                                                         <span class="inc"></span>
+                                                                         <span class="check"></span>
+                                                                         <span class="box"></span>
+                                                                         否 </label>
+                                                                 </div>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                             <div class="form-group">
+                                                 <div class="row">
+                                                     <label class="col-md-5 control-label">图标:</label>
+                                                     <div class="col-md-7">
+                                                         <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                             <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 48px; height: 48px; line-height: 150px;"></div>
+
+                                                             <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput">
+                                                                 选择图片</a>
+
+                                                             <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput">
+                                                                 取消 </a>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </fieldset>
+                                 </div>
+                             </div>
+                           </div>
+                       </div>
+                       <div class="portlet gren">
+                           <div class="portlet-title">
+                               <div class="caption">
+                                   <i class="fa fa-calendar"></i>接口参数
+                               </div>
+                           </div>
+                           <div class="portlet-body">
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <fieldset>
+                                           <legend>接收推送(由门户系统发送)</legend>
+                                           <div>
+                                               <div class="form-group">
+                                                   <label class="col-md-3 control-label">是否启用:</label>
+                                                   <div class="col-md-9">
+                                                       <div class="form-group form-md-radios">
+                                                           <div class="md-radio-inline">
+                                                               <div class="md-radio">
+                                                                   <input type="radio" id="portals-enable" name="portals-enable" class="md-radiobtn">
+                                                                   <label for="portals-enable">
+                                                                       <span class="inc"></span>
+                                                                       <span class="check"></span>
+                                                                       <span class="box"></span>
+                                                                       是</label>
+                                                               </div>
+                                                               <div class="md-radio">
+                                                                   <input type="radio" id="portals-disable" name="portals-enable" class="md-radiobtn" checked="">
+                                                                   <label for="portals-disable">
+                                                                       <span class="inc"></span>
+                                                                       <span class="check"></span>
+                                                                       <span class="box"></span>
+                                                                       否 </label>
+                                                               </div>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                               <div class="form-group">
+                                                   <label class="col-md-3 control-label" for="portals-link">链接地址：</label>
+                                                   <div class="col-md-9">
+                                                       <div class="input-icon right">
+                                                           <input type="text" class="form-control input-inline input-large " id="portals-link"
+                                                                  name="portals-link">
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </fieldset>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <fieldset>
+                                           <legend>获取信息(由集成系统发送)</legend>
+                                           <div>
+                                               <div class="form-group">
+                                                   <label class="col-md-3 control-label">是否启用:</label>
+                                                   <div class="col-md-9">
+                                                       <div class="form-group form-md-radios">
+                                                           <div class="md-radio-inline">
+                                                               <div class="md-radio">
+                                                                   <input type="radio" id="system-enable" name="system-enable" class="md-radiobtn">
+                                                                   <label for="system-enable">
+                                                                       <span class="inc"></span>
+                                                                       <span class="check"></span>
+                                                                       <span class="box"></span>
+                                                                       是</label>
+                                                               </div>
+                                                               <div class="md-radio">
+                                                                   <input type="radio" id="system-disable" name="system-enable" class="md-radiobtn" checked="">
+                                                                   <label for="system-disable">
+                                                                       <span class="inc"></span>
+                                                                       <span class="check"></span>
+                                                                       <span class="box"></span>
+                                                                       否 </label>
+                                                               </div>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </fieldset>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <div ></div>
+                </div>
+
+
+
+
+
+
+
+        </form>
+    </div>
+        <p style="color:#fff">（系统提供默认参数值(自动替换链接地址和参数值中匹配的内容)：用户账户: @[username] ; 用户密码(加密后) ：@[userpwd] ; 集成应用ID ：@[appid];token : @[apptoken]）</p>
+</div>
+</div>
+</body>
+</html>

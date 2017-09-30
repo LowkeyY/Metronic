@@ -1,0 +1,77 @@
+import com.kinglib.HttpSession;
+import com.kinglib.Jacper;
+import com.kinglib.ui.core.utils.Param;
+
+import java.io.File;
+import java.util.UUID;
+
+import com.susing.EFile;
+import com.susing.core.KingleSystem;
+import com.susing.upload.FileExtend;
+import com.susing.upload.FileUpload;
+//public class A0_Jcp{
+@class{
+	public void doPost(Jacper jacper) {
+
+		HttpSession hs = jacper.getSession();
+
+		Param param = new Param(jacper);
+		FileUpload upload = new FileUpload(hs.uid);
+		try {
+			upload.parseRequest(jacper.getRequest());
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+		upload.appendParamToMap(param);
+		EFile efile = param.getEFile("file");
+
+		String path = buildFilePath(param.getString("path", ""));
+                System.out.println("buildFilePath : " + path);
+
+		if (!"".equals(path) && efile != null) {
+			String newFilename = getNewFilename(FileExtend.getSuffix(efile.getAttribute("file-name")));
+			File uploadFile = new File(path, newFilename);
+			if (efile.rename(uploadFile))
+				jacper.print(getPrintMessage(true, new String[] { "path" , getResultPath(uploadFile.getPath())}));
+			else
+				jacper.print(getPrintMessage(false, new String[] { "上传文件读取失败！" }));
+			return;
+		}
+
+		jacper.print(getPrintMessage(false, new String[] { efile == null ? "上传文件失败，未找到file字段！" : "目标位置不合法！" }));
+	}
+
+	public String buildFilePath(String path) {
+		path = (String) KingleSystem.getProperty("upload_path") + (path.matches("^[/|\\\\](.+?)") ? path : "/" + path);
+		File filePath = new File(path);
+		return filePath.exists() ? path : filePath.mkdirs() ? path : "";
+	}
+
+	public String getPrintMessage(boolean isSuccess, String[] args) {
+		if (args == null || args.length == 0) {
+			return "{\"success\" : " + isSuccess + "}";
+		}
+		StringBuilder result = new StringBuilder(30);
+		if (args.length % 2 == 0)
+			for (int i = 0; i < args.length; i++)
+				result.append(i % 2 == 0 ? "\"" + args[i] + "\":" : "\"" + args[i] + "\""
+						+ (i == args.length - 1 ? "}" : ","));
+		else
+			result.append("\"message\":" + args[0] + "}");
+
+		return result.insert(0, "{\"success\" : " + isSuccess + ",").toString();
+	}
+
+	public String getNewFilename(String type) {
+		String uuid = UUID.randomUUID().toString();
+		return uuid + (!"".equals(type) ? "." + type : "");
+	}
+
+	public String getResultPath(String path) {
+		path = path.replaceAll("\\\\", "/");
+                int strat = path.indexOf("/web/");
+		path = path.substring(strat == -1 ? 0 : strat + 4);
+                    System.out.println(path + " <> " + strat);
+		return path;
+	}
+}

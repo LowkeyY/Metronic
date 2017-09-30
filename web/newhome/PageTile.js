@@ -22,20 +22,20 @@ var PageTile = function () {
         return icons.shift(0);
     }
 
-    function packs(config) {
-        var tile_image_url = config.deskIcon;
-        var isImgDeskIcon=config.isImgDeskIcon;
-        var tile_double = config.tile_doblue === "true";
-        return '<div class="tile ' + (isImgDeskIcon ? 'image' + (tile_double ? ' double' : '') : 'bg-' + getColors()) + '" id="tile_' + config.id + '">' +
-                    '<div class="tile-body">' +
-                    (isImgDeskIcon ? '<img src="' + tile_image_url + '"/>' : '<i class="fa fa-' +tile_image_url+ '"></i>') +
-                    '</div>' +
-                    '<div class="tile-object">' +
-                        '<div class="name">' + (config.title || '') + '</div>' +
-                        '<div class="number">0</div>' +
-                    '</div>' +
-                '</div>';
-    }
+    // function packs(config) {
+    //     var tile_image_url = config.deskIcon;
+    //     var isImgDeskIcon=config.isImgDeskIcon;
+    //     var tile_double = config.tile_doblue === "true";
+    //     return '<div class="tile ' + (isImgDeskIcon ? 'image' + (tile_double ? ' double' : '') : 'bg-' + getColors()) + '" id="tile_' + config.id + '">' +
+    //                 '<div class="tile-body">' +
+    //                 (isImgDeskIcon ? '<img src="' + tile_image_url + '"/>' : '<i class="fa fa-' +tile_image_url+ '"></i>') +
+    //                 '</div>' +
+    //                 '<div class="tile-object">' +
+    //                     '<div class="name">' + (config.title || '') + '</div>' +
+    //                     '<div class="number">0</div>' +
+    //                 '</div>' +
+    //             '</div>';
+    // }
     
     function packCards(config){
         var title = config.title , id = config.id , isImg = false , src = config.deskIcon;
@@ -59,13 +59,13 @@ var PageTile = function () {
             $(selector).append(html);
     }
 
-    function layoutByCongfig(datas, selector) {
-        var items = datas || [];
-        $.each(items, function (i , item) {
-            if(item.showAtDesk === true)
-                builds(packs(item), selector);
-        });
-    }
+    // function layoutByCongfig(datas, selector) {
+    //     var items = datas || [];
+    //     $.each(items, function (i , item) {
+    //         if(item.showAtDesk === true)
+    //             builds(packs(item), selector);
+    //     });
+    // }
     
     function layoutCardByCongfig(datas, selector) {
         var items = datas || [];
@@ -81,12 +81,12 @@ var PageTile = function () {
             this.selector = selector || '.page-content .tiles';
         },
         doLayout: function (items) {
-            layoutByCongfig(items, this.selector);
+            // layoutByCongfig(items, this.selector);
             var cardSelector = ".page-content .tab-content .row";
             layoutCardByCongfig(items, cardSelector);
-            $(this.selector).on('click', '.tile', function (e) {
-                PageTab.create($(this).attr('id'));
-            });
+            // $(this.selector).on('click', '.tile', function (e) {
+            //     PageTab.create($(this).attr('id'));
+            // });
             $(cardSelector).on('click', '.dashboard-stat', function (e) {
                 PageTab.create($(this).attr('id'));
             });

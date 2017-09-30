@@ -33,7 +33,7 @@
                 var data = {task: "save", what: "password", passwd: pwd, oldpasswd: oldpwd, moduleId: "preferences"};
                 $.ajax({
                     type: "post",
-                    url: "./system/setup.jcp",
+                    url: "/home/system/setup.jcp",
                     data: data,
                     success: function (res) {
 
@@ -101,17 +101,18 @@
         if(path){
             var src = "" , name = "";
             if(PageSystem.isObject(path))
-                src = "/lib/upload/download.jcp?fileid=" + path.id + "&r=" + Math.random() , name = path.value;
+                src = "/lib/upload/download.jcp?fileid=" + path.id + "&r=" + Math.random(),name = path.value;
             else
                 src = name = path;
             $(".user-icon" , selector).attr("src", src);
             $("#photo_text" , selector).val(name);
+
         }
     }
     function getData() {
         $.ajax({
             type: "post",
-            url: "../home/system/setup.jcp?",
+            url: "/home/system/setup.jcp?",
             data: {
                 moduleId: "preferences",
                 task: "load",
@@ -126,6 +127,7 @@
             }
         });
     }
+    getData()
     function loadData(jsonStr) {
         var obj = jsonStr;
         var key, value, tagName, type, arr;
@@ -161,7 +163,7 @@
     }
     function getSysConf() {
         $.ajax({
-            url:"../login/logout.jcp"
+            url:"/login/logout.jcp"
         })
     }
     $("#person-info-box").on("click", function (e) {
@@ -189,30 +191,31 @@
         $.blockUI({
             message:$("#overlay"),
             css:{
-
                 opacity:1,
                 backgroundColor:'#fff',
-                border:'0 none'
+                border:'0 none',
+                cursor: 'default'
             },
             overlayCSS:  {
                 backgroundColor: '#000',
                 opacity:         0.9,
                 cursor:          'default'
-            }
+            },
+            baseZ:9999
         })
     });
     $(document).on("click","#unlocked",function (e) {
-                e.preventDefault()
-                var username=PageSystem.get("user_name")
+                e.preventDefault();
+                var username=PageSystem.get("user_name");
                 var password = $("#usrPwd").val();
-                password=hex_md5(password)
+                password=hex_md5(password);
                var data={
                    username:username,
                    password:password
                 };
                 $.ajax({
                     type: "post",
-                    url: "../newlogin/login.jjs",
+                    url: "/login/login.jjs",
                     data: data,
                     dataType:"json",
                     success: function (res) {

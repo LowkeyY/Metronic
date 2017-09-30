@@ -1,12 +1,10 @@
 (function () {
-    var datatableHead = "", numberCounts = 1, currentSelectDeptId = "", moveId = "", portletColor = PageSystem.getColor();
-    paramRoles = [
-        {id: "21212", text: "办公厅用户"},
-        {id: "20661", text: "省长"},
-        {id: "21007", text: "厅级干部"},
-        {id: "21197", text: "秘书长"},
-        {id: "21175", text: "副省长"}];
-        paramUsertypes = [
+    var datatableHead = "", numberCounts = 1, currentSelectDeptId = "", moveId = "", portletColor = PageSystem.getColor(),rolesArr=PageSystem.getRoleName();
+   if(rolesArr.length!=0){
+      var paramRoles= rolesArr
+   }
+    console.log(paramRoles)
+       var paramUsertypes = [
             {text: "架构师", id: 2},
             {text: "开发人员", id: 5},
             {text: "定制人员", id: 10},
@@ -457,7 +455,7 @@
         }
         return type;
     }
-
+    
     function initSelect(datas) {
         var form = $("form"), defaultParam = datas || {};
         $("#roleId", form).select2({width: "resolve", placeholder: "职位", allowClear: true, data: paramRoles});
@@ -618,16 +616,16 @@
             dataType: "json",
             success: function (data) {
                 var res = data[0];
+                console.log(res)
                 loadData(res);
                 initSelect(res);
-                setImageSrc(res.photo || "" , selector);
+                setImageSrc(res.photo || "" , "div");
                 $("#moveSelect").select2("val", res.roleId);
             }
         });
     }
     
     function setImageSrc(path , selector){
-        if(path){
             var src = "" , name = "";
             if(PageSystem.isObject(path))
                 src = "/lib/upload/download.jcp?fileid=" + path.id + "&r=" + Math.random() , name = path.value;
@@ -635,7 +633,6 @@
                 src = name = path;
             $(".user-icon" , selector).attr("src", src);
             $("#photo_text" , selector).val(name);
-        }
     }
 
     function loadData(jsonStr) {
@@ -670,6 +667,7 @@
         }
     }
 
+      
     function deleteList() {
         var userId = $('input[type="checkbox"]:checked').parents("tr").children().last().text();
         $.ajax({
@@ -730,7 +728,7 @@
                         dt.ajax.reload();
                     }
                 });
-                $("#moveTree_" + conf.id).jstree({
+                  $("#moveTree_" + conf.id).jstree({
                     core: {
                         themes: {responsive: false},
                         check_callback: true,
@@ -837,12 +835,6 @@
                         var deleteRows = table.selects("real_name");
                         if (deleteRows.length === 1) {
                             $(tag).modal("show");
-                            $("#deleteUserBtn").on("click", function () {
-                                $(tag).modal("hide");
-                                deleteList(currentSelectDeptId);
-                                var dt = $("#datatable_" + conf.id).DataTable();
-                                dt.ajax.reload();
-                            });
                         } else {
                             Metronic.alert({
                                 type: "danger",
@@ -914,6 +906,13 @@
                     }
                     return false;
                 });
+                  $("#deleteUserBtn").on("click", function () {
+                               var tag= "#" + getToolsId(conf.id, "delete")
+                                  deleteList(currentSelectDeptId);
+                                $(tag).modal("hide");
+                                var dt = $("#datatable_" + conf.id).DataTable();
+                                dt.ajax.reload();
+                            });
                 $("input[type='file']").fileupload({
                     type: "post",
                     url: "/bin/upload/upload.jcp",
@@ -922,6 +921,7 @@
                     formData: {file: ""},
                     dataType: "json",
                     done: function (e, data) {
+                       
                         switch (e.target.getAttribute("data-type")) {
                             case"photo":
                                 $(".user-icon" , $(e.target).parent().parent()).attr("src", data.result.path);

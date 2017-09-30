@@ -1,54 +1,56 @@
 (function () {
     var portletColor = PageSystem.getColor(),
+        currentSelectDeptId2=""
         rightHtml =  '<form class="form-horizontal" role="form" id="deptform">\n' +
-        '<div class="portlet box '+portletColor+' ">\n' +
-        '    <div class="portlet-title row" style="margin-left:0">\n' +
-        '        <div class="caption col-md-4"><i class="fa fa-sitemap"></i> 组织机构管理</div>\n' +
-        '                <div class="col-md-8 clearfix" style="padding-top: 5px;">\n' +
-        '                    <div style="float:right">\n' +
-        '                        <div>\n' +
-        '                            <button type="button" class="btn default" id="create"><i class="fa fa-plus"></i>新建</button>\n' +
-        '                            <button type="submit" class="btn default" id="save" style="display: none"><i class="fa fa-edit"></i>保存</button>\n' +
-        '                            <button class="btn default" id="goback" style="display: none" type="button">返回</button>\n' +
-        '                            <button class="btn default" id="delete" type="button" data-toggle="modal"><i class="fa fa-trash"></i>删除</button>\n' +
-        '                            <button class="btn default" id="update-save" type="submit"><i class="fa fa-edit"></i>保存</button>\n' +
-        '                        </div>\n' +
-        '                    </div>\n' +
-        '                </div>\n' +
-        '    </div>\n' +
-        '    <div class="portlet-body form">\n' +
-        '        <form class="form-horizontal" role="form" id="deptform">\n' +
-        '            <div class="form-body">\n' +
-        '                <div class="form-group"><label class="col-md-3 control-label">名称：<span class="required"\n' +
-        '                                                                                       aria-required="true">*</span></label>\n' +
-        '                    <div class="col-md-9">\n' +
-        '                        <div class="input-icon right"><input type="text" class="form-control input-inline input-medium "\n' +
-        '                                                             id="name" name="shortName"></div>\n' +
-        '                    </div>\n' +
-        '                </div>\n' +
-        '                <div class="form-group"><label class="col-md-3 control-label">单位类型：<span class="required"\n' +
-        '                                                                                         aria-required="true">*</span></label>\n' +
-        '                    <div class="col-md-9"><select class="form-control input-medium" id="type" name="deptType"></select>\n' +
-        '                    </div>\n' +
-        '                </div>\n' +
-        '                <div class="form-group"><label class="col-md-3 control-label">优先顺序：</label>\n' +
-        '                    <div class="col-md-9"><input type="text" class="form-control input-inline input-medium " id="order"\n' +
-        '                                                 name="sort_id"></div>\n' +
-        '                </div>\n' +
-        '                <div class="form-group"><label class="col-md-3 control-label">创建时间：</label>\n' +
-        '                    <div class="col-md-9"><input type="text" class="form-control input-inline input-medium "\n' +
-        '                                                 readonly="true " id="create-time" name="createDate"></div>\n' +
-        '                </div>\n' +
-        '                <div class="form-group"><label class="col-md-3 control-label">单位全称：<span class="required"\n' +
-        '                                                                                         aria-required="true">*</span></label>\n' +
-        '                    <div class="col-md-9"><input type="text" class="form-control input-inline input-medium"\n' +
-        '                                                 id="companyName" name="deptName"></div>\n' +
-        '                </div>\n' +
-        '            </div>\n' +
-      
-        '    </div>\n' +
-        '</div>'+
-  '        </form>\n' 
+            '<div class="portlet box '+portletColor+' ">\n' +
+            '    <div class="portlet-title row" style="margin-left:0">\n' +
+            '        <div class="caption col-md-4"><i class="fa fa-sitemap"></i> 组织机构管理</div>\n' +
+            '                <div class="col-md-8 clearfix" style="padding-top: 5px;">\n' +
+            '                    <div style="float:right">\n' +
+            '                        <div>\n' +
+            '                            <button type="button" class="btn default" id="create"><i class="fa fa-plus"></i>新建</button>\n' +
+            '                            <button type="submit" class="btn default" id="save" style="display: none"><i class="fa fa-edit"></i>保存</button>\n' +
+            '                            <button class="btn default" id="goback" style="display: none" type="button">返回</button>\n' +
+            '                            <button class="btn default" id="delete" type="button" data-toggle="modal"><i class="fa fa-trash"></i>删除</button>\n' +
+            '                            <button class="btn default" id="update-save" type="submit"><i class="fa fa-edit"></i>保存</button>\n' +
+            '                            <button class="btn default" id="dept-move" type="button"><i class="fa fa-exchange"></i>移动</button>\n' +
+            '                        </div>\n' +
+            '                    </div>\n' +
+            '                </div>\n' +
+            '    </div>\n' +
+            '    <div class="portlet-body form">\n' +
+            '        <form class="form-horizontal" role="form" id="deptform">\n' +
+            '            <div class="form-body">\n' +
+            '                <div class="form-group"><label class="col-md-3 control-label">名称：<span class="required"\n' +
+            '                                                                                       aria-required="true">*</span></label>\n' +
+            '                    <div class="col-md-9">\n' +
+            '                        <div class="input-icon right"><input type="text" class="form-control input-inline input-medium "\n' +
+            '                                                             id="name" name="shortName"></div>\n' +
+            '                    </div>\n' +
+            '                </div>\n' +
+            '                <div class="form-group"><label class="col-md-3 control-label">单位类型：<span class="required"\n' +
+            '                                                                                         aria-required="true">*</span></label>\n' +
+            '                    <div class="col-md-9"><select class="form-control input-medium" id="type" name="deptType"></select>\n' +
+            '                    </div>\n' +
+            '                </div>\n' +
+            '                <div class="form-group"><label class="col-md-3 control-label">优先顺序：</label>\n' +
+            '                    <div class="col-md-9"><input type="text" class="form-control input-inline input-medium " id="order"\n' +
+            '                                                 name="sort_id"></div>\n' +
+            '                </div>\n' +
+            '                <div class="form-group"><label class="col-md-3 control-label">创建时间：</label>\n' +
+            '                    <div class="col-md-9"><input type="text" class="form-control input-inline input-medium "\n' +
+            '                                                 readonly="true " id="create-time" name="createDate"></div>\n' +
+            '                </div>\n' +
+            '                <div class="form-group"><label class="col-md-3 control-label">单位全称：<span class="required"\n' +
+            '                                                                                         aria-required="true">*</span></label>\n' +
+            '                    <div class="col-md-9"><input type="text" class="form-control input-inline input-medium"\n' +
+            '                                                 id="companyName" name="deptName"></div>\n' +
+            '                </div>\n' +
+            '            </div>\n' +
+
+            '    </div>\n' +
+            '</div>'+
+            '        </form>\n'
     function panks(conf) {
         return '<div class="row" id="module_\' + conf.id + \'">\n' +
             '    <div class="col-md-12">\n' +
@@ -60,7 +62,7 @@
             '            <div class="portlet-body">' + panksLeft(conf) + panksRight() + '</div>\n' +
             '        </div>\n' +
             '    </div>\n' +
-            '</div>\n' + deleteModal(conf, "delete")
+            '</div>\n' + deleteModal(conf, "delete")+deptMoveModal(conf);
     }
 
     function panksLeft(conf) {
@@ -146,28 +148,17 @@
                 file: {icon: "fa fa-file icon-state-warning icon-lg"}
             },
             state: {key: "demo3"},
-            plugins: ["dnd", "state", "types"]
+            plugins: [ "state", "types"]
         }).on("changed.jstree", function (e, data) {
             if (data && data.selected && data.selected.length) {
                 currentSelectDeptId = data.selected[0];
+                console.log(currentSelectDeptId)
                 if (data.selected) {
                 }
                 getDate(currentSelectDeptId);
                 $("#create,#update-save,#delete").show();
                 $("#goback,#save").hide();
             }
-        }).on("move_node.jstree", function (e, data) {
-            $.ajax({
-                type: "post",
-                url: "/bin/user/create.jcp",
-                data: {type: "move", dept_id: data.node.id, parent_dept_id: data.parent},
-                success: function () {
-                    $("#" + data.node.id).on("loaded.jstree", function (event, data) {
-                        $("#jstree").jstree("open_all");
-                    });
-                    toastr.success("移动部门成功");
-                }
-            });
         }).on("loaded.jstree", function (e, data) {
             var inst = data.instance;
             var obj = inst.get_node(e.target.firstChild.firstChild.lastChild);
@@ -190,7 +181,7 @@
             messages: {
                 shortName: {minlength: jQuery.validator.format("名称不能小于 {0} 个字符"), required: "名称必须填写。"},
                 deptType: {required: "请选择一个部门"},
-                deptName: {minlength: jQuery.validator.format("单位全称不能小于 {0} 个字符"), required: "单位全称必须填写。"},
+                deptName: {minlength: jQuery.validator.format("单位全称不能小于 {0} 个字符"), required: "单位全称必须填写。"}
             },
             highlight: function (element) {
                 $(element).closest(".form-group").addClass("has-error");
@@ -212,8 +203,8 @@
                     type: "post", url: "/bin/user/create.jcp", data: data, success: function () {
                         $("#delete,#update-save").show();
                         $("#save,#goback").hide();
-                        var tree = $.jstree.reference("#tree_" + conf.id);
-                        tree.refresh();
+                        $.jstree.reference("#tree_" + conf.id).refresh();
+                       $.jstree.reference("#deptMoveTree_" + conf.id).refresh();
                         if (realType == "save") {
                             toastr.success("创建成功");
                         } else {
@@ -230,7 +221,47 @@
             resetVaildate.resetForm();
         });
     }
-
+    
+    function sendMoveTree(conf){
+          if(currentSelectDeptId!==currentSelectDeptId2){
+                $.ajax({
+                type: "post",
+                url: "/bin/user/create.jcp",
+                data: {type: "move", dept_id:currentSelectDeptId, parent_dept_id: currentSelectDeptId2},
+                success: function (data) {
+                       $("#deptMoveModal").modal("hide");
+                    toastr.success("移动部门成功");
+                      $.jstree.reference("#tree_" + conf.id).refresh();
+                       $.jstree.reference("#deptMoveTree_" + conf.id).refresh();
+                    }
+                     });
+                     }else{
+                         toastr.error("请选择其他部门");
+                     }
+            
+    }
+    
+    function deptMoveModal(conf) {
+       return '<div id="deptMoveModal" class="modal fade bs-modal-sm in" tabindex="-1">\n' +
+        '<div class="modal-dialog modal-sm">'+
+        '<div class="modal-content">'+
+        '    <div class="modal-header">\n' +
+        '        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>\n' +
+        '         <h4 class="modal-title"> 移动部门 </h4>' +
+        '    </div>\n' +
+        '    <div class="modal-body">'+deptMoveTree(conf)+'</h4></div>\n' +
+        '    <div class="modal-footer">\n' +
+        '        <button class="btn default" data-dismiss="modal" aria-hidden="true">取消</button>\n' +
+        '        <button type="button" class="btn green-meadow" id="dept-move-submit">确定</button>\n' +
+        '    </div>\n' +
+        '    </div>\n' +
+        '    </div>\n' +
+        '</div>'
+    }
+    function deptMoveTree(conf) {
+        return '<div class="row">\n' + '    <div id="deptMoveTree_' + conf.id + '" class="tree-demo col-md-offset-2" style="margin-bottom:20px"></div>\n' + '    <div id="moveSelect" class=" col-md-5" style="padding:0;margin-left:80px"></div>\n' + "</div>";
+    }
+  
     return {
         init: function (conf, appendHtml) {
             PageSystem.loadJS("/metronic/assets/global/plugins/jstree/dist/jstree.min.js");
@@ -239,14 +270,40 @@
             PageSystem.loadJS("/metronic/assets/global/plugins/select2/select2.min.js");
             PageSystem.loadJS("/metronic/assets/global/plugins/jquery-validation/js/jquery.validate.min.js");
             appendHtml(panks(conf), function () {
+                    $("#deptMoveTree_" + conf.id).jstree({
+                    core: {
+                        themes: {responsive: false},
+                        check_callback: true,
+                        data: {
+                            url: "/bin/user/_getOrg.jjs", data: function (node) {
+                                return {parent: node.id};
+                            }
+                        }
+                    },
+                    types: {
+                        "default": {icon: "fa fa-folder icon-state-warning icon-lg"},
+                        file: {icon: "fa fa-file icon-state-warning icon-lg"}
+                    },
+                    state: {key: "demo3"},
+                    plugins: ["state", "types"]
+                }).on("changed.jstree", function (e, data) {
+                    if (data && data.selected && data.selected.length) {
+                        currentSelectDeptId2 = data.selected[0];
+                    }
+                }).on("loaded.jstree", function (e, data) {
+                    var inst = data.instance;
+                    var obj = inst.get_node(e.target.firstChild.firstChild.lastChild);
+                    inst.select_node(obj);
+                });
                 renderTree(conf);
+
                 $("#create").on("click", function (e) {
                     e.preventDefault();
                     $(this).hide();
                     $("input").val("");
                     $("#delete,#update-save").hide();
                     $("#save,#goback").show();
-                    
+
                 });
                 $("#goback").on("click", function (e) {
                     e.preventDefault();
@@ -271,8 +328,8 @@
                             var deptRes = eval("(" + res + ")");
                             if (deptRes.success) {
                                 toastr.success("删除成功");
-                                var tree = $.jstree.reference("#tree_" + conf.id);
-                                tree.refresh();
+                                 $.jstree.reference("#tree_" + conf.id).refresh();
+                                 $.jstree.reference("#deptMoveTree_" + conf.id).refresh();
                             } else {
                                 toastr.error(deptRes.message, "删除失败");
                             }
@@ -287,6 +344,19 @@
                 $("#update-save").on("click", function () {
                     initDeptForm(conf, this.id);
                 });
+                $("#dept-move").on("click",function (e) {
+                    if(!currentSelectDeptId){
+                         toastr.error("请选择一个部门");
+                     }else if(currentSelectDeptId=="0"){
+                          toastr.error("此部门不能移动");
+                     }else{
+                          $("#deptMoveModal").modal("show");
+                     }
+                 
+                })
+                $("#dept-move-submit").on("click",function(){
+                    sendMoveTree(conf)
+                })
             });
         }
     };
