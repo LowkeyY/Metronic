@@ -1,9 +1,9 @@
+
 (function () {
+    PageSystem.loadJS("/metronic/dev/potal/collocation.js");
     var selectSysId = "",portletColor = PageSystem.getColor();
-
-
     function rightHtml() {
-        return '<form class="form-horizontal" role="form" id="baseForm">\n' + 
+        return '<form class="form-horizontal" role="form" id="baseForm">\n' +
             '<div class="portlet box '+portletColor+' ">\n' +
             '    <div class="portlet-title row" style="margin-left:0;margin-right:0">\n' +
             '        <div class="caption">\n' +
@@ -78,7 +78,7 @@
             '                                        </div>\n' +
             '                                    </div>\n' +
             '                                </div>\n' +
-             '                                <div class="form-group">\n' +
+            '                                <div class="form-group">\n' +
             '                                    <label class="col-md-3 control-label">启用:</label>\n' +
             '                                    <div class="col-md-9">\n' +
             '                                        <div class="form-group form-md-radios">\n' +
@@ -171,6 +171,34 @@
             '                                                        <span class="check"></span>\n' +
             '                                                        <span class="box"></span>\n' +
             '                                                        新建浏览器标签页\n' +
+            '                                                    </label>\n' +
+            '                                                </div>\n' +
+            '                                            </div>\n' +
+            '                                        </div>\n' +
+            '                                    </div>\n' +
+            '                                </div>\n' +
+              '                                <div class="form-group">\n' +
+            '                                    <label class="col-md-3 control-label">桌面显示:</label>\n' +
+            '                                    <div class="col-md-9">\n' +
+            '                                        <div class="form-group form-md-radios">\n' +
+            '                                            <div class="md-radio-inline">\n' +
+            '                                                <div class="md-radio">\n' +
+            '                                                    <input type="radio" id="desk-show" name="mn_default_show_type" class="md-radiobtn" value="true">\n' +
+            '                                                    <label for="desk-show">\n' +
+            '                                                        <span class="inc"></span>\n' +
+            '                                                        <span class="check"></span>\n' +
+            '                                                        <span class="box"></span>\n' +
+            '                                                        是\n' +
+            '                                                    </label>\n' +
+            '                                                </div>\n' +
+            '                                                <div class="md-radio">\n' +
+            '                                                    <input type="radio" id="desk-hide" name="mn_default_show_type" value="false"\n' +
+            'checked="" class="md-radiobtn">\n' +
+            '                                                    <label for="desk-hide">\n' +
+            '                                                        <span class="inc"></span>\n' +
+            '                                                        <span class="check"></span>\n' +
+            '                                                        <span class="box"></span>\n' +
+            '                                                        否\n' +
             '                                                    </label>\n' +
             '                                                </div>\n' +
             '                                            </div>\n' +
@@ -284,34 +312,91 @@
             '                                                </div>\n' +
             '                                                <div class="desktopImg-box" style="display:none">\n' +
             '                                                    <div class="form-group">\n' +
-            '                                                        <div class="row" style="margin:0">\n' +
-            '                                                            <label class="col-md-3 control-label">图标:</label>\n' +
-            '                                                            <div class="col-md-9">\n' +
+            '                                                        <div class="row" style="margin:10px">\n' +
+            '                                                            <label class="col-md-5 control-label">图标:</label>\n' +
+            '                                                            <div class="col-md-7">\n' +
             '                                                                <div class="dev-img-upload clearfix">\n' +
             '                                                                    <div class="dev-img-box">\n' +
-            '                                                                         <i class="fa fa-angle-down" id="uploadimg-icon" style="width=100%;height:100%"></i>'+
+            '                                                                         <i class="" id="uploadimg-icon"></i>'+
             '                                                                    </div>\n' +
             '                                                                     <div class="dev-btn-box" style="display:inline-block;padding-left:5px">'+
             '                                                            <div class="btn-group">\n' +
-            '                                                             <button class="btn '+portletColor+' dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">\n' +
+            '                                                             <button class="btn '+portletColor+' dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" id="dropdown-icons-btn">\n' +
             '                                                                 图片<i class="fa fa-angle-down"></i>\n' +
             '                                                             </button>\n' +
-            '              <ul class="dropdown-menu" role="menu">\n' +
-            '               <li>\n' +
-            '                <a href="javascript:;">\n' +
-            '                Action </a>\n' +
-            '               </li>\n' +
+            '              <ul class="dropdown-menu clearfix" role="menu" id="dropdown-icons">\n' +
             '                </ul>\n' +
-         
             '             </div>'+
             '                                                                      <a href="javascript:"\n' +
-            '                                                                         class="btn '+portletColor+' fileinput-exists pic-cancel-btn" \n' +
+            '                                                                         class="btn '+portletColor+' fileinput-exists icons-cancel-btn" \n' +
             '                                                                         data-dismiss="fileinput">取消\n' +
             '                                                                      </a>\n' +
-             '                                                                </div>\n' +
+            '                                                                      <input type="hidden" value="" name="mn_desktop_icon" id="mn_desktop_icon">\n' +
+            '                                                                </div>\n' +
             '                                                                </div>\n' +
             '                                                            </div>\n' +
             '                                                        </div>\n' +
+            '                                                        <div class="row" style="margin:10px">\n' +
+            '                                                            <label class="col-md-5 control-label">卡片颜色:</label>\n' +
+            '                                                            <div class="col-md-7">\n' +
+            '                                                                <div class="dev-cards-colors-upload clearfix">\n' +
+            '                                                                    <div class="dev-cards-colors-box">\n' +
+            '                                                                    </div>\n' +
+            '                                                                     <div class="dev-btn-box" style="display:inline-block;padding-left:5px">'+
+            '                                                            <div class="btn-group">\n' +
+            '                                                             <button class="btn '+portletColor+' dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" id="dropdown-colors-btn">\n' +
+            '                                                                 颜色<i class="fa fa-angle-down"></i>\n' +
+            '                                                             </button>\n' +
+            '              <ul class="dropdown-menu clearfix" role="menu" id="dropdown-colors">\n' +
+            '                </ul>\n' +
+            '             </div>'+
+            '                                                                      <a href="javascript:"\n' +
+            '                                                                         class="btn '+portletColor+' fileinput-exists color-cancel-btn" \n' +
+            '                                                                         data-dismiss="fileinput">取消\n' +
+            '                                                                      </a>\n' +
+            '                                                                      <input type="hidden" value="" name="mn_desktop_color" id="mn_desktop_color">\n' +
+            '                                                                </div>\n' +
+            '                                                                </div>\n' +
+            '                                                            </div>\n' +
+            '                                                        </div>\n' +
+            '                                                    <div class="row" style="margin:0">\n' +
+            '                                                        <label class="col-md-5 control-label">\n' +
+            '                                                            卡片大小:\n' +
+            '                                                        </label>\n' +
+            '                                                        <div class="col-md-7">\n' +
+            '                                                            <div class="form-group form-md-radios">\n' +
+            '                                                                <div class="md-radio-inline">\n' +
+            '                                                                    <div class="md-radio">\n' +
+            '                                                                        <input type="radio"\n' +
+            '                                                                               id="card-size-small"\n' +
+            '                                                                               value="true"\n' +
+            '                                                                               name="mn_card_size"\n' +
+            '                                                                               class="md-radiobtn">\n' +
+            '                                                                        <label for="card-size-small">\n' +
+            '                                                                            <span class="inc"></span>\n' +
+            '                                                                            <span class="check"></span>\n' +
+            '                                                                            <span class="box"></span>\n' +
+            '                                                                            小尺寸\n' +
+            '                                                                        </label>\n' +
+            '                                                                    </div>\n' +
+            '                                                                    <div class="md-radio">\n' +
+            '                                                                        <input type="radio"\n' +
+            '                                                                               id="card-size-big"\n' +
+            '                                                                               value="false"\n' +
+            '                                                                               name="mn_card_size"\n' +
+            '                                                                               class="md-radiobtn"\n' +
+            '                                                                               checked>\n' +
+            '                                                                        <label for="card-size-big">\n' +
+            '                                                                            <span class="inc"></span>\n' +
+            '                                                                            <span class="check"></span>\n' +
+            '                                                                            <span class="box"></span>\n' +
+            '                                                                             大尺寸\n' +
+            '                                                                        </label>\n' +
+            '                                                                    </div>\n' +
+            '                                                                </div>\n' +
+            '                                                            </div>\n' +
+            '                                                        </div>\n' +
+            '                                                    </div>\n' +
             '                                                    </div>\n' +
             '                                                </div>\n' +
             '                                            </div>\n' +
@@ -359,38 +444,38 @@
             '                                                        </div>\n' +
             '                                                    </div>\n' +
             '                                                </div>\n' +
-            '                                                <div class="shortcutImg-box" style="display:none">\n' +
-            '                                                    <div class="form-group">\n' +
-     '                                                        <div class="row" style="margin:0">\n' +
-            '                                                            <label class="col-md-3 control-label">图标:</label>\n' +
-            '                                                            <div class="col-md-9">\n' +
-            '                                                                <div class="dev-img-upload clearfix">\n' +
-            '                                                                    <div class="dev-img-box">\n' +
-            '                                                                         <i class="fa fa-angle-down" id="uploadimg-icon" style="width=100%;height:100%"></i>'+
-            '                                                                    </div>\n' +
-            '                                                                     <div class="dev-btn-box" style="display:inline-block;padding-left:5px">'+
-            '                                                            <div class="btn-group">\n' +
-            '                                                             <button class="btn '+portletColor+' dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">\n' +
-            '                                                                 图片<i class="fa fa-angle-down"></i>\n' +
-            '                                                             </button>\n' +
-            '              <ul class="dropdown-menu" role="menu">\n' +
-            '               <li>\n' +
-            '                <a href="javascript:;">\n' +
-            '                Action </a>\n' +
-            '               </li>\n' +
-            '                </ul>\n' +
-         
-            '             </div>'+
-            '                                                                      <a href="javascript:"\n' +
-            '                                                                         class="btn '+portletColor+' fileinput-exists pic-cancel-btn" \n' +
-            '                                                                         data-dismiss="fileinput">取消\n' +
-            '                                                                      </a>\n' +
-             '                                                                </div>\n' +
-            '                                                                </div>\n' +
-            '                                                            </div>\n' +
-            '                                                        </div>\n' +
-            '                                                    </div>\n' +
-            '                                                </div>\n' +
+//            '                                                <div class="shortcutImg-box" style="display:none">\n' +
+//            '                                                    <div class="form-group">\n' +
+//            '                                                        <div class="row" style="margin:0">\n' +
+//            '                                                            <label class="col-md-3 control-label">图标:</label>\n' +
+//            '                                                            <div class="col-md-9">\n' +
+//            '                                                                <div class="dev-img-upload clearfix">\n' +
+//            '                                                                    <div class="dev-img-box">\n' +
+//            '                                                                         <i class="fa fa-angle-down" id="uploadimg-icon" style="width=100%;height:100%"></i>'+
+//            '                                                                    </div>\n' +
+//            '                                                                     <div class="dev-btn-box" style="display:inline-block;padding-left:5px">'+
+//            '                                                            <div class="btn-group">\n' +
+//            '                                                             <button class="btn '+portletColor+' dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">\n' +
+//            '                                                                 图片<i class="fa fa-angle-down"></i>\n' +
+//            '                                                             </button>\n' +
+//            '              <ul class="dropdown-menu" role="menu">\n' +
+//            '               <li>\n' +
+//            '                <a href="javascript:;">\n' +
+//            '                Action </a>\n' +
+//            '               </li>\n' +
+//            '                </ul>\n' +
+//
+//            '             </div>'+
+//            '                                                                      <a href="javascript:"\n' +
+//            '                                                                         class="btn '+portletColor+' fileinput-exists pic-cancel-btn" \n' +
+//            '                                                                         data-dismiss="fileinput">取消\n' +
+//            '                                                                      </a>\n' +
+//            '                                                                </div>\n' +
+//            '                                                                </div>\n' +
+//            '                                                            </div>\n' +
+//            '                                                        </div>\n' +
+//            '                                                    </div>\n' +
+//            '                                                </div>\n' +
             '                                            </div>\n' +
             '                                        </fieldset>\n' +
             '                                    </div>\n' +
@@ -641,7 +726,7 @@
             '         （系统提供默认参数值(自动替换链接地址和参数值中匹配的内容)：用户账户: @[username] ; 用户密码(加密后) ：@[userpwd] ; 集成应用ID：@[appid];default_token : @[appdefault_token]）\n' +
             '     </p>\n' +
             '</div>'+
-             '        </form>\n' 
+            '        </form>\n'
     }
 
     function hiddenInfo() {
@@ -846,7 +931,7 @@
             '</div>'
     }
 
-   function deleteSysModal(conf, type) {
+    function deleteSysModal(conf, type) {
         return '<div id="deleteSysModal" class="modal fade bs-modal-sm in" tabindex="-1">\n' +
             '<div class="modal-dialog modal-sm">'+
             '<div class="modal-content">'+
@@ -900,7 +985,24 @@
             '            </div>\n' +
             '        </div>'
     }
-
+    function iconsMenu(){
+        var iconsArray=collocation.fontIcons,
+            iconClass=collocation.iconClass,
+            html=''
+        $.each(iconsArray,function(i){
+            html+='<li class="icons-item"><i class="'+iconClass+''+iconsArray[i]+'"></i></li>'
+        })
+        $("#dropdown-icons").html(html)
+    }
+    function colorLibrary(){
+        var colorArray=collocation.colorLibrary,
+                html='';
+        $.each(colorArray,function(i){
+             html+='<li class="colors-item" data-value='+colorArray[i].id+' style="background-color:'+colorArray[i].color+'"></li>'
+            
+        })
+         $("#dropdown-colors").html(html)
+    }
     var controller = {
         start: function () {
             this.openType().deskImgBox().apiType().shortcutImgBox().faceSysUrlBox().informationBox().faceAppUpdateTimerBox();
@@ -1118,7 +1220,6 @@
             datatType: "json",
             success: function (data) {
                 data = JSON.parse(data);
-                console.log(data);
                 $("#url-box").html(url);
                 if (data.success) {
                     $("#res-box").css({color: "green"}).html("发送成功");
@@ -1177,7 +1278,7 @@
                     e.preventDefault();
                     $("#baseForm")[0].reset();
                 });
-                $("#deleteSys").on("click", function (e) {      
+                $("#deleteSys").on("click", function (e) {
                     e.preventDefault();
                     var tag = $("#deleteSysModal");
                     tag.modal("show");
@@ -1224,11 +1325,29 @@
                     }
                 });
                 $(".pic-cancel-btn").on("click",function(e){
-                     e.preventDefault();
-                     var $this=e.target
-                     $($this).siblings("div").children("img").attr("src","");
-                      $($this).siblings("span").children("input").eq(1).val("");
-                })
+                    e.preventDefault();
+                    var $this=e.target
+                    $($this).siblings("div").children("img").attr("src","");
+                    $($this).siblings("span").children("input").eq(1).val("");
+                });
+                $("#dropdown-icons-btn").on("click",function(e){
+                    e.preventDefault();
+                    iconsMenu()
+                });
+                $("#dropdown-icons").on("click","li",function(e){
+                         var icon=$(e.currentTarget).children("i")[0].className
+                         $(".dev-img-box i").removeClass().addClass(icon)
+                });
+                  $("#dropdown-colors-btn").on("click",function(e){
+                    e.preventDefault();
+                    colorLibrary()
+                });
+                 $("#dropdown-colors").on("click","li",function(e){
+                        var color=$(e.currentTarget)[0].style.backgroundColor,
+                        value=$(e.currentTarget).attr("data-value")
+                        $(".dev-cards-colors-box").attr("style","background-color:"+color+"")
+                        $(".dev-cards-colors-box").attr("data-value",value)
+                });
             });
         }
     };

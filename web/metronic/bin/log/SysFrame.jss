@@ -20,8 +20,6 @@
                 '		<div class="tools">' +
                 '                   <a href="" class="fullscreen" data-original-title="" title="">' +
                 '                   </a>' +
-                '		    <a href="javascript:;" class="reload">' +
-                '		    </a>' +
                 '		</div>' +
                 '	    </div>' +
                 '	    <div class="portlet-body">' +
@@ -33,15 +31,14 @@
                 '                           <div class="col-md-2">' +
                 '                               <input class="form-control" id="content_'+conf.id+'" name="content_'+conf.id+'" placeholder="日志内容">' +
                 '                           </div>' +
-                '                           <div class="col-md-5">'+
-                '                              <div class="input-group input-large date-picker input-daterange" data-date="2012/10/11" data-date-format="yyyy/mm/dd">'+
+                '                           <div class="col-md-8 clearfix">'+
+                '                              <div class="input-group input-large date-picker input-daterange" data-date="2012/10/11" data-date-format="yyyy/mm/dd" style="float:left">'+
                 '                                 <input type="text"  id="fTime_'+conf.id+'" class="form-control" name="fTime" placeholder="开始时间">'+
                 '                                  <span class="input-group-addon"> 至 </span>'+
                 '                                   <input type="text"  id="sTime_'+conf.id+'" class="form-control" name="sTime" placeholder="结束时间">'+
                 '                               </div>'+
-                '                           </div>'+
-                '                               <div class="col-md-3 clearfix">' +
-                '                               <div class="row">' +
+                '                               <div class="clearfix" style="margin-left:10px;float:left">' +
+                '                               <div>' +
                 '                                   <button id="btn_' + conf.id + '_search" class="btn yellow">' +
                 '                                       过滤 <\i class="fa fa-search"></i>' +
                 '                                   </button>' +
@@ -50,14 +47,13 @@
                 '                                   </button>' +
                 '                               </div>' +   
                 '                               </div>' +   
+                '                           </div>'+
                 '			</div>' +             
                 '		</div>' +
                 '		<table class="table table-striped table-bordered table-hover" id="system_' + conf.id + '">' +
                 '		    <thead>' +
                 '			<tr>' +
-                '			    <th class="table-checkbox">' +
-                '				<input type="checkbox" class="group-checkable" data-set="#system_' + conf.id + ' .checkboxes"/>' +
-                '			    </th>' +
+               
                 '			    <th>日志日期</th>' +
                 '			    <th>日志级别</th>' +
                 '			    <th>日志内容</th>' +
@@ -78,7 +74,7 @@
     }
 
     function infosModal(conf) {
-        return '<div id="module_' + conf.id + '_infos" class="modal fade" tabindex="-1">' + infosData() + '</div>';
+        return '<div id="module_' + conf.id + '_infos" class="modal fade" tabindex="-1">' + '<div class="modal-dialog">'+infosData()+'</div>'+ '</div>';
     }
 
     function infosUpdateVal(selector, values) {
@@ -87,7 +83,8 @@
     }
 
     function infosData() {
-        return  '<div class="modal-header">' +
+        return   '<div class="modal-content">'+
+                '<div class="modal-header">' +
                 '    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>' +
                 '    <h4 class="modal-title">系统日志</h4>' +
                 '</div>' +
@@ -121,8 +118,8 @@
                 '                    </div>' +
                 '                </div>' +
                 '                <div class="form-group">' +
-                '                    <label class="control-label col-md-2"></label>' +
-                '                    <div class="col-md-10">' +
+                '                    <label class="control-label col-md-4">日志内容:</label>' +
+                '                    <div class="col-md-8">' +
                 '                        <p class="form-control-static" id="CONTENT"></p>' +
                 '                    </div>' +
                 '                </div>' +
@@ -133,6 +130,7 @@
                 '</div>' +
                 '<div class="modal-footer">' +
                 '    <button class="btn blue" data-dismiss="modal" aria-hidden="true">确定</button>' +
+                '</div>'+
                 '</div>';
     }
 
@@ -157,29 +155,14 @@
 
     function getSelectedRows(table) {
         var rows = [], cols = ['ENTRY_DATE', 'CATEGORY', 'CONTENT', 'LOG_LEVEL', 'RECORDER'];
-        $('tbody > tr > td:nth-child(1) input[type="checkbox"]:checked', table).each(function () {
+        $("tbody",table).find(".selected").each(function () {
             var oData = {};
-            $(this).parents('td').siblings('td').each(function () {
+            $(this).children("td").each(function () {
                 oData[cols.shift()] = $(this).text();
             });
             rows.push(oData);
         });
         return rows;
-    }
-    
-    function doLayoutCheck(){
-        if (!$().uniform) {
-            return;
-        }
-        var test = $("input[type=checkbox]:not(.toggle, .md-check, .md-radiobtn, .make-switch, .icheck), input[type=radio]:not(.toggle, .md-check, .md-radiobtn, .star, .make-switch, .icheck)");
-        if (test.size() > 0) {
-            test.each(function () {
-                if ($(this).parents(".checker").size() === 0) {
-                    $(this).show();
-                    $(this).uniform();
-                }
-            });
-        }
     }
     
     function doLayoutDatepicker(){
@@ -215,7 +198,6 @@
             $("#loglevel_" + conf.id , "#module_" + conf.id).select2({width: 'resolve', placeholder: "级别", allowClear: true, data: getLogLevel2Sel()});
             if (jQuery().dataTable) {
                 $.fn.datepicker.defaults.language = "zh-CN";
-                doLayoutCheck();
                 doLayoutDatepicker();
                 var table = $('#system_' + conf.id) , language = {
                     "aria": {
@@ -254,26 +236,18 @@
                             data: param,
                             dataType: "json",
                             success: function (result) {
-                                console.log(result.data)
                                 var returnData = {};
                                 returnData.draw = data.draw;
                                 returnData.recordsTotal = result.totalNumber;
                                 returnData.recordsFiltered = result.totalNumber;
                                 returnData.data = result.data;
                                 callback(returnData);
-                                doLayoutCheck();
                             }
                         });
                     },
                     columns: [{
-                            orderable: false,
-                            data: null,
-                            render: function (data, type, row, meta) {
-                                return data = '<input type="checkbox" class="checkboxes" value="1"/>';
-                            }
-                        },{
                             "data" : "ENTRY_DATE",
-                            "orderable": false
+                            "orderable": true
                         }, {
                             "data" : "CATEGORY",
                             "orderable": false
@@ -297,23 +271,14 @@
                     ]
                 });
                 var tableWrapper = jQuery('#system_' + conf.id + '_wrapper');
-                table.find('.group-checkable').change(function () {
-                    var set = jQuery(this).attr("data-set");
-                    var checked = jQuery(this).is(":checked");
-                    jQuery(set).each(function () {
-                        if (checked) {
-                            $(this).attr("checked", true);
-                            $(this).parents('tr').addClass("active");
-                        } else {
-                            $(this).attr("checked", false);
-                            $(this).parents('tr').removeClass("active");
-                        }
-                    });
-                    jQuery.uniform.update(set);
-                });
-                table.on('change', 'tbody tr .checkboxes', function () {
-                    $(this).parents('tr').toggleClass("active");
-                });
+                $("tbody",table).on("click","tr",function(){
+                     if ( $(this).hasClass('selected') ) {
+                        $(this).removeClass('selected');
+                    } else {
+                                 table.$('tr.selected').removeClass('selected');
+                                 $(this).addClass('selected');
+                            }
+                })
                 tableWrapper.find('.dataTables_length select').addClass("form-control input-xsmall input-inline"); // modify table per page dropdown
                 $('#module_' + conf.id).on('click', 'button', function (e) {
                     e.preventDefault();

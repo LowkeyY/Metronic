@@ -9,7 +9,6 @@
                 '				<div class="caption"><i class="fa fa-file-o"></i>访问日志</div> ' + 
                 '				<div class="tools">' + 
                 '					<a href="" class="fullscreen" data-original-title="" title=""></a> ' + 
-                '				    <a href="javascript:;" class="reload"></a> ' + 
                 '				</div> ' + 
                 '		    </div> ' + 
                 '		    <div class="portlet-body"> ' + 
@@ -47,15 +46,15 @@
     
     function getTableBar(moduleId){
         return  '		<div class="table-toolbar">' +
-                '		    <div class="row">' +
-                '			<div class="col-md-5">' +
+                '		    <div class="clearfix">' +
+                '			<div style="float:left">' +
                 '                              <div class="input-group input-large date-picker input-daterange" data-date="2012/10/11" data-date-format="yyyy/mm/dd">'+
                 '                                 <input type="text"  id="fTime_'+moduleId+'" class="form-control" name="fTime" placeholder="开始时间">'+
                 '                                  <span class="input-group-addon"> 至 </span>'+
                 '                                   <input type="text"  id="sTime_'+moduleId+'" class="form-control" name="sTime" placeholder="结束时间">'+
                 '                               </div>'+             
                 '			</div>' + 
-                '                           <div class="col-md-2">' +
+                '                           <div  style="float:left;margin-left:10px">' +
                 '                               <div class="clearfix">' +
                 '                                   <button id="btn_' + moduleId + '_search" class="btn yellow">' +
                 '                                       过滤 <i class="fa fa-search"></i>' +
@@ -69,15 +68,10 @@
     var defaultConfig = {
         1 : {
             url : "/bin/log/getstastic.jcp",
-            columns : [{
-                    orderable: false,
-                    data: null,
-                    render: function (data, type, row, meta) {
-                        return data = '<input type="checkbox" class="checkboxes" value="1"/>';
-                    }
-                },{
+            columns : [
+                {
                     "data" : "日期",
-                    "orderable": false
+                    "orderable": true
                 }, {
                     "data" : "当日访问人数",
                     "orderable": false
@@ -94,13 +88,8 @@
         },
         2 : {
             url : "/bin/log/userstat.jcp",
-            columns : [{
-                    orderable: false,
-                    data: null,
-                    render: function (data, type, row, meta) {
-                        return data = '<input type="checkbox" class="checkboxes" value="1"/>';
-                    }
-                },{
+            columns : [
+                {
                     "data" : "姓名",
                     "orderable": false
                 }, {
@@ -138,7 +127,6 @@
     }
     
     function getHtml(moduleId){
-        doLayoutCheck(moduleId);
         var tabNum = moduleId && moduleId.substr(moduleId.length - 1) || -1 , options = defaultConfig[tabNum] || "";
         if($().dataTable && tabNum > -1 && options){
             var table = $("#table_"+moduleId);
@@ -189,8 +177,6 @@
                             returnData.recordsFiltered = result.totalCount;
                             returnData.data = result.dataItem;
                             callback(returnData);
-                            doLayoutCheck(moduleId);
-                            afterLayout(moduleId);
                         }
                     });
                 },
@@ -207,6 +193,7 @@
                     [1, "desc"]
                 ]
             });
+            
             $('#' + moduleId).on('click', 'button', function (e) {
                 e.preventDefault();
                 var btnId;
@@ -218,22 +205,7 @@
             });
         }
     }
-    
-    function doLayoutCheck(moduleId){
-        if (!$().uniform) {
-            return;
-        }
-        var test = $("input[type=checkbox]:not(.toggle, .md-check, .md-radiobtn, .make-switch, .icheck), input[type=radio]:not(.toggle, .md-check, .md-radiobtn, .star, .make-switch, .icheck)" , $('#'+moduleId));
-        if (test.size() > 0) {
-            test.each(function () {
-                if ($(this).parents(".checker").size() === 0) {
-                    $(this).show();
-                    $(this).uniform();
-                }
-            });
-        }        
-    }
-    
+      
     function doLayoutDatepicker(){
         if (jQuery().datepicker) {
             $('.date-picker').datepicker({
@@ -243,32 +215,6 @@
             });
         }
     }
-
-    function afterLayout(moduleId){
-        if(!$().dataTable){
-            return;
-        }
-        var table = $("#table_"+moduleId) ,tableWrapper = jQuery('#table_' + moduleId + '_wrapper');
-        table.find('.group-checkable').change(function () {
-            var set = jQuery(this).attr("data-set");
-            var checked = jQuery(this).is(":checked");
-            jQuery(set).each(function () {
-                if (checked) {
-                    $(this).attr("checked", true);
-                    $(this).parents('tr').addClass("active");
-                } else {
-                    $(this).attr("checked", false);
-                    $(this).parents('tr').removeClass("active");
-                }
-            });
-            jQuery.uniform.update(set);
-        });
-        table.on('change', 'tbody tr .checkboxes', function () {
-            $(this).parents('tr').toggleClass("active");
-        });
-        tableWrapper.find('.dataTables_length select').addClass("form-control input-xsmall input-inline");
-    }
-    
     function getImageSrc(moduleId){
         var param = getFilters(moduleId);
         var tabNum = moduleId && moduleId.substr(moduleId.length - 1) || -1 , options = defaultConfig[tabNum] || "";
@@ -278,7 +224,6 @@
         }
         return '';
     }
-    
     function getImage(moduleId){
         var src;
         return (src = getImageSrc(moduleId)) && '<img src=' +src+'/>' || '';
@@ -287,10 +232,8 @@
     function panks(moduleId , items) {
         return  '<table class="table table-striped table-bordered table-hover" id="table_' + moduleId + '">' +
                 '    <thead>' +
-                '	<tr>' +
-                '	    <th class="table-checkbox">' +
-                '               <input type="checkbox" class="group-checkable" data-set="#table_' + moduleId + ' .checkboxes"/>' +
-                '	    </th>' + panksItems(items) +
+                '	<tr>' 
+                             + panksItems(items) +
                 '	</tr>' +
                 '    </thead>' +
                 '    <tbody>' + 

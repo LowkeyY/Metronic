@@ -3,7 +3,6 @@
    if(rolesArr.length!=0){
       var paramRoles= rolesArr
    }
-    console.log(paramRoles)
        var paramUsertypes = [
             {text: "架构师", id: 2},
             {text: "开发人员", id: 5},
@@ -482,7 +481,7 @@
         for (var att in defaultParam) {
             if (att === "roleId") {
                 $("#roleId", form).select2("val", defaultParam.roleId);
-                $("#moveSelect").select2("val", defaultParam.roleId);
+                $("#moveSelect",form).select2("val", defaultParam.roleId);
             } else {
                 if (att === "userType") {
                     $("#userType", form).select2("val", defaultParam.userType);
@@ -532,9 +531,8 @@
             },
             submitHandler: function (form) {
                 var userId = $('#datatable_35 input[type="checkbox"]:checked').parents("tr").children().last().text();
-                console.log(userId);
                 var sendType = getActionsType(selector);
-                var roleId = $("#moveSelect").val();
+                var roleId = $("#moveSelect",form).val();
                 var dataUrl = "";
                 if (sendType === "updatesave") {
                     dataUrl = $(form).serialize() + "&type=" + getActionsType(selector) + "&dept_id=" + currentSelectDeptId + "&userId=" + userId;
@@ -616,7 +614,6 @@
             dataType: "json",
             success: function (data) {
                 var res = data[0];
-                console.log(res)
                 loadData(res);
                 initSelect(res);
                 setImageSrc(res.photo || "" , "div");

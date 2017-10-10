@@ -119,14 +119,14 @@ var Layout = function () {
     var handleSidebarMenu = function () {
         // handle sidebar link click
         $('.page-sidebar').on('click', 'li > a', function (e) {
-
-            if (Metronic.getViewPort().width >= resBreakpointMd && !$('.page-sidebar-menu').attr("data-initialized") && $('body').hasClass('page-sidebar-closed') &&  $(this).parent('li').parent('.page-sidebar-menu').size() === 1) {
+            
+            var hasSubMenu = $(this).next().hasClass('sub-menu');
+            
+            if (Metronic.getViewPort().width >= resBreakpointMd && !$('.page-sidebar-menu').attr("data-initialized") && ($('body').hasClass('page-sidebar-closed') && hasSubMenu) &&  $(this).parent('li').parent('.page-sidebar-menu').size() === 1) {
                 return;
             }
 
-            var hasSubMenu = $(this).next().hasClass('sub-menu');
-
-            if (Metronic.getViewPort().width >= resBreakpointMd && $(this).parents('.page-sidebar-menu-hover-submenu').size() === 1) { // exit of hover sidebar menu
+            if (Metronic.getViewPort().width >= resBreakpointMd && $(this).parents('.page-sidebar-menu-hover-submenu').size() === 1 && hasSubMenu) { // exit of hover sidebar menu
                 return;
             }
 

@@ -649,7 +649,7 @@ Horizontal Menu
     width: 45px;
   }
   .page-sidebar-closed.page-sidebar-closed-hide-logo .page-header.navbar .page-logo .logo-default {
-    display: none;
+    /*display: none;*/
   }
 
   /* Boxed Layout */
@@ -971,7 +971,7 @@ Page sidebar
 }
 .page-sidebar .page-sidebar-menu > li > a > i,
 .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li > a > i {
-  font-size: 16px;
+  font-size: 25px;
   margin-right: 5px;
   text-shadow: none;
 }
@@ -983,8 +983,8 @@ Page sidebar
 }
 .page-sidebar .page-sidebar-menu > li > a > [class^="icon-"],
 .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li > a > [class^="icon-"] {
-  top: 2px;
-  margin-left: 1px;
+  top: 6px;
+  margin-left: -5px;
   margin-right: 4px;
 }
 .page-sidebar-fixed .page-sidebar .page-sidebar-menu > li > a, .page-sidebar-fixed

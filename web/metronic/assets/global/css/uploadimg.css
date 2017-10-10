@@ -1,21 +1,56 @@
 
-
 .dev-img-box{
-    position:relative;
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
     font-size: 14px;
     padding: 1px;
     border: 2px solid #eeeeee;
    float: left;
 }
-
-
-
+#dropdown-icons{
+    min-width: 355px;
+    max-height:210px;
+    overflow-y:scroll;
+}
+#dropdown-colors{
+    min-width: 230px;
+    max-height:210px;
+    overflow-y:scroll;
+}
 #uploadimg-icon{
-    position:absolute;
-    top: 25%;
-    left:25%;
-    float: left;
-    font-size: 30px;
+    width: 46px;
+    height: 46px;
+    line-height:46px;
+    text-align:center;
+    font-size: 35px;
+}
+#dropdown-icons>.icons-item{
+    border:1px solid transparent;
+    float:left;
+    padding:5px;
+    cursor:pointer;
+}
+#dropdown-icons>.icons-item i{
+    font-size:20px
+}
+#dropdown-icons>.icons-item:hover{
+    border:1px solid #666;
+}
+.dev-cards-colors-box{
+    width:54px;
+    height:34px;
+    float:left;
+    border: 2px solid #eeeeee;
+    background-color:#EF4836;
+}
+#dropdown-colors>.colors-item{
+    width:40px;
+    height:40px;
+    border:1px solid transparent;
+    float:left;
+    margin:1px;
+    cursor:pointer;
+}
+#dropdown-colors>.colors-item{
+    border:1px solid #666;
 }

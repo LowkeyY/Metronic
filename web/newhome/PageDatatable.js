@@ -39,44 +39,44 @@ var PageDatatable = function (id) {
         "pagingType": "bootstrap_full_number"
     }
 
-    function uniform(dom) {
-        if (!$().uniform) {
-            return;
-        }
-        var test = $("input[type=checkbox]:not(.toggle, .md-check, .md-radiobtn, .make-switch, .icheck), input[type=radio]:not(.toggle, .md-check, .md-radiobtn, .star, .make-switch, .icheck)", dom || selector);
-        if (test.size() > 0) {
-            test.each(function () {
-                if ($(this).parents(".checker").size() === 0) {
-                    $(this).show();
-                    $(this).uniform();
-                }
-            });
-        }
-    }
+    // function uniform(dom) {
+    //     if (!$().uniform) {
+    //         return;
+    //     }
+    //     var test = $("input[type=checkbox]:not(.toggle, .md-check, .md-radiobtn, .make-switch, .icheck), input[type=radio]:not(.toggle, .md-check, .md-radiobtn, .star, .make-switch, .icheck)", dom || selector);
+    //     if (test.size() > 0) {
+    //         test.each(function () {
+    //             if ($(this).parents(".checker").size() === 0) {
+    //                 $(this).show();
+    //                 $(this).uniform();
+    //             }
+    //         });
+    //     }
+    // }
 
-    function afterInit() {
-        if (isValid) {
-            var table = $(selector), tableWrapper = $(selector + '_wrapper');
-            table.find('.group-checkable').change(function () {
-                var set = $(this).attr("data-set");
-                var checked = $(this).is(":checked");
-                $(set).each(function () {
-                    if (checked) {
-                        $(this).attr("checked", true);
-                        $(this).parents('tr').addClass("active");
-                    } else {
-                        $(this).attr("checked", false);
-                        $(this).parents('tr').removeClass("active");
-                    }
-                });
-                $.uniform.update(set);
-            });
-            table.on('change', 'tbody tr .checkboxes', function () {
-                $(this).parents('tr').toggleClass("active");
-            });
-            tableWrapper.find('.dataTables_length select').addClass("form-control input-xsmall input-inline");
-        }
-    }
+    // function afterInit() {
+    //     if (isValid) {
+    //         var table = $(selector), tableWrapper = $(selector + '_wrapper');
+    //         table.find('.group-checkable').change(function () {
+    //             var set = $(this).attr("data-set");
+    //             var checked = $(this).is(":checked");
+    //             $(set).each(function () {
+    //                 if (checked) {
+    //                     $(this).attr("checked", true);
+    //                     $(this).parents('tr').addClass("active");
+    //                 } else {
+    //                     $(this).attr("checked", false);
+    //                     $(this).parents('tr').removeClass("active");
+    //                 }
+    //             });
+    //             $.uniform.update(set);
+    //         });
+    //         table.on('change', 'tbody tr .checkboxes', function () {
+    //             $(this).parents('tr').toggleClass("active");
+    //         });
+    //         tableWrapper.find('.dataTables_length select').addClass("form-control input-xsmall input-inline");
+    //     }
+    // }
     function panksTh(items){
         if($.isArray(items) && items.length){
             var htmls = ['<th><input type="checkbox" class="group-checkable" data-set="' + selector + ' .checkboxes"></th>'];

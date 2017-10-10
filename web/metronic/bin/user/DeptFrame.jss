@@ -152,7 +152,6 @@
         }).on("changed.jstree", function (e, data) {
             if (data && data.selected && data.selected.length) {
                 currentSelectDeptId = data.selected[0];
-                console.log(currentSelectDeptId)
                 if (data.selected) {
                 }
                 getDate(currentSelectDeptId);
@@ -276,6 +275,7 @@
                         check_callback: true,
                         data: {
                             url: "/bin/user/_getOrg.jjs", data: function (node) {
+                              console.log(node)
                                 return {parent: node.id};
                             }
                         }
