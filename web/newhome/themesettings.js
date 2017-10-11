@@ -296,7 +296,31 @@
     });
 
     $("#theme-settings-reset").on("click", function (e) {
-        alert()
+        var defaultMetronicSets = {
+            "layoutstyle": "square",
+            "layout": "fluid",
+            "pageHeader": "default",
+            "topDropdown": "dark",
+            "sidebar": "default",
+            "sidebarMenu": "accordion",
+            "sidebarStyle": "default",
+            "sidebarPos": "left",
+            "footer": "default",
+            "themeColor": "default"
+        },
+        params=JSON.stringify(defaultMetronicSets)
+        $.ajax({
+            type: "post",
+            url: "/home/system/setup.jcp",
+            data: {
+                what: "metronicSets",
+                task: "save",
+                data: params
+            },
+            success: function () {
+                $(".theme-options,.toggler-close").hide();
+            }
+        })
     });
     return settingsObj
 }(jQuery);

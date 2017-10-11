@@ -1681,8 +1681,8 @@ Quick Sidebar Layout
   position: fixed;
   top: 46px;
   bottom: 0;
-  right: -270px;
-  width: 270px;
+  right: -320px;
+  width: 320px;
 }
 .page-footer-fixed .page-quick-sidebar-wrapper {
   bottom: 33px;
@@ -1883,14 +1883,14 @@ Quick Sidebar Content
 }
 .page-quick-sidebar-wrapper .page-quick-sidebar .page-quick-sidebar-list {
   position: absolute !important;
-  width: 270px !important;
+  width: 320px !important;
   transition: margin 0.3s;
 }
 .page-quick-sidebar-wrapper .page-quick-sidebar .page-quick-sidebar-item {
   position: absolute !important;
-  width: 270px !important;
+  width: 320px !important;
   transition: margin 0.3s;
-  margin-left: 270px;
+  margin-left: 320px;
 }
 .page-quick-sidebar-wrapper .page-quick-sidebar .page-quick-sidebar-item .page-quick-sidebar-nav {
   padding: 15px 10px 0px 10px;
@@ -2617,21 +2617,23 @@ Page Loading
   position:relative;
 }
 .message-img-box{
-  width: 25px;
-  height: 15px;
+  width: 35px;
+  height: 35px;
+  background-color: #659be0;
+  text-align: center;
   position: absolute;
-  top: 0;
+  top: 5px;
   bottom: 0;
   left: 5px;
   margin: auto 0;
 }
 .message-img-box i{
-
-    font-size: 25px;
+   line-height: 35px;
+    font-size: 16px;
 
 }
 .message-content{
-  width: 225px;
+  width: 270px;
   padding-left: 35px;
 }
 .message-counts{
@@ -2654,4 +2656,11 @@ Page Loading
   text-decoration: none;
   color:white;
   display:inline-block;
+}
+#quick-sidebar-btn{
+  z-index: 9999;
+  top: -6px;
+  right: 8px;
+  text-align: center;
+  padding-top: 6px;
 }

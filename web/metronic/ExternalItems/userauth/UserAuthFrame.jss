@@ -47,11 +47,7 @@
                 success: function (data) {
                     var arr = data.data;
                     var col = ["ID", "姓名", "部门"];
-                    var item = [{
-                        render: function () {
-                            return '<input type="checkbox" class="checkboxes"  value="" >';
-                        }
-                    }, {data: "index", orderable: false}, {data: "real_name", orderable: true}, {
+                    var item = [{data: "index", orderable: false}, {data: "real_name", orderable: true}, {
                         data: "dept_name",
                         orderable: false
                     }];
@@ -100,7 +96,6 @@
                             columns: item,
                             pageLength: 10,
                             pagingType: "bootstrap_full_number",
-                            columnDefs: [{targets: [0], visible: false}],
                             order: [[1, "desc"]],
                             ajax: function (data, callback, settings) {
                                 if (!currentSelectDeptId) {

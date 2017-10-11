@@ -210,7 +210,7 @@
                 icon.removeClass("fa-warning").addClass("fa-check");
             },
             submitHandler: function (form) {
-                var roleId = $('#datatable_36 input[type="checkbox"]:checked').parents("tr").children().last().text();
+                var roleId = $('#datatable_36 tbody').find(".selected").children().last().text();
                 var sendType = getActionsType(selector);
                 var dataUrl = "";
                 if (sendType === "updatesave") {
@@ -237,10 +237,21 @@
     }
 
     function deleteList() {
-        var roleId = $('#datatable_36 input[type="checkbox"]:checked').parents("tr").children().last().text();
+         var selectedTr=$('#datatable_36 tbody').find(".selected"),
+            params={},
+             roleIdArr=[];
+            for(var i=0;i<selectedTr.length;i++){
+                var  roleId = $(selectedTr).eq(i).children().last().text();
+                     roleIdArr.push(roleId)
+            }
+            params["dept_id"]="0";
+            params["type"]='delete';
+            params["roleId"]=roleIdArr;
         $.ajax({
             type: "post",
-            url: "/bin/user/rolecreate.jcp?dept_id=0&type=delete&roleId=" + roleId,
+            url: "/bin/user/rolecreate.jcp",
+            data:params,
+            traditional:true,
             success: function () {
                 toastr.success("删除成功");
             }
@@ -248,7 +259,7 @@
     }
 
     function getData() {
-        var listIndex = $('#datatable_36 input[type="checkbox"]:checked').parents("tr").children().last().text();
+        var listIndex =  $('#datatable_36 tbody').find(".selected").children().last().text();
         $.ajax({
             type: "get",
             url: "/bin/user/rolecreate.jcp?dept_id=0&type=edit &roleId=" + listIndex,
@@ -312,17 +323,12 @@
             });
             appendHtml(panks(conf), function () {
                 table.initDatatable({
-                    columns: [{
-                        render: function () {
-                            return '<input type="checkbox" class="checkboxes" value="1">';
-                        }
-                    }, {data: "职位名称", orderable: true}, {data: "称谓", orderable: false}, {
+                    columns: [{data: "职位名称", orderable: true}, {data: "称谓", orderable: false}, {
                         data: "级别",
                         orderable: true
                     }, {data: "注册日期", orderable: true}, {data: "序号", orderable: true}],
                     pageLength: 10,
                     pagingType: "bootstrap_full_number",
-                    columnDefs: [{targets: 5, searchable: false, orderable: false, visible: true}],
                     order: [[1, "desc"]],
                     ajax: function (data, callback, settings) {
                         $.ajax({
@@ -345,24 +351,24 @@
                 });
                 $("a.btn", "#module_" + conf.id + " .profile-content").on("click", function (e) {
                     e.preventDefault();
-                    var tag = $(this).attr("href"), wapper = $("#datatable_" + conf.id + "_wrapper");
+                    var tag = $(this).attr("href"), wapper = $("#datatable_" + conf.id + "_wrapper"),tableId="#datatable_" + conf.id
                     if (tag === "#" + getToolsId(conf.id, "delete")) {
-                        var deleteRows = table.selects("职位名称");
-                        if (deleteRows.length === 1) {
+                        var deleteRows = table.selects("职位名称",tableId);
+                        if (deleteRows.length>=1) {
                             $(tag).modal("show");
                             initRoleForm(tag, {}, "#datatable_" + conf.id);
                         } else {
                             Metronic.alert({
                                 type: "danger",
                                 icon: "warning",
-                                message: (!deleteRows || !deleteRows.length) ? "请选择需要删除的数据" : "只能选择一条数据",
+                                message:"请选择需要删除的数据",
                                 container: wapper,
                                 place: "prepend"
                             });
                         }
                     } else {
                         if (tag === "#" + getToolsId(conf.id + "_edit")) {
-                            var rows = table.selects("职位名称");
+                            var rows = table.selects("职位名称",tableId);
                             if (rows.length === 1) {
                                 $(tag).modal("show");
                                 initRoleForm(tag, {}, "#datatable_" + conf.id);

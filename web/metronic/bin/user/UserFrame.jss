@@ -530,7 +530,7 @@
                 icon.removeClass("fa-warning").addClass("fa-check");
             },
             submitHandler: function (form) {
-                var userId = $('#datatable_35 input[type="checkbox"]:checked').parents("tr").children().last().text();
+                var userId = $('#datatable_35 tbody').find(".selected").children().last().text();
                 var sendType = getActionsType(selector);
                 var roleId = $("#moveSelect",form).val();
                 var dataUrl = "";
@@ -590,7 +590,7 @@
                 $(element).closest(".form-group").removeClass("has-error");
             },
             submitHandler: function (form) {
-                var id = $('#datatable_35 input[type="checkbox"]:checked').parents("tr").children().last().text();
+                var id = $('#datatable_35 tbody').find(".selected").children().last().text();
                 var data = $(form).serialize() + "&type=" + getActionsType(selector) + "&userId=" + id;
                 $.ajax({
                     type: "post", url: "/bin/user/usercreate.jcp", data: data, success: function () {
@@ -607,7 +607,7 @@
     }
 
     function getData(id , selector) {
-        var listIndex =$('#datatable_35 input[type="checkbox"]:checked').parents("tr").children().last().text();
+        var listIndex =$('#datatable_35 tbody').find(".selected").children().last().text();
         $.ajax({
             type: "get",
             url: "/bin/user/usercreate.jcp?dept_id=" + id + "&type=edit&userId=" + listIndex,
@@ -666,10 +666,22 @@
 
       
     function deleteList() {
-        var userId = $('input[type="checkbox"]:checked').parents("tr").children().last().text();
+        var selectedTr=$('#datatable_35 tbody').find(".selected"),
+            params={},
+             userIdArr=[];
+            for(var i=0;i<selectedTr.length;i++){
+                var  userId = $(selectedTr).eq(i).children().last().text();
+                     userIdArr.push(userId)
+            }
+            params["dept_id"]=currentSelectDeptId;
+            params["type"]='delete';
+            params["userId"]=userIdArr;
+             console.log(params)
         $.ajax({
             type: "post",
-            url: "/bin/user/usercreate.jcp?dept_id=" + currentSelectDeptId + "&type=delete&userId=" + userId,
+            url: "/bin/user/usercreate.jcp",
+            data:params,
+            traditional:true,
             success: function () {
                 toastr.success("删除成功");
             }
@@ -751,11 +763,7 @@
                     inst.select_node(obj);
                 });
                 table.initDatatable({
-                    columns: [{
-                        render: function () {
-                            return '<input type="checkbox" class="checkboxes" value="1">';
-                        }
-                    }, {data: "real_name", orderable: true}, {data: "dept_name", orderable: false}, {
+                    columns: [{data: "real_name", orderable: true}, {data: "dept_name", orderable: false}, {
                         data: "roles",
                         orderable: true
                     }, {data: "user_name", orderable: true}, {data: "phone", orderable: false}, {
@@ -817,7 +825,7 @@
                 });
                 $("a.btn", "#module_" + conf.id + " .profile-content").on("click", function (e) {
                     e.preventDefault();
-                    var tag = $(this).attr("href"), wapper = $("#datatable_" + conf.id + "_wrapper");
+                    var tag = $(this).attr("href"), wapper = $("#datatable_" + conf.id + "_wrapper"),tableId=$("#datatable_" + conf.id)
                     if (!currentSelectDeptId) {
                         Metronic.alert({
                             type: "danger",
@@ -829,21 +837,21 @@
                         return false;
                     }
                     if (tag === "#" + getToolsId(conf.id, "delete")) {
-                        var deleteRows = table.selects("real_name");
-                        if (deleteRows.length === 1) {
+                        var deleteRows = table.selects("real_name",tableId);
+                        if (deleteRows.length >= 1) {
                             $(tag).modal("show");
                         } else {
                             Metronic.alert({
                                 type: "danger",
                                 icon: "warning",
-                                message: (!deleteRows || !deleteRows.length) ? "请选择需要删除的数据" : "只能选择一条数据",
+                                message:"请选择需要删除的数据",
                                 container: wapper,
                                 place: "prepend"
                             });
                         }
                     } else {
                         if (tag === "#" + getToolsId(conf.id + "_edit")) {
-                            var rows = table.selects("real_name");
+                            var rows = table.selects("real_name",tableId);
                             if (rows.length === 1) {
                                 $(tag).modal("show");
                                 initUeserForm(tag, {}, "#datatable_" + conf.id);
@@ -867,7 +875,7 @@
                                 }, "#datatable_" + conf.id);
                             } else {
                                 if (tag === "#" + getToolsId(conf.id + "_move")) {
-                                    var moveRows = table.selects("real_name");
+                                    var moveRows = table.selects("real_name",tableId);
                                     if (moveRows.length === 1) {
                                         $(tag).modal("show");
                                         initUeserForm(tag, {roleId: paramRoles[0].id}, "#datatable_" + conf.id);
@@ -883,7 +891,7 @@
                                     }
                                 } else {
                                     if (tag === "#" + getToolsId(conf.id + "_reset")) {
-                                        var passRows = table.selects("real_name");
+                                        var passRows = table.selects("real_name",tableId);
                                         if (passRows.length === 1) {
                                             $(tag).modal("show");
                                             initReset(tag);

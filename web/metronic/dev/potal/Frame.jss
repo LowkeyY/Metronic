@@ -317,7 +317,7 @@
             '                                                            <div class="col-md-7">\n' +
             '                                                                <div class="dev-img-upload clearfix">\n' +
             '                                                                    <div class="dev-img-box">\n' +
-            '                                                                         <i class="" id="uploadimg-icon"></i>'+
+            '                                                                         <i class="fa fa-tag" id="uploadimg-icon"></i>'+
             '                                                                    </div>\n' +
             '                                                                     <div class="dev-btn-box" style="display:inline-block;padding-left:5px">'+
             '                                                            <div class="btn-group">\n' +
@@ -331,7 +331,7 @@
             '                                                                         class="btn '+portletColor+' fileinput-exists icons-cancel-btn" \n' +
             '                                                                         data-dismiss="fileinput">取消\n' +
             '                                                                      </a>\n' +
-            '                                                                      <input type="hidden" value="" name="mn_desktop_icon" id="mn_desktop_icon">\n' +
+            '                                                                      <input type="hidden" value="tag" name="mn_desktop_icon" id="mn_desktop_icon">\n' +
             '                                                                </div>\n' +
             '                                                                </div>\n' +
             '                                                            </div>\n' +
@@ -354,7 +354,7 @@
             '                                                                         class="btn '+portletColor+' fileinput-exists color-cancel-btn" \n' +
             '                                                                         data-dismiss="fileinput">取消\n' +
             '                                                                      </a>\n' +
-            '                                                                      <input type="hidden" value="" name="mn_desktop_color" id="mn_desktop_color">\n' +
+            '                                                                      <input type="hidden" value="blue" name="mn_desktop_color" id="mn_desktop_color">\n' +
             '                                                                </div>\n' +
             '                                                                </div>\n' +
             '                                                            </div>\n' +
@@ -900,7 +900,9 @@
             '            </div>\n' +
             '        </fieldset>\n' +
             '    </div>\n' +
-            '</div>'
+            '</div>'+
+             '<input type="hidden" value="" name="show_desktop_icon_url" id="show_desktop_icon_url">\n' +
+             '<input type="hidden" value="" name="show_startmenu_icon_url" id="show_startmenu_icon_url">\n' ;
     }
 
     function panks(conf, id) {
@@ -1064,7 +1066,7 @@
             return this;
         }
     };
-
+    
     function getData(id) {
         $.ajax({
             type: "get",
@@ -1073,6 +1075,7 @@
             success: function (data) {
                 loadData(data);
                 getImg(data, id);
+                getDesktopInfo(data)
                 controller.start();
             }
         });
@@ -1159,13 +1162,16 @@
             });
         }
     }
-
+    
     function getImg(data) {
         $("#default-icon").attr("src", data.default_icon_url);
         $("#desktop-icon").attr("src", data.show_desktop_icon_url);
         $("#start-icon").attr("src", data.show_startmenu_icon_url);
     }
-
+     function getDesktopInfo(data){
+         $(".dev-img-box>i").removeClass().addClass("fa fa-"+data.mn_desktop_icon);
+         $(".dev-cards-colors-box").attr("style","background-color:"+data.mn_desktop_color+"")
+     }
     function remove(id, conf) {
         $.ajax({
             type: "POST", data: {type: "delete", id: id}, url: "/dev/potal/create.jcp", success: function () {
@@ -1335,8 +1341,10 @@
                     iconsMenu()
                 });
                 $("#dropdown-icons").on("click","li",function(e){
-                         var icon=$(e.currentTarget).children("i")[0].className
+                         var icon=$(e.currentTarget).children("i")[0].className,
+                             value=icon.match(/fa fa-(\S*)/)[1];
                          $(".dev-img-box i").removeClass().addClass(icon)
+                         $("#mn_desktop_icon").val(value)
                 });
                   $("#dropdown-colors-btn").on("click",function(e){
                     e.preventDefault();
@@ -1346,7 +1354,7 @@
                         var color=$(e.currentTarget)[0].style.backgroundColor,
                         value=$(e.currentTarget).attr("data-value")
                         $(".dev-cards-colors-box").attr("style","background-color:"+color+"")
-                        $(".dev-cards-colors-box").attr("data-value",value)
+                        $("#mn_desktop_color").val(value)
                 });
             });
         }

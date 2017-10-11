@@ -156,7 +156,7 @@ var PageSystem = function () {
                     if (res) {
                         res = JSON.parse(res);
                         getSettings(res)
-                        $("#theme-settings-cancel").on("click", function (e) {
+                        $("#theme-settings-cancel,#setting-close-btn").on("click", function (e) {
                             getSettings(res);
                             $(".theme-options,.toggler-close").hide();
                         })

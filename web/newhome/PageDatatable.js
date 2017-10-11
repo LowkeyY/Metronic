@@ -39,47 +39,50 @@ var PageDatatable = function (id) {
         "pagingType": "bootstrap_full_number"
     }
 
-    // function uniform(dom) {
-    //     if (!$().uniform) {
-    //         return;
-    //     }
-    //     var test = $("input[type=checkbox]:not(.toggle, .md-check, .md-radiobtn, .make-switch, .icheck), input[type=radio]:not(.toggle, .md-check, .md-radiobtn, .star, .make-switch, .icheck)", dom || selector);
-    //     if (test.size() > 0) {
-    //         test.each(function () {
-    //             if ($(this).parents(".checker").size() === 0) {
-    //                 $(this).show();
-    //                 $(this).uniform();
-    //             }
-    //         });
-    //     }
-    // }
+    function uniform(dom) {
+        if (!$().uniform) {
+            return;
+        }
+        var test = $("input[type=checkbox]:not(.toggle, .md-check, .md-radiobtn, .make-switch, .icheck), input[type=radio]:not(.toggle, .md-check, .md-radiobtn, .star, .make-switch, .icheck)", dom || selector);
+        if (test.size() > 0) {
+            test.each(function () {
+                if ($(this).parents(".checker").size() === 0) {
+                    $(this).show();
+                    $(this).uniform();
+                }
+            });
+        }
+    }
 
-    // function afterInit() {
-    //     if (isValid) {
-    //         var table = $(selector), tableWrapper = $(selector + '_wrapper');
-    //         table.find('.group-checkable').change(function () {
-    //             var set = $(this).attr("data-set");
-    //             var checked = $(this).is(":checked");
-    //             $(set).each(function () {
-    //                 if (checked) {
-    //                     $(this).attr("checked", true);
-    //                     $(this).parents('tr').addClass("active");
-    //                 } else {
-    //                     $(this).attr("checked", false);
-    //                     $(this).parents('tr').removeClass("active");
-    //                 }
-    //             });
-    //             $.uniform.update(set);
-    //         });
-    //         table.on('change', 'tbody tr .checkboxes', function () {
-    //             $(this).parents('tr').toggleClass("active");
-    //         });
-    //         tableWrapper.find('.dataTables_length select').addClass("form-control input-xsmall input-inline");
-    //     }
-    // }
+    function afterInit() {
+        if (isValid) {
+            var table = $(selector), tableWrapper = $(selector + '_wrapper');
+            table.find('.group-checkable').change(function () {
+                var set = $(this).attr("data-set");
+                var checked = $(this).is(":checked");
+                $(set).each(function () {
+                    if (checked) {
+                        $(this).attr("checked", true);
+                        $(this).parents('tr').addClass("active");
+                    } else {
+                        $(this).attr("checked", false);
+                        $(this).parents('tr').removeClass("active");
+                    }
+                });
+                $.uniform.update(set);
+            });
+            $("tbody",table).on("click","tr",function(){
+                $(this).toggleClass('selected');
+            });
+            // table.on('change', 'tbody tr .checkboxes', function () {
+            //     $(this).parents('tr').toggleClass("active");
+            // });
+            tableWrapper.find('.dataTables_length select').addClass("form-control input-xsmall input-inline");
+        }
+    }
     function panksTh(items){
         if($.isArray(items) && items.length){
-            var htmls = ['<th><input type="checkbox" class="group-checkable" data-set="' + selector + ' .checkboxes"></th>'];
+            var htmls = [];
             $.each(items , function(i , item){
                 htmls.push('<th>' +item+'</th>');
             })
@@ -148,7 +151,7 @@ var PageDatatable = function (id) {
                 '        </div>' +
                 '    </div>'
     }
-    function getSelectRows(cols){
+    function getSelectRows(cols,tableId){
         var columnIndex = {};
         $.each(cols , function(i , col){
             $.each(dateTableColumns , function(j , dateTableColumn){
@@ -158,10 +161,11 @@ var PageDatatable = function (id) {
             })
         });
         var rows = [];
-        $('tbody > tr > td:nth-child(1) input[type="checkbox"]:checked', selector).each(function () {
-            $(this).parents('td').siblings('td').each(function (i) {
-                if(columnIndex[i+1])
-                    rows.push($(this).text());
+        $("tbody",tableId).find(".selected").each(function () {
+            var $this= $("tbody",tableId).find(".selected");
+            $this.children("td").each(function (i) {
+                if(columnIndex[i])
+                    rows.push( $this.children("td").text());
             })
         });
         return rows;
@@ -186,8 +190,8 @@ var PageDatatable = function (id) {
         reUniform : function(){
             uniform();
         },
-        selects : function(cols){
-            return isValid && cols ? getSelectRows($.isArray(cols) ? cols : [cols]) : [];
+        selects : function(cols,tableId){
+            return isValid && cols ? getSelectRows($.isArray(cols) ? cols : [cols],tableId) : []
         }
     }
-}
+};

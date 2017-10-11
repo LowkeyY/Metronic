@@ -377,10 +377,14 @@ var Layout = function () {
     // Hanles sidebar toggler
     var handleSidebarToggler = function () {
         var body = $('body');
-        if ($.cookie && $.cookie('sidebar_closed') === '1' && Metronic.getViewPort().width >= resBreakpointMd) {
-            $('body').addClass('page-sidebar-closed');
-            $('.page-sidebar-menu').addClass('page-sidebar-menu-closed');
+        if ($.cookie && $.cookie('sidebar_closed') === '0' && Metronic.getViewPort().width >= resBreakpointMd) {
+            $('body').removeClass('page-sidebar-closed');
+            $('.page-sidebar-menu').removeClass('page-sidebar-menu-closed');
         }
+//        if ($.cookie && $.cookie('sidebar_closed') === '1' && Metronic.getViewPort().width >= resBreakpointMd) {
+//            $('body').addClass('page-sidebar-closed');
+//            $('.page-sidebar-menu').addClass('page-sidebar-menu-closed');
+//        }
 
         // handle sidebar show/hide
         $('body').on('click', '.sidebar-toggler', function (e) {
