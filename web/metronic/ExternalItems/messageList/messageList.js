@@ -3,12 +3,14 @@
     PageSystem.loadJS('/metronic/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js');
 
     function messageList(list){
+        console.log(list)
+        $("#message-container").html("");
         $.each(list,function (i) {
             var resultData=list[i].msg;
             for(var j=0; j<resultData.length;j++){
                 var html="";
                 html+=' <li class="message-box row">\n' +
-                    '      <a href="'+resultData[j].url+'" target="_blank" id="message-link">'+
+                    '      <a href="'+resultData[j].url+'" data-value="'+list[i].appid+'" target="_blank" class="message-link">'+
                     '           <div class="message-img-box">\n' +
                     '                <i class=" icon-envelope"></i>\n' +
                     '           </div>\n' +
@@ -19,34 +21,40 @@
                     '            <span class="badge badge-danger message-counts">0</span>\n' +
                     '      </a>'+
                     '    </li>';
-                $("#message-container").append(html);
             }
+            $("#message-container").append(html);
         });
     }
+    
     function getTotals() {
         var total=0;
+        PageTile.resetCardNumber();
         $.ajax({
             type:"post",
-            url:"../ExternalItems/messageList/messageList.jcp",
-            async:false,
+            url:"/ExternalItems/messageList/messageList.jcp",
+//            async:false,
             success:function (result) {
                 var res=eval('('+result+')');
                 var list=res.datas;
-                console.log(list)
                 $.each(list,function (i) {
-                    total+=list[i].msg.length;
-                    $("#"+list.appid).children(".details").children(".number").find("span").html(list)
-                })
+                    var currentTotal = list[i].msg.length;
+                    total+=currentTotal;
+                    PageTile.setCardNumber(list[i].appid , list[i].realcount || currentTotal);
+                });
+                $(".message-count").html(total === 0 ? "" : total);
+                PageTile.counterupNumber($("#message-button"));
             }
         });
-        $(".message-count").html(total===0?"":total)
     }
     getTotals();
     $(document).on("click","#message-button",function (e) {
         e.preventDefault();
-        $.ajax({
+        if(!$('body').hasClass('page-quick-sidebar-open')){
+            getTotals();   
+        } else {
+            $.ajax({
             type:"post",
-            url:"../ExternalItems/messageList/messageList.jcp",
+            url:"/ExternalItems/messageList/messageList.jcp",
             beforeSend:function () {
                 Metronic.blockUI({
                     target: '.page-quick-sidebar-wrapper',
@@ -57,13 +65,21 @@
                 Metronic.unblockUI('.page-quick-sidebar-wrapper');
                 var res=eval('('+result+')');
                 var list=res.datas;
-                messageList(list)
+                messageList(list);
+                $("#message-button .message-count").html("");
             }
         });
+        }
+        
     });
     $(document).on("click",".message-box a",function (e) {
-            $(this).find(".message-img-box").children("i").removeClass().addClass("icon-envelope-open")
-
+        $(this).find(".message-img-box").children("i").removeClass().addClass("icon-envelope-open");
+    });
+    
+    $("#tm_desktop").on("click", function(){
+        getTotals();
+    });
+    $("#quick-sidebar-closeBtn").on("click",function () {
+        getTotals();
     })
-
 }(jQuery);

@@ -42,7 +42,7 @@
     <link href="../metronic/assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
     <link href="../metronic/assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
     <!--        <link href="../metronic/assets/admin/layout/css/themes/light2.css" rel="stylesheet" type="text/css" id="style_color"/>-->
-    <link href="../metronic/assets/admin/layout/css/themes/blue.css" rel="stylesheet" type="text/css" id="style_color"/>
+    <link href="../metronic/assets/admin/layout/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="../favicon.ico"/>
     <!-- BEGIN list STYLES -->
@@ -162,7 +162,7 @@
                 <li class="dropdown dropdown-quick-sidebar-toggler" id="quick-sidebar-btn">
                     <a href="javascript:;" class="dropdown-toggle" id="message-button">
                         <i class="icon-speech"></i>
-                        <span class="badge badge-default message-count">10</span>
+                        <span data-counter='counterup' class="badge badge-default message-count"></span>
                     </a>
                 </li>
                 <!-- END USER LOGIN DROPDOWN -->
@@ -343,10 +343,14 @@
             </div>
             <div class="tab-content">
                 <div class="tab-pane fade active in" id="tab_desktop">
-
                     <!-- END PAGE HEADER-->
                     <div class="clearfix"></div>
-                    <div class="row"></div>
+                    <div class="row cards"></div>
+                    <div class="clearfix"></div>
+                    <div class="row ui-sortable" id="sortable_portlets">
+                        <div class="col-md-6 column sortable"></div>
+                        <div class="col-md-6 column sortable"></div>
+                    </div>
                 </div>
             </div>
             <!-- BEGIN PAGE HEADER-->
@@ -356,44 +360,26 @@
 </div>
 <!-- END CONTAINER -->
 <!-- BEGIN QUICK SIDEBAR -->
-<a href="javascript:;" class="page-quick-sidebar-toggler"><i class="icon-close"></i></a>
+<a href="javascript:;" class="page-quick-sidebar-toggler" id="quick-sidebar-closeBtn"><i class="icon-login"></i></a>
 <div class="page-quick-sidebar-wrapper">
     <div class="page-quick-sidebar">
         <div class="nav-justified">
             <ul class="nav nav-tabs nav-justified">
                 <li class="active">
                     <a href="#quick_sidebar_tab_1" data-toggle="tab">
-                        消息 <span class="badge badge-danger message-count" >2</span>
+                        消息 <span class="badge badge-danger message-count" ></span>
                     </a>
                 </li>
-                <li>
+                <li style="visibility: hidden">
                     <a href="#quick_sidebar_tab_2" data-toggle="tab">
-                        待续 <span class="badge badge-success">7</span>
+                        待续 <span class="badge badge-success"></span>
                     </a>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown" style="visibility: hidden">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                        更多<i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu pull-right" role="menu">
-                        <li>
-                            <a href="#quick_sidebar_tab_3" data-toggle="tab">
-                                <i class="icon-bell"></i> Alerts </a>
-                        </li>
-                        <li>
-                            <a href="#quick_sidebar_tab_3" data-toggle="tab">
-                                <i class="icon-info"></i> Notifications </a>
-                        </li>
-                        <li>
-                            <a href="#quick_sidebar_tab_3" data-toggle="tab">
-                                <i class="icon-speech"></i> Activities </a>
-                        </li>
-                        <li class="divider">
-                        </li>
-                        <li>
-                            <a href="#quick_sidebar_tab_3" data-toggle="tab">
-                                <i class="icon-settings"></i> Settings </a>
-                        </li>
                     </ul>
                 </li>
             </ul>
@@ -407,370 +393,10 @@
                 </div>
                 <div class="tab-pane page-quick-sidebar-alerts" id="quick_sidebar_tab_2">
                     <div class="page-quick-sidebar-alerts-list">
-                        <h3 class="list-heading">General</h3>
-                        <ul class="feeds list-items">
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <div class="cont-col1">
-                                            <div class="label label-sm label-info">
-                                                <i class="fa fa-check"></i>
-                                            </div>
-                                        </div>
-                                        <div class="cont-col2">
-                                            <div class="desc">
-                                                You have 4 pending tasks. <span class="label label-sm label-warning ">
-													Take action <i class="fa fa-share"></i>
-													</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date">
-                                        Just now
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="javascript:;">
-                                    <div class="col1">
-                                        <div class="cont">
-                                            <div class="cont-col1">
-                                                <div class="label label-sm label-success">
-                                                    <i class="fa fa-bar-chart-o"></i>
-                                                </div>
-                                            </div>
-                                            <div class="cont-col2">
-                                                <div class="desc">
-                                                    Finance Report for year 2013 has been released.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col2">
-                                        <div class="date">
-                                            20 mins
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <div class="cont-col1">
-                                            <div class="label label-sm label-danger">
-                                                <i class="fa fa-user"></i>
-                                            </div>
-                                        </div>
-                                        <div class="cont-col2">
-                                            <div class="desc">
-                                                You have 5 pending membership that requires a quick review.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date">
-                                        24 mins
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <div class="cont-col1">
-                                            <div class="label label-sm label-info">
-                                                <i class="fa fa-shopping-cart"></i>
-                                            </div>
-                                        </div>
-                                        <div class="cont-col2">
-                                            <div class="desc">
-                                                New order received with <span class="label label-sm label-success">
-													Reference Number: DR23923 </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date">
-                                        30 mins
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <div class="cont-col1">
-                                            <div class="label label-sm label-success">
-                                                <i class="fa fa-user"></i>
-                                            </div>
-                                        </div>
-                                        <div class="cont-col2">
-                                            <div class="desc">
-                                                You have 5 pending membership that requires a quick review.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date">
-                                        24 mins
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <div class="cont-col1">
-                                            <div class="label label-sm label-info">
-                                                <i class="fa fa-bell-o"></i>
-                                            </div>
-                                        </div>
-                                        <div class="cont-col2">
-                                            <div class="desc">
-                                                Web server hardware needs to be upgraded. <span class="label label-sm label-warning">
-													Overdue </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date">
-                                        2 hours
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="javascript:;">
-                                    <div class="col1">
-                                        <div class="cont">
-                                            <div class="cont-col1">
-                                                <div class="label label-sm label-default">
-                                                    <i class="fa fa-briefcase"></i>
-                                                </div>
-                                            </div>
-                                            <div class="cont-col2">
-                                                <div class="desc">
-                                                    IPO Report for year 2013 has been released.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col2">
-                                        <div class="date">
-                                            20 mins
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                        <h3 class="list-heading">System</h3>
-                        <ul class="feeds list-items">
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <div class="cont-col1">
-                                            <div class="label label-sm label-info">
-                                                <i class="fa fa-check"></i>
-                                            </div>
-                                        </div>
-                                        <div class="cont-col2">
-                                            <div class="desc">
-                                                You have 4 pending tasks. <span class="label label-sm label-warning ">
-													Take action <i class="fa fa-share"></i>
-													</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date">
-                                        Just now
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="javascript:;">
-                                    <div class="col1">
-                                        <div class="cont">
-                                            <div class="cont-col1">
-                                                <div class="label label-sm label-danger">
-                                                    <i class="fa fa-bar-chart-o"></i>
-                                                </div>
-                                            </div>
-                                            <div class="cont-col2">
-                                                <div class="desc">
-                                                    Finance Report for year 2013 has been released.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col2">
-                                        <div class="date">
-                                            20 mins
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <div class="cont-col1">
-                                            <div class="label label-sm label-default">
-                                                <i class="fa fa-user"></i>
-                                            </div>
-                                        </div>
-                                        <div class="cont-col2">
-                                            <div class="desc">
-                                                You have 5 pending membership that requires a quick review.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date">
-                                        24 mins
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <div class="cont-col1">
-                                            <div class="label label-sm label-info">
-                                                <i class="fa fa-shopping-cart"></i>
-                                            </div>
-                                        </div>
-                                        <div class="cont-col2">
-                                            <div class="desc">
-                                                New order received with <span class="label label-sm label-success">
-													Reference Number: DR23923 </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date">
-                                        30 mins
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <div class="cont-col1">
-                                            <div class="label label-sm label-success">
-                                                <i class="fa fa-user"></i>
-                                            </div>
-                                        </div>
-                                        <div class="cont-col2">
-                                            <div class="desc">
-                                                You have 5 pending membership that requires a quick review.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date">
-                                        24 mins
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="col1">
-                                    <div class="cont">
-                                        <div class="cont-col1">
-                                            <div class="label label-sm label-warning">
-                                                <i class="fa fa-bell-o"></i>
-                                            </div>
-                                        </div>
-                                        <div class="cont-col2">
-                                            <div class="desc">
-                                                Web server hardware needs to be upgraded. <span class="label label-sm label-default ">
-													Overdue </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col2">
-                                    <div class="date">
-                                        2 hours
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="javascript:;">
-                                    <div class="col1">
-                                        <div class="cont">
-                                            <div class="cont-col1">
-                                                <div class="label label-sm label-info">
-                                                    <i class="fa fa-briefcase"></i>
-                                                </div>
-                                            </div>
-                                            <div class="cont-col2">
-                                                <div class="desc">
-                                                    IPO Report for year 2013 has been released.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col2">
-                                        <div class="date">
-                                            20 mins
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
                 <div class="tab-pane page-quick-sidebar-settings" id="quick_sidebar_tab_3">
                     <div class="page-quick-sidebar-settings-list">
-                        <h3 class="list-heading">General Settings</h3>
-                        <ul class="list-items borderless">
-                            <li>
-                                Enable Notifications <input type="checkbox" class="make-switch" checked data-size="small" data-on-color="success" data-on-text="ON" data-off-color="default" data-off-text="OFF">
-                            </li>
-                            <li>
-                                Allow Tracking <input type="checkbox" class="make-switch" data-size="small" data-on-color="info" data-on-text="ON" data-off-color="default" data-off-text="OFF">
-                            </li>
-                            <li>
-                                Log Errors <input type="checkbox" class="make-switch" checked data-size="small" data-on-color="danger" data-on-text="ON" data-off-color="default" data-off-text="OFF">
-                            </li>
-                            <li>
-                                Auto Sumbit Issues <input type="checkbox" class="make-switch" data-size="small" data-on-color="warning" data-on-text="ON" data-off-color="default" data-off-text="OFF">
-                            </li>
-                            <li>
-                                Enable SMS Alerts <input type="checkbox" class="make-switch" checked data-size="small" data-on-color="success" data-on-text="ON" data-off-color="default" data-off-text="OFF">
-                            </li>
-                        </ul>
-                        <h3 class="list-heading">System Settings</h3>
-                        <ul class="list-items borderless">
-                            <li>
-                                Security Level
-                                <select class="form-control input-inline input-sm input-small">
-                                    <option value="1">Normal</option>
-                                    <option value="2" selected>Medium</option>
-                                    <option value="e">High</option>
-                                </select>
-                            </li>
-                            <li>
-                                Failed Email Attempts <input class="form-control input-inline input-sm input-small" value="5"/>
-                            </li>
-                            <li>
-                                Secondary SMTP Port <input class="form-control input-inline input-sm input-small" value="3560"/>
-                            </li>
-                            <li>
-                                Notify On System Error <input type="checkbox" class="make-switch" checked data-size="small" data-on-color="danger" data-on-text="ON" data-off-color="default" data-off-text="OFF">
-                            </li>
-                            <li>
-                                Notify On SMTP Error <input type="checkbox" class="make-switch" checked data-size="small" data-on-color="warning" data-on-text="ON" data-off-color="default" data-off-text="OFF">
-                            </li>
-                        </ul>
-                        <div class="inner-content">
-                            <button class="btn btn-success"><i class="icon-settings"></i> Save Changes</button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -830,7 +456,7 @@
 <script src="PageTab.js" type="text/javascript"></script>
 <script src="PageSystem.js" type="text/javascript"></script>
 <script src="personalinformation.js" type="text/javascript"></script>
-<script src="../metronic/ExternalItems/messageList/messageList.js" type="text/javascript"></script>
+
 <script src="../metronic/assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
 
 <!-- BEGIN modal PLUGINS -->
@@ -863,6 +489,7 @@
         QuickSidebar.init();
     });
 </script>
+<script src="../metronic/ExternalItems/messageList/messageList.js" type="text/javascript"></script>
 <!-- END JAVASCRIPTS -->
 </body>
 <!-- END BODY -->

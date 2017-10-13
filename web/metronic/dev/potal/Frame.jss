@@ -1,7 +1,10 @@
 
 (function () {
     PageSystem.loadJS("/metronic/dev/potal/collocation.js");
-    var selectSysId = "",portletColor = PageSystem.getColor();
+    var selectSysId = "",portletColor = PageSystem.getColor(),defaultInfo={
+        icon:"tag",
+        color:"blue"
+    };
     function rightHtml() {
         return '<form class="form-horizontal" role="form" id="baseForm">\n' +
             '<div class="portlet box '+portletColor+' ">\n' +
@@ -178,7 +181,7 @@
             '                                    </div>\n' +
             '                                </div>\n' +
               '                                <div class="form-group">\n' +
-            '                                    <label class="col-md-3 control-label">桌面显示:</label>\n' +
+            '                                    <label class="col-md-3 control-label">嵌入桌面显示:</label>\n' +
             '                                    <div class="col-md-9">\n' +
             '                                        <div class="form-group form-md-radios">\n' +
             '                                            <div class="md-radio-inline">\n' +
@@ -327,10 +330,10 @@
             '              <ul class="dropdown-menu clearfix" role="menu" id="dropdown-icons">\n' +
             '                </ul>\n' +
             '             </div>'+
-            '                                                                      <a href="javascript:"\n' +
-            '                                                                         class="btn '+portletColor+' fileinput-exists icons-cancel-btn" \n' +
-            '                                                                         data-dismiss="fileinput">取消\n' +
-            '                                                                      </a>\n' +
+//            '                                                                      <a href="javascript:"\n' +
+//            '                                                                         class="btn '+portletColor+' fileinput-exists icons-cancel-btn" \n' +
+//            '                                                                         data-dismiss="fileinput">取消\n' +
+//            '                                                                      </a>\n' +
             '                                                                      <input type="hidden" value="tag" name="mn_desktop_icon" id="mn_desktop_icon">\n' +
             '                                                                </div>\n' +
             '                                                                </div>\n' +
@@ -340,7 +343,7 @@
             '                                                            <label class="col-md-5 control-label">卡片颜色:</label>\n' +
             '                                                            <div class="col-md-7">\n' +
             '                                                                <div class="dev-cards-colors-upload clearfix">\n' +
-            '                                                                    <div class="dev-cards-colors-box">\n' +
+            '                                                                    <div class="dashboard-stat blue" id="dev-cards-colors-box">\n' +
             '                                                                    </div>\n' +
             '                                                                     <div class="dev-btn-box" style="display:inline-block;padding-left:5px">'+
             '                                                            <div class="btn-group">\n' +
@@ -350,10 +353,10 @@
             '              <ul class="dropdown-menu clearfix" role="menu" id="dropdown-colors">\n' +
             '                </ul>\n' +
             '             </div>'+
-            '                                                                      <a href="javascript:"\n' +
-            '                                                                         class="btn '+portletColor+' fileinput-exists color-cancel-btn" \n' +
-            '                                                                         data-dismiss="fileinput">取消\n' +
-            '                                                                      </a>\n' +
+//            '                                                                      <a href="javascript:"\n' +
+//            '                                                                         class="btn '+portletColor+' fileinput-exists color-cancel-btn" \n' +
+//            '                                                                         data-dismiss="fileinput">取消\n' +
+//            '                                                                      </a>\n' +
             '                                                                      <input type="hidden" value="blue" name="mn_desktop_color" id="mn_desktop_color">\n' +
             '                                                                </div>\n' +
             '                                                                </div>\n' +
@@ -726,7 +729,7 @@
             '         （系统提供默认参数值(自动替换链接地址和参数值中匹配的内容)：用户账户: @[username] ; 用户密码(加密后) ：@[userpwd] ; 集成应用ID：@[appid];default_token : @[appdefault_token]）\n' +
             '     </p>\n' +
             '</div>'+
-            '        </form>\n'
+            '        </form>\n';
     }
 
     function hiddenInfo() {
@@ -930,7 +933,7 @@
             '            <div id="tree_' + conf.id + '" class="tree-demo"></div>\n' +
             '        </div>\n' +
             '    </div>\n' +
-            '</div>'
+            '</div>';
     }
 
     function deleteSysModal(conf, type) {
@@ -947,7 +950,7 @@
             '    </div>\n' +
             '    </div>\n' +
             '    </div>\n' +
-            '</div>'
+            '</div>';
     }
 
     function sendDataModal() {
@@ -985,25 +988,25 @@
             '                <button type="button" class="btn default" data-dismiss="modal">关闭</button>\n' +
             '                <button type="button" id="sendBtn" class="btn green-meadow">发送</button>\n' +
             '            </div>\n' +
-            '        </div>'
+            '        </div>';
     }
     function iconsMenu(){
         var iconsArray=collocation.fontIcons,
             iconClass=collocation.iconClass,
-            html=''
+            html='';
         $.each(iconsArray,function(i){
-            html+='<li class="icons-item"><i class="'+iconClass+''+iconsArray[i]+'"></i></li>'
-        })
-        $("#dropdown-icons").html(html)
+            html+='<li class="icons-item"><i class="'+iconClass+''+iconsArray[i]+'"></i></li>';
+        });
+        $("#dropdown-icons").html(html);
     }
     function colorLibrary(){
         var colorArray=collocation.colorLibrary,
                 html='';
         $.each(colorArray,function(i){
-             html+='<li class="colors-item" data-value='+colorArray[i].id+' style="background-color:'+colorArray[i].color+'"></li>'
+             html+='<li class="colors-item" data-value='+colorArray[i].id+' style="background-color:'+colorArray[i].color+'"></li>';
             
-        })
-         $("#dropdown-colors").html(html)
+        });
+         $("#dropdown-colors").html(html);
     }
     var controller = {
         start: function () {
@@ -1067,6 +1070,14 @@
         }
     };
     
+    function setDefaultInof (defaultInfo) {
+                 $(".dev-img-box i").removeClass().addClass("fa fa-"+defaultInfo.icon);
+                 $("#dev-cards-colors-box").removeClass().addClass("dashboard-stat "+defaultInfo.color);
+                 $("#mn_desktop_icon").val(defaultInfo.icon);
+                 $("#mn_desktop_color").val(defaultInfo.color);
+                 $("input[type='radio']","#baseForm").attr("checked",true);
+    }
+    
     function getData(id) {
         $.ajax({
             type: "get",
@@ -1075,7 +1086,7 @@
             success: function (data) {
                 loadData(data);
                 getImg(data, id);
-                getDesktopInfo(data)
+                getDesktopInfo(data);
                 controller.start();
             }
         });
@@ -1169,8 +1180,8 @@
         $("#start-icon").attr("src", data.show_startmenu_icon_url);
     }
      function getDesktopInfo(data){
-         $(".dev-img-box>i").removeClass().addClass("fa fa-"+data.mn_desktop_icon);
-         $(".dev-cards-colors-box").attr("style","background-color:"+data.mn_desktop_color+"")
+         $(".dev-img-box>i").removeClass().addClass("fa fa-"+(data.mn_desktop_icon?data.mn_desktop_icon:"tag"));
+         $("#dev-cards-colors-box").removeClass().addClass("dashboard-stat "+(data.mn_desktop_color?data.mn_desktop_color:"blue"));
      }
     function remove(id, conf) {
         $.ajax({
@@ -1264,6 +1275,8 @@
                     if (data && data.selected && data.selected.length) {
                         selectSysId = data.selected[0];
                         if (selectSysId === "0") {
+                            setDefaultInof(defaultInfo);
+                             controller.start();
                             $("#baseForm ")[0].reset();
                         } else {
                             getData(selectSysId);
@@ -1282,6 +1295,8 @@
                 });
                 $("#emptySys").on("click", function (e) {
                     e.preventDefault();
+                     setDefaultInof(defaultInfo);
+                     controller.start();
                     $("#baseForm")[0].reset();
                 });
                 $("#deleteSys").on("click", function (e) {
@@ -1332,29 +1347,28 @@
                 });
                 $(".pic-cancel-btn").on("click",function(e){
                     e.preventDefault();
-                    var $this=e.target
+                    var $this=e.target;
                     $($this).siblings("div").children("img").attr("src","");
                     $($this).siblings("span").children("input").eq(1).val("");
                 });
                 $("#dropdown-icons-btn").on("click",function(e){
                     e.preventDefault();
-                    iconsMenu()
+                    iconsMenu();
                 });
                 $("#dropdown-icons").on("click","li",function(e){
                          var icon=$(e.currentTarget).children("i")[0].className,
                              value=icon.match(/fa fa-(\S*)/)[1];
-                         $(".dev-img-box i").removeClass().addClass(icon)
-                         $("#mn_desktop_icon").val(value)
+                         $(".dev-img-box i").removeClass().addClass(icon);
+                         $("#mn_desktop_icon").val(value);
                 });
                   $("#dropdown-colors-btn").on("click",function(e){
                     e.preventDefault();
-                    colorLibrary()
+                    colorLibrary();
                 });
                  $("#dropdown-colors").on("click","li",function(e){
-                        var color=$(e.currentTarget)[0].style.backgroundColor,
-                        value=$(e.currentTarget).attr("data-value")
-                        $(".dev-cards-colors-box").attr("style","background-color:"+color+"")
-                        $("#mn_desktop_color").val(value)
+                        value=$(e.currentTarget).attr("data-value");
+                        $("#dev-cards-colors-box").removeClass().addClass("dashboard-stat "+value);
+                        $("#mn_desktop_color").val(value);
                 });
             });
         }

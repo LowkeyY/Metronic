@@ -646,7 +646,10 @@ Horizontal Menu
     padding: 0;
   }
   .page-sidebar-closed.page-sidebar-closed-hide-logo .page-header.navbar .page-logo {
-    width: 45px;
+    /*width: 45px;*/
+    padding-left: 20px;
+    padding-right: 20px;
+
   }
   .page-sidebar-closed.page-sidebar-closed-hide-logo .page-header.navbar .page-logo .logo-default {
     /*display: none;*/
@@ -973,7 +976,9 @@ Page sidebar
 .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li > a > i {
   font-size: 25px;
   margin-right: 5px;
+  margin-left: -5px;
   text-shadow: none;
+  vertical-align: middle;
 }
 .page-sidebar .page-sidebar-menu > li > a > i.glyphicon,
 .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li > a > i.glyphicon {
@@ -983,7 +988,6 @@ Page sidebar
 }
 .page-sidebar .page-sidebar-menu > li > a > [class^="icon-"],
 .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li > a > [class^="icon-"] {
-  top: 6px;
   margin-left: -5px;
   margin-right: 4px;
 }
@@ -1677,9 +1681,10 @@ Quick Sidebar Layout
 /* Quick sidebar wrapper */
 .page-quick-sidebar-wrapper {
   transition: right 0.3s;
-  z-index: 9994;
+  z-index: 9995;
   position: fixed;
-  top: 46px;
+  padding-top: 46px;
+  top:0;
   bottom: 0;
   right: -320px;
   width: 320px;
@@ -1701,13 +1706,13 @@ Quick Sidebar Toggler
 ***/
 .page-quick-sidebar-toggler {
   overflow: hidden;
-  z-index: 9994;
+  z-index: 9996;
   display: none;
   width: 28px;
   height: 27px;
   position: fixed;
-  top: 19px;
-  right: 15px;
+  top: 13px;
+  right: 40px;
   text-align: center;
   padding-top: 6px;
 }
@@ -2650,7 +2655,7 @@ Page Loading
 .message-title{
   word-wrap:break-word
 }
-#message-link{
+#message-container .message-link{
   width: 100%;
   height:100%;
   text-decoration: none;
