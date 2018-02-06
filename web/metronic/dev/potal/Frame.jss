@@ -34,7 +34,8 @@
             '                            </div>\n' +
             '                            <div class="portlet-body">\n' +
             '                                <div class="form-group">\n' +
-            '                                    <label class="col-md-3 control-label"  for="default_title">导航标题：</label>\n' +
+            '                                    <label class="col-md-3 control-label"  for="default_title">导航标题：<span class="required"\n' +
+            '                                                                                       aria-required="true">*</span></label></label>\n' +
             '                                    <div class="col-md-9">\n' +
             '                                        <div class="input-icon right">\n' +
             '                                            <input type="text" class="form-control input-inline input-large " id="default_title" name="default_title">\n' +
@@ -52,7 +53,7 @@
             '                                <div class="form-group">\n' +
             '                                    <label for="default_token" class="col-md-3 control-label">token:</label>\n' +
             '                                    <div class="col-md-9">\n' +
-            '                                        <input type="text" class="form-control input-inline input-medium " id="default_token" name="default_token" readonly>\n' +
+            '                                        <input type="text" class="form-control input-inline input-medium " id="default_token" name="default_token" placeholder="系统默认生成" readonly>\n' +
             '                                    </div>\n' +
             '                                </div>\n' +
             '                                <div class="form-group">\n' +
@@ -70,7 +71,7 @@
             '                                                    </label>\n' +
             '                                                </div>\n' +
             '                                                <div class="md-radio">\n' +
-            '                                                    <input type="radio" id="default_no_auth" name="default_has_auth" class="md-radiobtn" value="true" checked="">\n' +
+            '                                                    <input type="radio" id="default_no_auth" name="default_has_auth" class="md-radiobtn" value="true">\n' +
             '                                                    <label for="default_no_auth">\n' +
             '                                                        <span class="inc"></span>\n' +
             '                                                        <span class="check"></span>\n' +
@@ -96,7 +97,7 @@
             '                                                    </label>\n' +
             '                                                </div>\n' +
             '                                                <div class="md-radio">\n' +
-            '                                                    <input type="radio" id="not-use" value="false" name="default_isValid" class="md-radiobtn" checked="">\n' +
+            '                                                    <input type="radio" id="not-use" value="false" name="default_isValid" class="md-radiobtn" checked>\n' +
             '                                                    <label for="not-use">\n' +
             '                                                        <span class="inc"></span>\n' +
             '                                                        <span class="check"></span>\n' +
@@ -123,7 +124,7 @@
             '                                                    </label>\n' +
             '                                                </div>\n' +
             '                                                <div class="md-radio">\n' +
-            '                                                    <input type="radio" id="default_autoRunRG-stop" name="default_autoRunRG" value="false" class="md-radiobtn" checked="">\n' +
+            '                                                    <input type="radio" id="default_autoRunRG-stop" name="default_autoRunRG" value="false" class="md-radiobtn" checked>\n' +
             '                                                    <label for="default_autoRunRG-stop">\n' +
             '                                                        <span class="inc"></span>\n' +
             '                                                        <span class="check"></span>\n' +
@@ -168,7 +169,7 @@
             '                                                </div>\n' +
             '                                                <div class="md-radio">\n' +
             '                                                    <input type="radio" id="new-browser" name="default_open_type" value="false"\n' +
-            'checked="" class="md-radiobtn">\n' +
+            'checked class="md-radiobtn">\n' +
             '                                                    <label for="new-browser">\n' +
             '                                                        <span class="inc"></span>\n' +
             '                                                        <span class="check"></span>\n' +
@@ -196,7 +197,7 @@
             '                                                </div>\n' +
             '                                                <div class="md-radio">\n' +
             '                                                    <input type="radio" id="desk-hide" name="mn_default_show_type" value="false"\n' +
-            'checked="" class="md-radiobtn">\n' +
+            'checked class="md-radiobtn">\n' +
             '                                                    <label for="desk-hide">\n' +
             '                                                        <span class="inc"></span>\n' +
             '                                                        <span class="check"></span>\n' +
@@ -223,7 +224,7 @@
             '                                                    </label>\n' +
             '                                                </div>\n' +
             '                                                <div class="md-radio">\n' +
-            '                                                    <input type="radio" id="not- refreshed" name="default_isUpdate" value="false" class="md-radiobtn" checked="">\n' +
+            '                                                    <input type="radio" id="not- refreshed" name="default_isUpdate" value="false" class="md-radiobtn" checked>\n' +
             '                                                    <label for="not- refreshed">\n' +
             '                                                        <span class="inc"></span>\n' +
             '                                                        <span class="check"></span>\n' +
@@ -247,7 +248,8 @@
             '                                    </div>\n' +
             '                                </div>\n' +
             '                                <div class="form-group">\n' +
-            '                                    <label class="col-md-3 control-label" for="default_url">链接地址:</label>\n' +
+            '                                    <label class="col-md-3 control-label" for="default_url">链接地址：<span class="required"\n' +
+            '                                                                                       aria-required="true">*</span></label></label>\n' +
             '                                    <div class="col-md-9">\n' +
             '                                        <div class="input-icon right">\n' +
             '                                            <input type="text"\n' +
@@ -514,7 +516,7 @@
             '                                                            <input type="radio" value="false" \n' +
             '                                                                   id="portals-disable" \n' +
             '                                                                   name="face_sys_isValid" \n' +
-            '                                                                   class="md-radiobtn" checked="">\n' +
+            '                                                                   class="md-radiobtn" checked>\n' +
             '                                                            <label for="portals-disable">\n' +
             '                                                                <span class="inc"></span>\n' +
             '                                                                <span class="check"></span>\n' +
@@ -562,7 +564,7 @@
             '                                                            <input type="radio" value="false" \n' +
             '                                                                   id="system-disable" \n' +
             '                                                                   name="face_app_isValid" \n' +
-            '                                                                   class="md-radiobtn" checked="">\n' +
+            '                                                                   class="md-radiobtn" checked>\n' +
             '                                                            <label for="system-disable">\n' +
             '                                                                <span class="inc"></span>\n' +
             '                                                                <span class="check"></span>\n' +
@@ -609,7 +611,7 @@
             '                                                                <input type="radio" id="no-update" \n' +
             '                                                                       name="face_app_isUpdate" \n' +
             '                                                                       class="md-radiobtn" \n' +
-            '                                                                       value="false" checked="">\n' +
+            '                                                                       value="false" checked>\n' +
             '                                                                <label for="no-update">\n' +
             '                                                                    <span class="inc"></span>\n' +
             '                                                                    <span class="check"></span>\n' +
@@ -653,7 +655,7 @@
             '                                                                <input type="radio" value="false" \n' +
             '                                                                       id="others" \n' +
             '                                                                       name="face_app_types" \n' +
-            '                                                                       class="md-radiobtn" checked="">\n' +
+            '                                                                       class="md-radiobtn" checked>\n' +
             '                                                                <label for="others">\n' +
             '                                                                    <span class="inc"></span>\n' +
             '                                                                    <span class="check"></span>\n' +
@@ -751,7 +753,7 @@
             '                    </div>\n' +
             '                    <div class="md-radio">\n' +
             '                        <input type="radio" id="postion-right"  name="default_postion" value="false"\n' +
-            '                               checked="" class="md-radiobtn">\n' +
+            '                               checked class="md-radiobtn">\n' +
             '                        <label for="postion-right">\n' +
             '                            <span class="inc"></span> \n' +
             '                            <span class="check"></span>\n' +
@@ -808,7 +810,7 @@
             '                    </div>\n' +
             '                    <div class="md-radio">\n' +
             '                        <input type="radio" id="postion-nodrag"  name="default_win_postion"\n' +
-            '                               value="false"  checked="" class="md-radiobtn">\n' +
+            '                               value="false"  checked class="md-radiobtn">\n' +
             '                        <label for="postion-nodrag">\n' +
             '                            <span class="inc"></span>\n' +
             '                            <span class="check"></span>\n' +
@@ -828,7 +830,7 @@
             '                    </div>\n' +
             '                    \n' +
             '                    <div class="md-radio">\n' +
-            '                        <input type="radio" id="size-fixed"  name="default_win_size" value="false" checked=""                                                class="md-radiobtn"> \n' +
+            '                        <input type="radio" id="size-fixed"  name="default_win_size" value="false" checked                                               class="md-radiobtn"> \n' +
             '                        <label for="size-fixed">\n' +
             '                            <span class="inc"></span>\n' +
             '                            <span class="check"></span>\n' +
@@ -851,7 +853,7 @@
             '                                    <div class="md-radio">\n' +
             '                                        <input type="radio" id="show-fastlink" value="true"\n' +
             '                                               name="show_fastlink_isValid" class="md-radiobtn"\n' +
-            '                                               checked="checked"> \n' +
+            '                                               > \n' +
             '                                        <label for="show-fastlink">\n' +
             '                                            <span class="inc"></span>\n' +
             '                                            <span class="check"></span>\n' +
@@ -926,7 +928,7 @@
         return '<div class="profile-sidebar">\n' +
             '    <div class="portlet '+portletColor+' box">\n' +
             '        <div class="portlet-title">\n' +
-            '            <div class="caption"><i class="fa fa-sitemap"></i>组织结构导航</div>\n' +
+            '            <div class="caption"><i class="fa fa-sitemap"></i>集成管理导航</div>\n' +
             '            <div class="tools"><a href="javascript:;" class="collapse"> </a></div>\n' +
             '        </div>\n' +
             '        <div class="portlet-body">\n' +
@@ -937,7 +939,7 @@
     }
 
     function deleteSysModal(conf, type) {
-        return '<div id="deleteSysModal" class="modal fade bs-modal-sm in" tabindex="-1">\n' +
+        return '<div id="deleteSysModal" class="modal fade bs-modal-sm" tabindex="-1">\n' +
             '<div class="modal-dialog modal-sm">'+
             '<div class="modal-content">'+
             '    <div class="modal-header">\n' +
@@ -954,11 +956,13 @@
     }
 
     function sendDataModal() {
-        return '<div class="modal fade bs-modal-lg in" id="sendDataModal" role="dialog" style="display: none;">\n' +
+       
+        return '<div class="modal fade bs-modal-lg" id="sendDataModal" role="dialog" style="display: none;">\n' +
             '    <div class="modal-dialog modal-lg" >\n' +
             '        <div class="modal-content">\n' +
             '            <div class="modal-header">\n' +
-            '                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>\n' +
+            '                <button type="button" class="close\n\
+ data-dismiss="modal" aria-hidden="true"></button>\n' +
             '                 <h4 class="modal-title">发送组织机构全量数据</h4>\n' +
             '            </div class="row">\n' +
             '            <div class="modal-body">\n' +
@@ -972,13 +976,14 @@
             '                                <label for="address"\n' +
             '                                       class="col-md-3 control-label">请输入单独需要推送地址：</label>\n' +
             '                                <div class="col-md-9">\n' +
-            '                                    <input type="text" id="address" name="address"\n' +
-            '                                           class="form-control input-inline input-medium">\n' +
+//            '                                    <input type="text" id="address" name="address"\n' +
+//            '                                           class="form-control input-inline input-medium">\n' +
+            '                                     <textarea id="address"  name="address" style="width:450px;height:75px"></textarea>'+
             '                                </div>\n' +
             '                            </div>\n' +
             '                            <div class="result-box"> \n' +
-            '                                <span id=\'url-box\'></span>\n' +
-            '                                <span id=\'res-box\' style=\'margin-left:10px\'></span>\n' +
+//            '                                <span id=\'url-box\'></span>\n' +
+//            '                                <span id=\'res-box\' style=\'margin-left:10px\'></span>\n' +
             '                            </div>\n' +
             '                        </div>\n' +
             '                    </form>\n' +
@@ -1071,11 +1076,15 @@
     };
     
     function setDefaultInof (defaultInfo) {
+  
                  $(".dev-img-box i").removeClass().addClass("fa fa-"+defaultInfo.icon);
                  $("#dev-cards-colors-box").removeClass().addClass("dashboard-stat "+defaultInfo.color);
                  $("#mn_desktop_icon").val(defaultInfo.icon);
                  $("#mn_desktop_color").val(defaultInfo.color);
-                 $("input[type='radio']","#baseForm").attr("checked",true);
+                 $("input[value='true']","#baseForm").attr("checked",false);
+                 $("input[value='false']","#baseForm").attr("checked",true);
+                 $("#default-icon").attr("src","");
+                 $("#default_icon_url").val("");
     }
     
     function getData(id) {
@@ -1104,7 +1113,7 @@
             focusInvalid: false,
             ignore: "",
             rules: {default_title: {required: true},default_url: {required: true}},
-            messages: {default_title: {required: "请输入标题名称"},default_url: {required: "请输入链接地址"}},
+            messages: {default_title: {required: "请输入标题名称"},default_url: {required: "链接地址必须填写"}},
             highlight: function (element) {
                 $(element).closest(".form-group").addClass("has-error");
             },
@@ -1209,42 +1218,63 @@
                 var html = "";
                 var address = data.data;
                 $.each(address, function (i) {
-                    html += '<div class="md-checkbox ">\n<input type="checkbox" id="checkbox' + i + '" name="' + address[i].name + '" class="md-check" data-index="' + i + '">\n<label for="checkbox' + i + '">\n<span class="inc"></span>\n<span class="check"></span>\n<span class="box"></span>\n' + address[i].boxLabel + "</label></div>";
+                    html += '<div class="md-checkbox ">\n<input type="checkbox" id="checkbox' + i + '" name="' + address[i].faceUrl + '" class="md-check" data-index="' + i + '">\n<label for="checkbox' + i + '">\n<span class="inc"></span>\n<span class="check"></span>\n<span class="box"></span>\n' + address[i].boxLabel + "</label><span></span></div>";
                 });
                 $(".check-box").html(html);
             }
         });
     }
-
-    function sendData() {
-        var len = $("input[type='checkbox']:checked").length;
-        for (var i = 0; i < len; i++) {
-            var value = $("input[type='checkbox']:checked").eq(i).attr("name");
-            var url = $("#address").val();
-            var boxLable = $("input[type='checkbox']:checked").eq(i).next().text().trim();
-            var index = $("input[type='checkbox']:checked").eq(i).attr("data-index");
-            $.ajax({
-                type: "get",
-                url: "/dev/potal/SendMessage.jcp?index=" + index + "&value=" + value + "&boxLable=" + boxLable + "&type=click",
-                datatType: "json",
-                success: function (data) {
-                }
-            });
-        }
-        $.ajax({
+    
+    function sentRes(j,url){
+           $.ajax({
             type: "get",
-            url: "/dev/potal/SendMessage.jcp?index=" + 0 + "&value=" + url + "&boxLable=" + url + "&type=input",
+            url: "/dev/potal/SendMessage.jcp?value=" + url,
             datatType: "json",
             success: function (data) {
                 data = JSON.parse(data);
-                $("#url-box").html(url);
                 if (data.success) {
-                    $("#res-box").css({color: "green"}).html("发送成功");
+                     $(".url-box").eq(j).children("span").html("<font style='color:green;margin-left:15px'>发送成功</font>");
                 } else {
-                    $("#res-box").css({color: "red"}).html("发送数据失败");
+                      $(".url-box").eq(j).children("span").html("<font style='color:red;margin-left:15px'>发送失败</font>");
                 }
             }
         });
+        
+    }
+    function sendCheckBox(i,value){
+          $.ajax({
+                type: "get",
+                url: "/dev/potal/SendMessage.jcp?value=" + value,
+                datatType: "json",
+                success: function (data) {
+                    data=eval("("+data+")");
+                    if(data.success){
+                         $("input[type='checkbox']:checked").eq(i).parent().children("span").html("<font style='color:green;margin-left:15px'>发送成功</font>");
+                    }else{
+                         $("input[type='checkbox']:checked").eq(i).parent().children("span").html("<font style='color:red;margin-left:15px'>发送异常，请检查接口服务器</font>");
+                    }
+                }
+            });
+    }
+    function sendData() {
+        var len = $("input[type='checkbox']:checked").length,
+                 urlArr=[];
+                 urlArr = $("#address").val().split(","),
+                 urlLen=urlArr.length;
+        for (var i = 0; i < len; i++) {
+             var value = $("input[type='checkbox']:checked").eq(i).attr("name");
+              $("input[type='checkbox']:checked").eq(i).parent().children("span").html("<font style='color:#EF9B00;margin-left:15px'>正在发送请稍等...</font>");
+            if(len>0){
+               sendCheckBox(i,value);
+            }
+        }
+        if($("#address").val()!=""){
+            for(var j=0;j<urlLen;j++){
+                    var url=urlArr[j];
+                     $(".result-box").append("<div class='url-box'>"+url+":<span><font style='color:#EF9B00;margin-left:15px'>正在发送...</font></span></div>");
+                     sentRes(j,url);
+            }
+        }
     }
 
     return {
@@ -1260,7 +1290,7 @@
                         themes: {stripes: true},
                         check_callback: true,
                         data: {
-                            url: "/dev/potal/tree.jjs", data: function (node) {
+                            url: "/metronic/dev/potal/tree.jjs", data: function (node) {
                                 return {parent: node.id};
                             }
                         }
@@ -1308,6 +1338,8 @@
                     remove(selectSysId, conf);
                     var tag = $("#deleteSysModal");
                     tag.modal("hide");
+                     setDefaultInof(defaultInfo);
+                     controller.start();
                 });
                 $("#send-data").on("click", function (e) {
                     e.preventDefault();
@@ -1316,10 +1348,15 @@
                     tag.modal("show");
                     $("#url-box,#res-box").html("");
                     $("#address").val("");
+                     $(".result-box").children().remove();
                 });
                 $("#sendBtn").on("click", function (e) {
                     e.preventDefault();
-                    sendData();
+                    if($("#address").val()==""&&$("input[type='checkbox']:checked").length==0){
+                       toastr.error("请选择需要发送的数据或地址");
+                    }else{
+                         sendData();
+                    }
                 });
                 $("input[type='file']").fileupload({
                     type: "post",

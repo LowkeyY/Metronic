@@ -1,0 +1,44 @@
+
+import com.kinglib.*;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+//public class A0_Jcp {
+@class{
+
+    public void doGet(Jacper jacper) {
+        String data = jacper.getStr("data");
+        System.out.println("[收到同步信息]:" + data);
+        boolean isSuccess = false;
+        try {
+            contentToTxt("D:\\000\\" + getTxtname() + ".txt", data);
+            isSuccess = true;
+        } catch (IOException ex) {
+        }
+        jacper.print("{\"success\":" + isSuccess + "}");
+    }
+
+    public void doPost(Jacper jacper) {
+        doGet(jacper);
+    }
+
+    public void contentToTxt(String filePath, String content) throws IOException {
+        File f = new File(filePath);
+        if (!f.exists()) {
+            f.createNewFile();
+        }
+        BufferedWriter output = new BufferedWriter(new FileWriter(f));
+        output.write(content);
+        output.close();
+    }
+    
+    private String getTxtname(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssss");
+        return sdf.format(new Date());
+    }
+}

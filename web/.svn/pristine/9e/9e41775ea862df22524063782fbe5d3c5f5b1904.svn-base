@@ -1,0 +1,32 @@
+
+import com.kinglib.Jacper;
+import com.kinglib.portal.PotalUnits;
+import com.kinglib.util.json.JSONArray;
+import com.kinglib.util.json.JSONObject;
+
+//public class A0_Jcp {
+@class{
+
+    public void doGet(Jacper jacper) {
+        doPost(jacper);
+    }
+
+    public void doPost(Jacper jacper) {
+        JSONArray result = new JSONArray();
+        try {
+            JSONArray menus = new JSONArray(PotalUnits.getAllMenu());
+            for (int i = 0; i < menus.length(); i++) {
+                JSONObject menu = menus.getJSONObject(i);
+                String faceKey = "face_sys_url", isValid = menu.getString("face_sys_isValid"), faceUrl = menu.has(faceKey) ? menu.getString(faceKey).trim() : "";
+                if ("true".equals(isValid) && faceUrl.length() > 0) {
+                    String menuTitle = menu.getString("default_title");
+                    result.put(new JSONObject().put("faceUrl", faceUrl).put("boxLabel", menuTitle + "(" + faceUrl + ")"));
+                }
+            }
+            jacper.print(new JSONObject().put("success", true).put("data", result));
+        } catch (Exception e) {
+            e.printStackTrace();
+            jacper.print("{\"success\":false");
+        }
+    }
+}

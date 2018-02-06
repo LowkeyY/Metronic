@@ -1,0 +1,140 @@
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Map;
+
+import zpluginlistenerautorun.UserInterface;
+
+import com.kinglib.Jacper;
+import com.kinglib.portal.PotalUnits;
+import com.kinglib.util.json.JSONException;
+import com.kinglib.util.json.JSONObject;
+
+//public class A0_Jcp {
+@class{
+
+    public void doGet(Jacper jacper) {
+        doPost(jacper);
+    }
+
+    public void doPost(Jacper jacper) {
+        
+        JSONObject jo;
+        try {
+            jo = UserInterface.getJson();
+        } catch (JSONException ex) {
+            jacper.print("{\"success\" : "+false+",\"message\" :\"获取组织机构时发生错误，无法正常推送。\"}");
+            return;
+        }
+
+        String type = jacper.getStr("type") , value = jacper.getStr("value");
+        HashMap<String, String> _params = new HashMap<String, String>();
+        _params.put("data", jo.toString());
+        
+        boolean isSuccess = false;
+        try {
+            if (type.equals("click")) {
+                if (!value.trim().equals("")) {
+                    JSONObject clickjo = PotalUnits.readfile2JSONObject(PotalUnits.getFilepath(value));
+                    String url = clickjo.getString("face_sys_url");
+                    String appName = clickjo.getString("default_title");
+                    isSuccess = sendPostMessage(url, _params, "UTF-8", appName);
+                }
+            } else {
+                if (!"".equals(value) && value.trim().length() > 0) {
+                    isSuccess = sendPostMessage(value, _params, "UTF-8", "");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        jacper.print("{\"success\" : "+isSuccess+"}");
+    }
+
+    /*
+	 * params 填写的URL的参数 encode 字节编码
+     */
+    public boolean sendPostMessage(String path, Map<String, String> params, String encode, String appName) {
+        boolean issuccess = true;
+        try {
+            URL url = new URL(path);
+            StringBuffer stringBuffer = new StringBuffer();
+
+            if (params != null && !params.isEmpty()) {
+                for (Map.Entry<String, String> entry : params.entrySet()) {
+                    try {
+                        stringBuffer.append(entry.getKey()).append("=").append(
+                                URLEncoder.encode(entry.getValue(), encode)).append("&");
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                }
+                // 删掉最后一个 & 字符
+                stringBuffer.deleteCharAt(stringBuffer.length() - 1);
+                //System.out.println("-->>" + stringBuffer.toString());
+
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setConnectTimeout(3000);
+                httpURLConnection.setDoInput(true);// 从服务器获取数据
+                httpURLConnection.setDoOutput(true);// 向服务器写入数据
+
+                httpURLConnection.setConnectTimeout(30000);
+                httpURLConnection.setReadTimeout(30000);
+
+                // 获得上传信息的字节大小及长度
+                byte[] mydata = stringBuffer.toString().getBytes();
+                // 设置请求体的类型
+                httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                httpURLConnection.setRequestProperty("Content-Lenth", String.valueOf(mydata.length));
+
+                // 获得输出流，向服务器输出数据
+                OutputStream outputStream = (OutputStream) httpURLConnection.getOutputStream();
+                outputStream.write(mydata);
+
+                // 获得服务器响应的结果和状态码
+                int responseCode = httpURLConnection.getResponseCode();
+                if (responseCode == 200) {
+                    // 获得输入流，从服务器端获得数据
+                    InputStream inputStream = (InputStream) httpURLConnection.getInputStream();
+                    changeInputStream(inputStream, encode);
+                }
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            issuccess = false;
+        }
+        return issuccess;
+    }
+
+    /*
+	 * // 把从输入流InputStream按指定编码格式encode变成字符串String
+     */
+    public static String changeInputStream(InputStream inputStream, String encode) {
+        // ByteArrayOutputStream 一般叫做内存流
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byte[] data = new byte[1024];
+        int len = 0;
+        String result = "";
+        if (inputStream != null) {
+            try {
+                while ((len = inputStream.read(data)) != -1) {
+                    byteArrayOutputStream.write(data, 0, len);
+                }
+                result = new String(byteArrayOutputStream.toByteArray(), encode);
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        return result;
+    }
+
+}

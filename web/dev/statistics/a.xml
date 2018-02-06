@@ -1,0 +1,76 @@
+<anychart>
+	<settings>
+		<animation enabled=\"True\" />
+	</settings>
+	<margin all=\"0\" />
+	<charts>
+		<chart name=\"chartf781daf5-52c0-437a-8918-8db01adc14f1\" plot_type=\"CategorizedVertical\" leftLen=\"86\" rightLen=\"0\">
+			<data_plot_settings />
+			<chart_settings>
+				<title>
+					<text>区域分布</text>
+				</title>
+				<chart_background>
+					<fill enabled=\"true\" type=\"Solid\" color=\"#FFFFFF\" />
+					<border enabled=\"False\" />
+					<inside_margin all=\"8\" />
+				</chart_background>
+				<data_plot_background>
+					<border enabled=\"False\" />
+					<fill type=\"Solid\" color=\"#FFFFFF\" />
+				</data_plot_background>
+				<axes>
+					<x_axis>
+						<zero_line enabled=\"False\" />
+						<labels rotation=\"0\">
+							<format>{%Value}{numDecimals:0,thousandsSeparator:}</format>
+						</labels>
+						<title>
+							<text>所在省</text>
+						</title>
+						<scale />
+						<major_grid>
+							<line color=\"#C0C0C0\" />
+						</major_grid>
+						<minor_grid>
+							<line color=\"#C0C0C0\" opacity=\"0.5\" />
+						</minor_grid>
+					</x_axis>
+					<y_axis name=\"yaxisf781daf5-52c0-437a-8918-8db01adc14f1-0\" position=\"Normal\">
+						<zero_line enabled=\"False\" />
+						<line color=\"#C0C0C0\" />
+						<title>
+							<font color=\"#C0C0C0\" bold=\"True\" />
+							<text>PV</text>
+						</title>
+						<labels>
+							<format>{%Value}{numDecimals:2,thousandsSeparator:}</format>
+						</labels>
+						<scale type=\"Linear\" minimum=\"0\" />
+						<major_grid>
+							<line color=\"#C0C0C0\" />
+						</major_grid>
+						<minor_grid>
+							<line color=\"#C0C0C0\" opacity=\"0.5\" />
+						</minor_grid>
+					</y_axis>
+				</axes>
+			</chart_settings>
+			<styles>
+				<bar_style name=\"lineColor0\">
+					<fill color=\"#C0C0C0\" opacity=\"0.8\" type=\"Solid\" />
+					<line color=\"#C0C0C0\" />
+				</bar_style>
+			</styles>
+			<data>
+				<series name=\"PV\" id=\"s0\" color=\"#C0C0C0\" type=\"Bar\" y_axis=\"yaxisf781daf5-52c0-437a-8918-8db01adc14f1-0\" style=\"lineColor0\">
+					<tooltip enabled=\"True\">
+						<format>所在省:{%Name}{numDecimals:0,thousandsSeparator:}\n{%SeriesName}:{%YValue}{numDecimals:2,thousandsSeparator:}</format>
+					</tooltip>
+					<point name=\"北京市\" y=\"2388\" />
+					<point name=\"国内未能识别的地区\" y=\"36\" />
+				</series>
+			</data>
+		</chart>
+	</charts>
+</anychart>

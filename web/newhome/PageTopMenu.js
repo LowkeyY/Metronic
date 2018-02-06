@@ -163,7 +163,7 @@ var PageTopMenu = function () {
         '</div>',
         total=0;
     function personalModal() {
-        return '<div class="modal fade bs-modal-lg in" id="information"  tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">' +
+        return '<div class="modal fade bs-modal-lg" id="information"  tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">' +
             '<div class="modal-dialog modal-lg">\n' +
             '        <div class="modal-content">\n' +
             '          <div class="modal-header">\n' +
@@ -189,7 +189,7 @@ var PageTopMenu = function () {
             '                </div>\n' +
             '                                    <form class="form-inline" id="lockForm">\n' +
             '                                            <div class="input-group input-medium">\n' +
-            '                                                    <input type="password" autocomplete="off" class="form-control" placeholder="Password" name="usrPwd" id="usrPwd">\n'+
+            '                                                    <input type="password" autocomplete="off" class="form-control" placeholder="请输入密码" name="usrPwd" id="usrPwd">\n'+
             '                                                    <span class="input-group-btn">\n' +
             '                                                    <button type="submit" id="unlocked" class="btn blue icn-only"><i class="m-icon-swapright m-icon-white"></i></button>\n'+
             '                                                    </span>\n' +
@@ -253,6 +253,30 @@ var PageTopMenu = function () {
     function layoutByConfig(selector) {
         builds(packs() , selector);
     }
+    function  getSysConf() {
+
+        $.ajax({
+            url:"/login/logout.jcp"
+        })
+    }
+    function  lockMyScreen() {
+        $("#lockForm input").val("");
+        $.blockUI({
+            message:$("#overlay"),
+            css:{
+                opacity:1,
+                backgroundColor:'#fff',
+                border:'0 none',
+                cursor: 'default'
+            },
+            overlayCSS:  {
+                backgroundColor: '#000',
+                opacity:         0.9,
+                cursor:          'default'
+            },
+            baseZ:9999
+        })
+    }
     return {
         //main function to initiate the module
         init: function (selector) {
@@ -268,7 +292,6 @@ var PageTopMenu = function () {
                 formData: {file: ""},
                 dataType: "json",
                 done: function (e, data) {
-                    console.log( data.result.path);
                     switch (e.target.getAttribute("data-type")) {
                         case"photo":
                             $(".user-icon" , $(e.target).parent().parent()).attr("src", data.result.path);
@@ -278,6 +301,14 @@ var PageTopMenu = function () {
                     }
                 }
             });
+            $("#lockScreen").on("click",function (e) {
+                getSysConf();
+                lockMyScreen()
+            });
+        },
+        lockTimeout:function () {
+            getSysConf();
+            lockMyScreen()
         }
 
     };

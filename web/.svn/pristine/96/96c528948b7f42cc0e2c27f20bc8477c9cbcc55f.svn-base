@@ -1,0 +1,62 @@
+import com.kinglib.Connection;
+import com.kinglib.Jacper;
+import com.kinglib.portal.addrs.IPAddrUtils;
+import com.kinglib.util.Log;
+import com.kinglib.util.json.JSONArray;
+import com.kinglib.util.json.JSONObject;
+import com.social.api.core.model.CertManager;
+import com.social.api.core.model.User;
+
+import java.util.ArrayList;
+import java.util.List;
+
+//public class A0_Jcp {
+@class{
+	public void doGet(Jacper jacper) {
+	
+		Connection con = jacper.getConnection("plat");
+                String logMessage = "" , user_id = String.valueOf(jacper.getSession().uid);
+		try {
+			JSONArray ja = new JSONArray(jacper.getString("data" , "[]"));
+			List<String[]> values = new ArrayList<String[]>();
+			List<String[]> users = new ArrayList<String[]>();
+			for (int i = 0; i < ja.length(); i++) {
+				JSONObject jo = ja.getJSONObject(i);
+				String userId = jo.getString("userId");
+				values.add(new String[] { userId, jo.getString("value") });
+				users.add(new String[]{userId});
+			}
+			if(users.size() > 0){
+                            con.exec("delete from GATEWAY_USER_AUTH where userId = ? ", users.toArray(new String[users.size()][]));
+                            logMessage = parseAuths(users);
+                        }
+			if(values.size() > 0)
+				con.exec("insert into GATEWAY_USER_AUTH values(?,?)", values.toArray(new String[values.size()][]));
+                        
+                        if(logMessage.length() > 0)
+                            Log.info(logMessage , "管理员操作", user_id , IPAddrUtils.getIpAndMac(jacper.getRequest()));
+                        
+			jacper.print("{success:true}");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			jacper.print("{success:false}");
+		}
+	}
+
+	public void doPost(Jacper jacper) {
+		doGet(jacper);
+	}
+        
+        public String parseAuths(List<String[]> users){
+            if(users == null || users.size() == 0)
+                return "";
+            StringBuilder result = new StringBuilder();
+            for(String[] user : users){
+                User u = CertManager.getUser(user[0]);
+                if(u != null)
+                    result.append((result.length() > 0 ? "," :"") + "[用户:" +u.getRealName() + "," + u.getUserName() + "," + u.getUserId() +"]");
+            }
+            return result.length() > 0 ? result.insert(0, "修改了用户权限。(").append(")").toString() : "";
+        }
+}

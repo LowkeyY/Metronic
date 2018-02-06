@@ -1,0 +1,136 @@
+import com.kinglib.Connection;
+import com.kinglib.Jacper;
+import com.kinglib.portal.addrs.IPAddrUtils;
+import com.kinglib.util.Log;
+import com.kinglib.util.json.JSONObject;
+import com.susing.core.KingleSystem;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.OutputStreamWriter;
+import java.util.Iterator;
+import java.util.UUID;
+
+//public class A0_Jcp{
+@class{
+	public void doGet(Jacper jacper){
+		doPost(jacper);
+	}
+
+	public void doPost(Jacper jacper){
+		try {
+			String type=jacper.getString("type","") , userId = String.valueOf(jacper.getSession().uid);
+                        String portalPath = (String) KingleSystem.getProperty("portal_path");
+			if(type.equals("delete")){
+				String id=jacper.getString("id") , message = "";
+				Connection con = jacper.getConnection("plat");
+                                String[] row = con.getRow("select default_title from  potal_menu where application_id=?",new String[]{id});
+                                if(row != null && row.length > 0){
+                                    message = "集成应用名称:" +row[0] + ""; 
+                                }
+                                message = (message.length() > 0 ? "," : "") + "集成应用ID:" + id;
+				con.exec("delete from  potal_menu where application_id=?",new String[]{id});
+				File file = new File(portalPath , id+".json");
+				if (file.exists()) {
+                                    file.delete();
+				}
+                                Log.info("删除了集成应用。(" + message + ")", "管理员操作", userId , IPAddrUtils.getIpAndMac(jacper.getRequest()));
+				jacper.print("{success:true,id:'"+id+"'}");	
+			}else{
+				String data=jacper.getString("data");
+				JSONObject jo = new JSONObject(data);
+				String sys_app_id ="";
+				if(jo.has("sys_app_id") && !"0".equals(jo.getString("sys_app_id"))){
+                                    sys_app_id = jo.getString("sys_app_id");
+				} else {
+                                    sys_app_id = UUID.randomUUID().toString();
+                                    jo.put("sys_app_id", sys_app_id);
+                                    type="save";
+                                }
+				jo.put("default_token", sys_app_id.replaceAll("-", ""));
+                                
+                                checkUploadPath(jo);
+                                
+				String default_seq=jo.getString("default_seq");
+				String default_title=jo.getString("default_title");
+				String default_has_auth=jo.getString("default_has_auth");
+				String default_isValid=jo.getString("default_isValid");
+				String default_icon_url=jo.getString("default_icon_url");
+                                String mn_default_icon_url = jo.has("mn_desktop_icon") ? jo.getString("mn_desktop_icon") : "";
+				
+				Connection con = jacper.getConnection("plat");
+				if (type.equals("save")) {
+					con.exec("insert into potal_menu values(?,?,?,?,?,?,?)",new String[]{sys_app_id,default_seq,default_title,default_has_auth,default_isValid,default_icon_url,mn_default_icon_url});
+				}else{
+					con.exec("update potal_menu set default_seq=?,default_title=?,default_has_auth=?,default_isValid=?,default_icon_url=?, mn_default_icon_url=? where application_id=? ",new String[]{default_seq,default_title,default_has_auth,default_isValid,default_icon_url,mn_default_icon_url,sys_app_id});
+				}
+				
+				inputUtf(portalPath + sys_app_id+".json", jo.toString());
+                                Log.info((type.equals("save") ? "创建":"更新") + "了集成应用。(" + jo.toString() + ")", "管理员操作", userId , IPAddrUtils.getIpAndMac(jacper.getRequest()));
+				jacper.print("{success:true,id:'"+sys_app_id+"',type : '"+type+"'}");	
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			jacper.print("{success:false}");	
+			// TODO: handle exception
+		}
+	}
+	
+	public static void inputUtf(String path , String data) throws java.io.IOException{
+		FileOutputStream fos = new FileOutputStream(path); 
+		OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8"); 
+		osw.write(data); 
+		osw.flush(); 
+	}
+	
+	public void inputTxt(String path , String data) throws java.io.IOException{
+		File file = new File(path);
+		if (file.exists()) {
+			file.delete();
+		}
+		FileWriter fw = null;
+		BufferedWriter writer = null;
+		try {
+			fw = new FileWriter(file);
+			writer = new BufferedWriter(fw);
+				writer.write(data);
+				writer.newLine();//换行
+				writer.flush();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			writer.close();
+			fw.close();
+		}
+	}
+        
+        public void checkUploadPath(JSONObject data){
+            try {
+                String uploadPath = (String) KingleSystem.getProperty("upload_path") , webPath = "";
+                uploadPath = uploadPath.replaceAll("\\\\" , "/");
+                if(uploadPath.indexOf("/web/")!= -1){
+                    webPath = uploadPath.substring(uploadPath.indexOf("/web/") + 4);
+                    uploadPath = uploadPath.substring(0 , uploadPath.indexOf("/web/") + 4);
+                }
+                //System.out.println(uploadPath + "," + webPath);
+                if(webPath.length() > 0){
+                    Iterator keys = data.keys();
+                    while(keys.hasNext()){
+                        String key = (String) keys.next();
+                        if(key.toString().toLowerCase().endsWith("_icon_url")){
+                            String srcPath = data.getString(key.toString()) , prefixPath = "/themes/icon/自定义图标/" , distPath = srcPath.substring(webPath.length());
+                            //System.out.println(key + "," + uploadPath + srcPath + "," + prefixPath + distPath);
+                            if(srcPath.startsWith(webPath) && 
+                                    new File(uploadPath + srcPath).renameTo(new File(uploadPath + prefixPath + distPath))){
+                                data.put(key, prefixPath + distPath);
+                            }
+                        }
+                    }                                    
+                }
+            } catch (Exception e) {
+            }
+        }
+}
